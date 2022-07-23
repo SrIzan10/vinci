@@ -16,3 +16,6 @@ development will start at the time this commit is pushed
 - economy system?
 - modmail
 - send an issue for ideas lol
+- socials notification System
+
+Ok i ran out of ideas now
