@@ -1,0 +1,29 @@
+{
+  "name": "vinci",
+  "version": "1.0.0",
+  "description": "Vinci Discord Bot for Mara Turing",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrIzan10/vinci.git"
+  },
+  "keywords": [
+    "discord-bot"
+  ],
+  "author": "Sr Izan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SrIzan10/vinci/issues"
+  },
+  "homepage": "https://github.com/SrIzan10/vinci#readme",
+  "dependencies": {
+    "@sern/handler": "^1.1.7-beta",
+    "discord.js": "^14.0.3",
+    "dotenv": "^16.0.1",
+    "got": "^12.1.0"
+  }
+}
