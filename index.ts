@@ -7,7 +7,7 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent]
 });
 
-Sern.init({client,sernPrefix,commands : './commands',});
+Sern.init({client,sernPrefix,commands : './commands'});
 
 client.on('ready', () => {
     console.log("logged on!")
