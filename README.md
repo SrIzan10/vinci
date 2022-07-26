@@ -17,6 +17,7 @@ development will start at the time this commit is pushed
 - modmail
 - socials notification system
 - chatbot using IBM's AI (thanks @gosevil for the idea)
+- joke command
 
 2 forks! tysm!
 
