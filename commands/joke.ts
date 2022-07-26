@@ -1,6 +1,9 @@
 const { commandModule, CommandType } = require('@sern/handler');
-const got = require("got");
+import { EmbedBuilder } from "@discordjs/builders";
 import { publish } from "../src/plugins/publish";
+const random = require("something-random-on-discord").Random
+const got = require("got");
+const axios = require('axios');
 
 export default commandModule({
 	name: 'chiste',
@@ -9,8 +12,9 @@ export default commandModule({
 	description: 'Enseña un chiste en inglés.',
 	alias : ['joke'],
 	execute: async (ctx, args) => {
-		got('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt').then(res => {
-        ctx.reply(res)
-    });
+		const request = got('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json').then(res => {/*const resconsole = console.log(res);*/ res.data});
+		const requestSetup = request.joke || request.setup
+		const requestDelivery = request.delivery || ""
+		ctx.reply({content: `${requestSetup}\n${requestDelivery}`})
 	},
 });

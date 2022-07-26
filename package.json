@@ -22,8 +22,10 @@
   "homepage": "https://github.com/SrIzan10/vinci#readme",
   "dependencies": {
     "@sern/handler": "^1.1.7-beta",
+    "axios": "^0.27.2",
     "discord.js": "^14.0.3",
     "dotenv": "^16.0.1",
-    "got": "^11.0.0"
+    "got": "^11.8.5",
+    "something-random-on-discord": "^3.4.4"
   }
 }
