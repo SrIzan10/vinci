@@ -1,1 +1,43 @@
- 
+ [ OneButton ]            [ TwoButton ]
+button customId = 'yes'  button customId = 'no'
+
+
+
+
+collector
+  options : {
+    max:1     
+  },
+  filter : interaction.isButton() && interaction.customId === 'yes' || interaction.customId === 'no' 
+
+collect interactions 
+  if interaction.customId === 'yes' 
+    this would be yes button
+  else 
+    this would be the no button  
+
+
+
+
+
+	if (interaction.customId === 'langChooserSpanish') {
+		ctx.reply("spanish")
+	}
+	else {
+		ctx.reply("english")
+	}
+
+
+const got = require('got')
+const { MessageEmbed } = require('discord.js')
+
+module.exports = {
+name: 'meme',
+aliases: ['m', 'memes'],
+description: 'Get a random meme from reddit',
+execute(message, args) {
+    got(https://srizan.ml).then(res => {
+        
+    });
+}
+}

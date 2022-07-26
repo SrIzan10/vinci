@@ -13,10 +13,12 @@ const langChooser = new EmbedBuilder()
 export default commandModule({
 	name: 'mcform',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298']), ownerOnly()],
+	plugins: [publish(['1000400148289036298', '928018226330337280'])],
 	description: 'ADMIN: sends the mc server form.',
 	//alias : [],
 	execute: async (ctx, args, interaction) => {
+	// for tomorrow
+/*	this was supposed to choose between spanish and english but its too difficult (im sorry!)	
 		const langChooserButtons = new ActionRowBuilder().addComponents(
 			// TODO: use flags
 			new ButtonBuilder()
@@ -31,19 +33,13 @@ export default commandModule({
 
 		ctx.reply({embeds: [langChooser], components: [langChooserButtons], ephemeral: true})
 
-		const filter = i => i.customId === 'langChooserSpanish' && i.customId === 'langChooserEnglish';
-
-		const langCollector = ctx.channel.createMessageComponentCollector({
-			filter,
-			max: 1,
-		})
-
-		langCollector.on('collect', async i => {
-			await i.update({ content: 'A button was clicked!', components: [] });
-		});
-
-		langCollector.on("end", ButtonInteraction => {
-			console.log(ButtonInteraction.langChooserButtons().customId);
-		})
+		const collector = interaction.channel.createMessageComponentCollector({ max: 1, filter: interaction.isButton() && interaction.customId === 'langChooserEnglish' || interaction.customId === 'langChooserSpanish'});
+ 
+		if (interaction.customId === 'langChooserSpanish') {
+			ctx.reply("spanish")
+		}
+		else {
+			ctx.reply("english")
+		}*/
 	}
 });
