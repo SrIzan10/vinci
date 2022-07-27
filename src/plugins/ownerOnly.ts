@@ -24,7 +24,7 @@ export function ownerOnly(): EventPlugin<CommandType.Both> {
 			const [ctx] = event;
 			if (ownerIDs.includes(ctx.user.id)) return controller.next();
 			//* If you want to reply when the command fails due to user not being owner, you can use following
-			// await ctx.reply("Only owner can run it!!!");
+			await ctx.reply("❌: Sólo los administradores pueden correr este comando.");
 			return controller.stop(); //! Important: It stops the execution of command!
 		},
 	};
