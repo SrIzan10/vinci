@@ -9,6 +9,6 @@ export default commandModule({
 	description: 'A',
 	//alias : [],
 	execute: async (ctx, args) => {
-		await ctx.reply({content: '<@918154803870306354>', files: [attachment1]});
+		await ctx.reply({content: 'A', files: [attachment1]});
 	},
 });
