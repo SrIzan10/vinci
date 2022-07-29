@@ -15,7 +15,7 @@
  */
 
 import { CommandType, EventPlugin, PluginType } from "@sern/handler";
-const ownerIDs = ["464397024247152640", "703974042700611634"]; //! Fill your ID
+const ownerIDs = ["464397024247152640", "703974042700611634", '252679156465139722', '370918560446545922', '375984365181599744', '785836117630910485', '368107342140801025']; //! Fill your ID
 export function ownerOnly(): EventPlugin<CommandType.Both> {
 	return {
 		type: PluginType.Event,

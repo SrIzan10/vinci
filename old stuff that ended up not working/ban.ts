@@ -3,12 +3,6 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, EmbedBuilder
 import { publish } from "../src/plugins/publish";
 import { ownerOnly } from "../src/plugins/ownerOnly"
 import { ApplicationCommandType } from "discord.js";
-const langChooser = new EmbedBuilder()
-	.setColor('#00ff00')
-	.setTitle('Language chooser')
-	.setDescription('Choose the language to show')
-	.addFields({name: ':flag_es: Spanish', value: 'click the flag', inline: true}, {name: ':flag_gb: English', value: 'click the flag', inline: true})
-	.setFooter({text: 'shoutout to tormentarosa who found the english flag'});
 
 
 export default commandModule({
