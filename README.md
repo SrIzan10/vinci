@@ -3,7 +3,7 @@ vinci bot
 
 - ~~form to apply for the minecraft server~~ DONE!
 - moderation commands
-- welcome to users (WIP)
+- ~~welcome to users~~ DONE!
 - economy system?
 - modmail
 - socials notification system

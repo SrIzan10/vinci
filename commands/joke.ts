@@ -12,9 +12,7 @@ export default commandModule({
 	description: 'Enseña un chiste en inglés.',
 	alias : ['joke'],
 	execute: async (ctx, args) => {
-		const request = got('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json').then(res => {/*const resconsole = console.log(res);*/ res.data});
-		const requestSetup = request.joke || request.setup
-		const requestDelivery = request.delivery || ""
-		ctx.reply({content: `${requestSetup}\n${requestDelivery}`})
-	},
+		const request = got('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json').then(res => 
+		{ctx.reply({content: `${res.joke || res.setup}\n${res.delivery}`})})
+	}
 });
