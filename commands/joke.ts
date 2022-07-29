@@ -1,7 +1,6 @@
 const { commandModule, CommandType } = require('@sern/handler');
 import axios from "axios";
 import { publish } from "../src/plugins/publish";
-const got = require("got");
 
 export default commandModule({
 	name: 'chiste',
