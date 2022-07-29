@@ -1,9 +1,7 @@
-import { eventModule, EventType, SernEmitter } from "@sern/handler";
+import { SernEmitter } from "@sern/handler";
 const { Client, GatewayIntentBits } = require("discord.js");
-const urlRegexp = /(https?:\/\/[^ ]*)/;
 const { Sern } = require("@sern/handler");
 const dotenv = require("dotenv").config();
-const request = require("request");
 const sernPrefix = process.env.PREFIX
 const token = process.env.TOKEN
 const client = new Client({
