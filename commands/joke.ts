@@ -1,7 +1,6 @@
 const { commandModule, CommandType } = require('@sern/handler');
 import { EmbedBuilder } from "@discordjs/builders";
 import { publish } from "../src/plugins/publish";
-const random = require("something-random-on-discord").Random
 const got = require("got");
 const axios = require('axios');
 
