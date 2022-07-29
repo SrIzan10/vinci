@@ -5,6 +5,7 @@ const { Sern } = require("@sern/handler");
 const dotenv = require("dotenv").config();
 const sernPrefix = process.env.PREFIX
 const token = process.env.TOKEN
+const mongo = process.env.ECONOMY_MONGODB
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers],
     restTimeOffset: 0
@@ -13,7 +14,7 @@ export const eco = new EconomyManager({
     adapter: 'mongo',
     adapterOptions: {
         collection: 'money', // => Collection Name
-        uri: process.env.ECONOMY_MONGODB // => Mongodb uri
+        uri: mongo // => Mongodb uri
     }
 });
 
