@@ -1,4 +1,5 @@
 const { commandModule, CommandType } = require('@sern/handler');
+import axios from "axios";
 import { publish } from "../src/plugins/publish";
 const got = require("got");
 
@@ -9,7 +10,8 @@ export default commandModule({
 	description: 'Enseña un chiste en inglés.',
 	alias : ['joke'],
 	execute: async (ctx, args) => {
-		const request = got('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json').then(res => 
-		{ctx.reply({content: `${res.joke || res.setup}\n${res.delivery}`})})
-	}
-});
+		const jokeJSON = await axios(
+			'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,racist,sexist,explicit'
+		  ).then((res) => res.data);
+		ctx.reply({content: `${jokeJSON.joke || jokeJSON.setup}\n${jokeJSON.delivery}`})	
+}})

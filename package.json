@@ -23,6 +23,7 @@
   "dependencies": {
     "@quick.eco/mongo": "^1.0.4",
     "@sern/handler": "^1.1.7-beta",
+    "axios": "^0.27.2",
     "discord.js": "^14.0.3",
     "dotenv": "^16.0.1",
     "got": "^11.8.5",
