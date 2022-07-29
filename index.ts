@@ -10,13 +10,13 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers],
     restTimeOffset: 0
 });
-const eco = new EconomyManager({
+/*const eco = new EconomyManager({
     adapter: 'mongo',
     adapterOptions: {
         collection: 'money', // => Collection Name
         uri: mongo // => Mongodb uri
     }
-});
+});*/
 
 Sern.init({client,
     sernPrefix,
