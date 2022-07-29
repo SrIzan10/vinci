@@ -12,5 +12,5 @@ export default commandModule({
 		const jokeJSON = await axios(
 			'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,racist,sexist,explicit'
 		  ).then((res) => res.data);
-		ctx.reply({content: `${jokeJSON.joke || jokeJSON.setup}\n${jokeJSON.delivery}`})	
+		ctx.reply({content: `${jokeJSON.joke || jokeJSON.setup}\n${jokeJSON.delivery || ""}`})	
 }})
