@@ -10,7 +10,7 @@ export default commandModule({
 	alias : ['joke'],
 	execute: async (ctx, args) => {
 		const jokeJSON = await axios(
-			'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,racist,sexist,explicit'
+			'https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit'
 		  ).then((res) => res.data);
 		ctx.reply({content: `${jokeJSON.joke || jokeJSON.setup}\n${jokeJSON.delivery || ""}`})	
 }})
