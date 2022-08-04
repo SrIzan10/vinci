@@ -22,6 +22,5 @@ export default commandModule({
 		// si no dice ni sí ni que no, le decimos al usuario que envíe de nuevo el formulario con sí o no.
 		await modal.reply({content: '**ERROR: No se ha enviado el formulario porque no has respondido ni sí ni no.**\nVuelve a intentarlo o notifica este error mencionando a Sr Izan en el servidor.', ephemeral: true})
 		}
-
 	}
 });
