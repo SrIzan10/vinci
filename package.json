@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/SrIzan10/vinci#readme",
   "dependencies": {
-    "@quick.eco/mongo": "^1.0.4",
-    "@sern/handler": "^1.1.7-beta",
+    "@sern/handler": "^1.1.8-beta",
     "axios": "^0.27.2",
-    "discord.js": "^14.0.3",
+    "date-and-time": "^2.4.1",
+    "discord.js": "^14.1.2",
     "dotenv": "^16.0.1",
-    "quick.eco": "^6.0.0"
+    "mongoose": "^6.5.0"
   }
 }
