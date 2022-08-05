@@ -12,9 +12,7 @@ export default commandModule({
 		name: 'usuario',
 		description: 'Escribe un usuario.',
 		type: ApplicationCommandOptionType.User,
-		required: true,
-		min_value: 2,
-		max_value: 100
+		required: true
 	},
 	{
 		name: 'razon',
