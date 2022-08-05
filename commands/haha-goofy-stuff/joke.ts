@@ -1,6 +1,6 @@
 const { commandModule, CommandType } = require('@sern/handler');
 import axios from "axios";
-import { publish } from "../src/plugins/publish";
+import { publish } from "../../src/plugins/publish";
 
 export default commandModule({
 	name: 'chiste',
@@ -12,5 +12,5 @@ export default commandModule({
 		const jokeJSON = await axios(
 			'https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit'
 		  ).then((res) => res.data);
-		ctx.reply({content: `${jokeJSON.joke || jokeJSON.setup}\n${jokeJSON.delivery || ""}`})	
+		ctx.reply({content: `${jokeJSON.joke || jokeJSON.setup}\n${jokeJSON.delivery || ""}`})
 }})

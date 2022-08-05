@@ -1,6 +1,6 @@
 const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../src/plugins/publish";
-import { ownerOnly } from "../src/plugins/ownerOnly";
+import { publish } from "../../src/plugins/publish";
+import { ownerOnly } from "../../src/plugins/ownerOnly";
 import { ApplicationCommandOptionType } from 'discord.js'
 
 export default commandModule({

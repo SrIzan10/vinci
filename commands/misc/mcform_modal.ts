@@ -1,7 +1,7 @@
 const { commandModule, CommandType } = require('@sern/handler');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType } = require('discord.js');
-import { publish } from "../src/plugins/publish";
-import { ownerOnly } from "../src/plugins/ownerOnly"
+import { publish } from "../../src/plugins/publish";
+import { ownerOnly } from "../../src/plugins/ownerOnly"
 
 
 export default commandModule({
