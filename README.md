@@ -1,4 +1,6 @@
 vinci bot
+## badges yes sir
+[![CodeFactor](https://www.codefactor.io/repository/github/srizan10/vinci/badge)](https://www.codefactor.io/repository/github/srizan10/vinci) 
 # heres a roadmap
 
 - ~~form to apply for the minecraft server~~ DONE!
