@@ -12,6 +12,6 @@ vinci bot
 - socials notification system
 - chatbot using IBM's AI (thanks @gosevil for the idea)
 - joke command
-- recording voice channels
+- recording voice channels (wip)
 
-2 forks! tysm!
+3 stars! tysm!
