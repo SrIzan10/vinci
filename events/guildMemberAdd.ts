@@ -2,7 +2,7 @@ import { EmbedBuilder, GuildMember, TextChannel } from "discord.js";
 
 const { EventType, eventModule } = require('@sern/handler');
 
-exports.default = eventModule({
+export default eventModule({
   type: EventType.Discord,
   name: 'guildMemberAdd',
   execute(member: GuildMember) {
