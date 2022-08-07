@@ -10,7 +10,7 @@ export default commandModule({
 	name: 'ping',
     type: CommandType.Both,
 	plugins: [publish(['1000400148289036298'])],
-	// 928018226330337280
+	// , '928018226330337280'
 	description: 'A ping command',
 	//alias : [],
 	execute: async (ctx, args) => {

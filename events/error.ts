@@ -8,5 +8,3 @@ export default eventModule({
       console.log(err);
     }
   })
-
-
