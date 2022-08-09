@@ -81,6 +81,6 @@ export default commandModule({
     ],
 	//alias : [],
 	execute: async (ctx, options) => {
-		
+		const start = options.getSubcommand("comenzar", true)
 	},
 });
