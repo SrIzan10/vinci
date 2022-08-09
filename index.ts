@@ -4,7 +4,6 @@ const { Client, GatewayIntentBits } = require("discord.js");
 const { Sern } = require("@sern/handler");
 require("dotenv").config();
 const sernPrefix = process.env.PREFIX
-const token = process.env.TOKEN
 const mongoose = require('mongoose');
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions],
@@ -34,4 +33,4 @@ client.on('ready', async () => {
       }, 10000);
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
