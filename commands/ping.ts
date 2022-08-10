@@ -13,7 +13,8 @@ export default commandModule({
 	// , '928018226330337280'
 	description: 'A ping command',
 	//alias : [],
-	execute: async (ctx, args) => {
+	options: [],
+	execute: async (ctx, options) => {
 		await ctx.reply('Hello World!');
 	},
 });

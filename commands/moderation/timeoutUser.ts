@@ -10,7 +10,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 export default commandModule({
 	name: 'timeout',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298', '928018226330337280'])],
+	plugins: [publish(['1000400148289036298', '928018226330337280']), ownerOnly()],
 	description: 'ADMIN: Silencia a usuarios.',
 	options: [
 		{
@@ -41,7 +41,7 @@ export default commandModule({
 		const minutosToMilisegundos = minutos * 60 * 1000
 
 		const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
-		await sendToMods.send({content: `Se ha silenciado a ${usuario}.\nSlencio efectuado por ${ctx.user} con ${minutos} de duración.\nRazón: ${razon}`})
+		await sendToMods.send({content: `Se ha silenciado a ${usuario}.\nSlencio efectuado por ${ctx.user} con ${minutos} minutos de duración.\nRazón: ${razon}`})
 
 		usuario.timeout(minutosToMilisegundos, razon).then(() => {ctx.reply({content: `Se ha silenciado a ${usuario} correctamente.`, ephemeral: true})})
 		}
