@@ -23,7 +23,7 @@
   "dependencies": {
     "@sern/handler": "^1.1.8-beta",
     "axios": "^0.27.2",
-    "discord-bot-youtube-notifications": "github:KartikeSingh/discord-youtube-notifications",
+    "discord-bot-youtube-notifications": "^1.1.4",
     "discord-giveaways": "^6.0.1",
     "discord.js": "^14.2.0",
     "dotenv": "^16.0.1",
