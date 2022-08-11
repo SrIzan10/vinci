@@ -8,18 +8,18 @@ export default commandModule({
 	name: 'sugerencias',
     type: CommandType.Both,
 	plugins: [publish(['1000400148289036298', '928018226330337280'])],
-	description: 'Sugerencias para el bot.',
+	description: 'Envia una sugerencia.',
 	//alias : [],
 	execute: async (ctx, args, interaction) => {
 		const modal = new ModalBuilder()
 		.setCustomId('sugerencias')
-		.setTitle('Sugerencias. (SE ENVIA A SR IZAN)');
+		.setTitle('Sugerencias');
 
 			// Create the text input components
 			const input = new TextInputBuilder()
 				.setCustomId('sugerenciasInput')
 				// The label is the prompt the user sees for this input
-				.setLabel("Algunas sugerencias para Vinci?")
+				.setLabel("Tienes sugerencias?")
 				// Short means only a single line of text
 				.setStyle(TextInputStyle.Paragraph);
 			// An action row only holds one text input,
