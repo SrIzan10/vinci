@@ -23,5 +23,7 @@ export default commandModule({
 			console.error(err);
 			ctx.reply({content: 'Ha habido un error eliminando mensajes! (mira la consola, Sr Izan)', ephemeral: true});});
 		await ctx.reply({content: `Se han eliminado ${amount} mensajes.`})
+		const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
+		await sendToMods.send({content: `Se han eliminado ${amount} mensajes en ${ctx.channel}\nEfectuado por ${ctx.user}.`})
 	},
 });
