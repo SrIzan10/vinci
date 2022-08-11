@@ -4,14 +4,12 @@ vinci bot
 # heres a roadmap
 
 - ~~form to apply for the minecraft server~~ DONE!
-- moderation commands (wip)
+- ~~moderation commands~~ DONE!
 - ~~welcome to users~~ DONE!
-- giveaway system (wip)
-- economy system
+- ~~giveaway system~~ (cancelling for a while)
 - modmail
-- socials notification system
+- ~~socials notification system~~ DONE!
 - chatbot using IBM's AI (thanks @gosevil for the idea)
-- joke command
-- recording voice channels (wip)
+- ~~joke command~~
 
 3 stars! tysm!
