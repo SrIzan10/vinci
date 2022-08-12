@@ -24,7 +24,7 @@ export default commandModule({
 		// finally send the message to the text channel
 		const message1 = modal.client.guilds.cache.get('928018226330337280').channels.cache.get('1007269448140476436') as TextChannel
 		const message2 = await (await message1.send({embeds: [modalEmbed]}))
-		message2.startThread({name: 'Sugerencia', autoArchiveDuration: ThreadAutoArchiveDuration.ThreeDays, reason: 'AUTOMATIZADO: Hilo para discutir sobre la sugerencia.'})
+		message2.startThread({name: `Sugerencia de ${modal.user.username}`, autoArchiveDuration: ThreadAutoArchiveDuration.ThreeDays, reason: 'AUTOMATIZADO: Hilo para discutir sobre la sugerencia.'})
 		message2.react("✅")
 		message2.react("❎")
 		// and return the user that it worked
