@@ -8,7 +8,8 @@ export default commandModule({
     type: CommandType.Both,
 	plugins: [publish(['1000400148289036298', '928018226330337280']), ownerOnly()],
 	description: 'ADMIN: Expulsa usuarios.',
-	options: [{
+	options: [
+	{
 		name: 'usuario',
 		description: 'Escribe un usuario.',
 		type: ApplicationCommandOptionType.User,
@@ -19,7 +20,8 @@ export default commandModule({
 		description: 'Escribe la razón.',
 		type: ApplicationCommandOptionType.String,
 		required: true
-	}],
+	}
+],
 	//alias : [],
 	execute: async (ctx, options, message) => {
 		const userToBan = options[1].getMember('usuario', true);
