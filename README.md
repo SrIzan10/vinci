@@ -6,7 +6,6 @@ vinci bot
 - ~~form to apply for the minecraft server~~ DONE!
 - ~~moderation commands~~ DONE!
 - ~~welcome to users~~ DONE!
-- ~~giveaway system~~ (cancelling for a while)
 - modmail
 - ~~socials notification system~~ DONE!
 - chatbot using IBM's AI (thanks @gosevil for the idea)
