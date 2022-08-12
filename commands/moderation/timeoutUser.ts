@@ -40,10 +40,9 @@ export default commandModule({
 		const razon = options[1].getString('razon', true);
 		const minutosToMilisegundos = minutos * 60 * 1000
 
+		usuario.timeout(minutosToMilisegundos, razon).then(() => {ctx.reply({content: `Se ha silenciado a ${usuario} correctamente.`, ephemeral: true})})
 		const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
 		await sendToMods.send({content: `Se ha silenciado a ${usuario}.\nSlencio efectuado por ${ctx.user} con ${minutos} minutos de duración.\nRazón: ${razon}`})
-
-		usuario.timeout(minutosToMilisegundos, razon).then(() => {ctx.reply({content: `Se ha silenciado a ${usuario} correctamente.`, ephemeral: true})})
-		}
+	}
 	},
 );
