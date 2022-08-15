@@ -18,7 +18,7 @@ export default commandModule({
 	options: [],
 	execute: async (ctx, options) => {
 		const stream = await got.stream("https://flucast-m04-06.flumotion.com/cope/rockfm.mp3")
-		const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1000402245633966121',guildId: '928018226330337280',selfDeaf: true});
+		const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
 		const resource = createAudioResource(stream, { inlineVolume: true });
 		const player = createAudioPlayer();
 		connection.subscribe(player)
