@@ -69,7 +69,7 @@ async function nowPlayingRadio() {
         getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
         getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
         } catch (err) {
-            setTimeout("", 10000)
+            await new Promise(resolve => setTimeout(resolve, 10000));
             getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
             getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
         }
