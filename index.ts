@@ -60,7 +60,9 @@ const discord_channel_id = "948690278498320404";
 Notifier.addNotifier(youtube_channel_id, discord_channel_id);
 
 // client.on('messageCreate', (message: Message) => {})
-async function nowPlayingRadio() {
+
+// COMMENTING UNTIL I HAVE A SOLUTION
+/*async function nowPlayingRadio() {
         const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006").then((res) => res.data)
         let getsong, getartist
         var parser = new DOMParser()
@@ -89,6 +91,6 @@ function nowPlayingInterval() {
     setInterval(nowPlayingRadio, 5000)
 }
 
-nowPlayingInterval()
+nowPlayingInterval()*/
 
 client.login(process.env.TOKEN);
