@@ -1,5 +1,7 @@
 import { SernEmitter } from "@sern/handler";
-import { ActivityType } from "discord.js";
+import axios from "axios";
+import { ActivityType, TextChannel, EmbedBuilder, Message, VoiceBasedChannel } from "discord.js";
+import { DOMParser } from "@xmldom/xmldom";
 const { Client, GatewayIntentBits } = require("discord.js");
 const { Sern } = require("@sern/handler");
 require("dotenv").config();
@@ -56,5 +58,37 @@ const Notifier = new youtube.notifier(client, {
 const youtube_channel_id = "UC9G2yvrtrPeJFEzwlshg5HA";
 const discord_channel_id = "948690278498320404";
 Notifier.addNotifier(youtube_channel_id, discord_channel_id);
+
+// client.on('messageCreate', (message: Message) => {})
+async function nowPlayingRadio() {
+        const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006").then((res) => res.data)
+        let getsong, getartist
+        var parser = new DOMParser()
+        var XMLDoc = parser.parseFromString(getAPI, "text/xml");
+        try {
+        getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
+        getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
+        } catch (err) {
+            setTimeout("", 10000)
+            getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
+            getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
+        }
+        const embed = new EmbedBuilder()
+            .setColor("Blurple")
+            .setTitle(`Ahora reproduciendo: ${getsong}`)
+            .setAuthor({name: 'Rock FM', iconURL: 'https://cdn-profiles.tunein.com/s67006/images/logoq.png'})
+            .setDescription(`Artista: ${getartist}`)
+            .setFooter({text: `El nombre no cambia al instante, aparece 10 segundos después de terminar una canción.`})
+        const guild = await client.guilds.fetch("928018226330337280");
+		const channel = await guild.channels.fetch("1008730592835281009");
+		const edit = (await channel.messages.fetch("1008778179252596736"))
+        await edit.edit({content: '', embeds: [embed]})
+}
+
+function nowPlayingInterval() {
+    setInterval(nowPlayingRadio, 5000)
+}
+
+nowPlayingInterval()
 
 client.login(process.env.TOKEN);
