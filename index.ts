@@ -62,7 +62,7 @@ Notifier.addNotifier(youtube_channel_id, discord_channel_id);
 // client.on('messageCreate', (message: Message) => {})
 
 async function nowPlayingRadio() {
-        const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006").then((res) => res.data)
+        const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006", {validateStatus: function (status) {return status === 200|| status === 403}}).then((res) => res.data).catch((err) => {console.log("now playing radio errored out? diesofcringe")})
         var parser = new DOMParser()
         var XMLDoc = parser.parseFromString(getAPI, "text/xml");
         let getsong, getartist;
