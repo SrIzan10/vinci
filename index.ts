@@ -63,11 +63,10 @@ Notifier.addNotifier(youtube_channel_id, discord_channel_id);
 
 async function nowPlayingRadio() {
         const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006").then((res) => res.data)
-        let getsong, getartist
         var parser = new DOMParser()
         var XMLDoc = parser.parseFromString(getAPI, "text/xml");
-        getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent || "Anuncios o cambio de canción"
-        getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent || "catJAM"
+        const getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent || "Anuncios o cambio de canción"
+        const getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent || "catJAM"
         const embed = new EmbedBuilder()
             .setColor("Blurple")
             .setTitle(`Ahora reproduciendo: ${getsong}`)
