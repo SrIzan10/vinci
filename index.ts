@@ -61,20 +61,13 @@ Notifier.addNotifier(youtube_channel_id, discord_channel_id);
 
 // client.on('messageCreate', (message: Message) => {})
 
-// COMMENTING UNTIL I HAVE A SOLUTION
-/*async function nowPlayingRadio() {
+async function nowPlayingRadio() {
         const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006").then((res) => res.data)
         let getsong, getartist
         var parser = new DOMParser()
         var XMLDoc = parser.parseFromString(getAPI, "text/xml");
-        try {
-        getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
-        getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
-        } catch (err) {
-            await new Promise(resolve => setTimeout(resolve, 30000));
-            getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
-            getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
-        }
+        getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent || "Anuncios o cambio de canción"
+        getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent || "catJAM"
         const embed = new EmbedBuilder()
             .setColor("Blurple")
             .setTitle(`Ahora reproduciendo: ${getsong}`)
@@ -88,9 +81,9 @@ Notifier.addNotifier(youtube_channel_id, discord_channel_id);
 }
 
 function nowPlayingInterval() {
-    setInterval(nowPlayingRadio, 5000)
+    setInterval(nowPlayingRadio, 4000)
 }
 
-nowPlayingInterval()*/
+nowPlayingInterval()
 
 client.login(process.env.TOKEN);
