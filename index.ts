@@ -65,8 +65,14 @@ async function nowPlayingRadio() {
         const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006").then((res) => res.data)
         var parser = new DOMParser()
         var XMLDoc = parser.parseFromString(getAPI, "text/xml");
-        var getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent || console.log("Anuncios o cambio de canción")
-        var getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent || console.log("catJAM")
+        let getsong, getartist;
+        try {
+        getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
+        getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
+        } catch (err) {
+        getsong = "Anuncios o cambio de canción"
+        getartist = "catJAM"
+        }
         const embed = new EmbedBuilder()
             .setColor("Blurple")
             .setTitle(`Ahora reproduciendo: ${getsong}`)
