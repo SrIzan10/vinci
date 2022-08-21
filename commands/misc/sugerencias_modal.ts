@@ -7,7 +7,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 export default commandModule({
 	name: 'sugerencias',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298', '928018226330337280'])],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: null })],
 	description: 'Envia una sugerencia.',
 	//alias : [],
 	execute: async (ctx, args, interaction) => {

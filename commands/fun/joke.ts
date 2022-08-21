@@ -5,7 +5,7 @@ import { publish } from "../../src/plugins/publish";
 export default commandModule({
 	name: 'chiste',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298', '928018226330337280'])],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: null })],
 	description: 'Enseña un chiste en inglés.',
 	alias : ['joke'],
 	execute: async (ctx, args) => {
