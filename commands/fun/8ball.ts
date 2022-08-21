@@ -10,7 +10,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 export default commandModule({
 	name: '8ball',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298', '928018226330337280'])],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: null })],
 	description: 'Preguntale a la 8-ball cosas.',
 	//alias : [],
 	options: [{

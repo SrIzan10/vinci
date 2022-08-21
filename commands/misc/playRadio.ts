@@ -12,7 +12,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 export default commandModule({
 	name: 'radio',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298', '928018226330337280']), ownerOnly()],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: null }), ownerOnly()],
 	description: 'ADMIN: Reproduce la radio',
 	//alias : [],
 	options: [],
