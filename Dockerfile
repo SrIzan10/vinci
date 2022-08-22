@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN apt update;apt install python3 -y
+RUN apt update;apt install python3 make -y
 
 RUN npm install
 
