@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package.json ./
 
+RUN apt install python3
+
 RUN npm install
 
 RUN npm install -g ts-node typescript
