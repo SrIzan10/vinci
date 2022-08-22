@@ -6,7 +6,7 @@ import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js'
 export default commandModule({
 	name: 'kick',
     type: CommandType.Both,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: 0n }), ownerOnly()],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] }), ownerOnly()],
 	description: 'ADMIN: Expulsa usuarios.',
 	options: [
 	{
