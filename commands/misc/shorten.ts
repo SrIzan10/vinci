@@ -6,7 +6,7 @@ import { publish } from "../../src/plugins/publish";
 export default commandModule({
 	name: 'acortar',
     type: CommandType.Both,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: null })],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: 0n })],
 	description: 'Acorta una URL a vinci.tk',
 	options: [
 		{
