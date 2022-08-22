@@ -8,8 +8,8 @@ RUN npm install
 
 RUN npm install -g ts-node typescript
 
-RUN tsc
-
 COPY . .
 
-CMD node --experimental-specifier-resolution=node dist/index.js
+RUN tsc --build
+
+CMD node dist/index.js
