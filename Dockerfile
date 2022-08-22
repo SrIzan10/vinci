@@ -10,6 +10,4 @@ RUN npm install -g ts-node typescript
 
 COPY . .
 
-RUN tsc --build
-
-CMD node dist/index.js
+CMD node --experimental-specifier-resolution=node --loader ts-node/esm ./index.ts
