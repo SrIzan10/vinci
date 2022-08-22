@@ -13,7 +13,7 @@ const langChooser = new EmbedBuilder()
 export default commandModule({
 	name: 'mcform',
     type: CommandType.Both,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: null })],
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'], dmPermission: false, defaultMemberPermissions: 0n })],
 	description: 'Envia el formulario para entrar al servidor.',
 	//alias : [],
 	execute: async (ctx, args, interaction) => {
