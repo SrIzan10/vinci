@@ -9,7 +9,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 export default commandModule({
 	name: 'ping',
     type: CommandType.Both,
-	plugins: [publish(['1000400148289036298'])],
+	plugins: [publish({ guildIds: ['1000400148289036298'], dmPermission: false, defaultMemberPermissions: null })],
 	// , '928018226330337280'
 	description: 'A ping command',
 	//alias : [],
