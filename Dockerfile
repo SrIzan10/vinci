@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:alpine-lts
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ RUN npm install -g ts-node typescript
 
 COPY . .
 
-CMD node --loader ts-node/esm ./index.ts
+CMD ts-node index.ts
