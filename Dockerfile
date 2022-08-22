@@ -1,10 +1,8 @@
-FROM node:lts-slim
+FROM node:alpine
 
 WORKDIR /app
 
 COPY package.json ./
-
-RUN apt update;apt install python3 make -y
 
 RUN npm install
 
@@ -12,4 +10,4 @@ RUN npm install -g ts-node typescript
 
 COPY . .
 
-CMD ts-node index.ts
+CMD node --loader ts-node/esm ./index.ts
