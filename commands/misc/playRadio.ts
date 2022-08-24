@@ -1,10 +1,8 @@
 const { commandModule, CommandType } = require('@sern/handler');
 import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
 import { createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice";
 import got from "got"
 import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
-const m3u8stream = require("m3u8stream");
 /*
 import { publish } from "../../src/plugins/publish";
 import { ownerOnly } from "../../src/plugins/ownerOnly"
@@ -26,7 +24,7 @@ export default commandModule({
 				onEvent: [],
 				async execute(ctx){
 					const focusedValue = ctx.options.getFocused();
-					const choices = ['Rock FM', 'Cadena 100', 'Cadena Dial', 'Europa FM', 'BBC 1', 'BBC 5', 'RNE 1', 'RNE 5', 'Los 40'];
+					const choices = ['Rock FM', 'Cadena 100', 'Cadena Dial', 'BBC 1', 'BBC 5', 'RNE 1', 'RNE 5', 'Los 40'];
 					const filtered = choices.filter(choice => choice.startsWith(focusedValue));
 					await ctx.respond(
 						filtered.map(choice => ({ name: choice, value: choice })),
@@ -55,14 +53,6 @@ export default commandModule({
 			resource.volume!.setVolume(0.7)
 		} else if (radioname === 'Cadena Dial') {
 			const stream = await got.stream("http://20853.live.streamtheworld.com/CADENADIAL.mp3")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-		} else if (radioname === 'Europa FM') {
-			const stream = await m3u8stream('https://livefastly-webs.europafm.com/europafm/audio/master.m3u8')
 			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
 			const resource = createAudioResource(stream, { inlineVolume: true });
 			const player = createAudioPlayer();
@@ -111,7 +101,8 @@ export default commandModule({
 			resource.volume!.setVolume(0.7)
 		}
 		const embed = new EmbedBuilder()
-			.setTitle(`Reproduciendo ${radioname}.`)
+			.setColor("Random")
+			.setTitle(`Reproduciendo ${radioname} en Vinci Radio.`)
 			.setDescription(`A veces la radio tarda en cargar, sé paciente :'D`);
 		ctx.reply({embeds: [embed], ephemeral: true})
 	},
