@@ -1,1 +1,2 @@
-worker: ts-node index.ts
+worker: npm start
+web: npm run web

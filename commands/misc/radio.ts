@@ -36,7 +36,7 @@ export default commandModule({
 	execute: async (ctx, options) => {
 		const radioname = options[1].getString("reproducir", true) as string;
 		const embed = new EmbedBuilder()
-			.setColor("Random")
+			.setColor("Green")
 			.setTitle(`Reproduciendo ${radioname} en Vinci Radio.`)
 			.setDescription(`A veces la radio tarda en cargar, sé paciente :'D`);
 		const notFoundEmbed = new EmbedBuilder()
