@@ -4,7 +4,7 @@ const { EventType, eventModule } = require('@sern/handler');
 
 export default eventModule({
   type: EventType.Discord,
-  name: 'guildMemberAdd',
+  name: 'guildMemberRemove',
   execute(member: GuildMember) {
     	// member.guild.channels.cache.get("968572106952560670").send(`${member.user} has joined the server!`);
 		const leaveEmbed = new EmbedBuilder()
