@@ -5,7 +5,7 @@ const app = express();
 app.use(express.static("public"))
 
 // define the first route
-app.get("/", function (res) {
+app.get("/", function (req, res) {
   res.send("<p>This is the first server for the Vinci discord bot!</p>")
 })
 
