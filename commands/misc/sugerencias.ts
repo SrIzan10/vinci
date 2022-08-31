@@ -14,7 +14,10 @@ export default commandModule({
 	async execute (modal) {
 		// first we get the value
 		const value = modal.fields.getTextInputValue('sugerenciasInput');
-		const taget = modal.user
+		function onlySpaces(str: string) {return str.trim().length === 0;}
+		if (onlySpaces(value) === true) {
+			modal.reply({content: 'Buen intento enviando un mensaje vacío :D', ephemeral: true})
+		} else {
 		// then we create the embed which will be sent when the thing is sent
 		const modalEmbed = new EmbedBuilder()
 			.setColor("Random")
@@ -29,5 +32,7 @@ export default commandModule({
 		message2.react("❎")
 		// and return the user that it worked
 		modal.reply({content: '¡Enviado!', ephemeral: true})
+		}
+
 	}
 });
