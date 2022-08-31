@@ -16,7 +16,7 @@ export default commandModule({
 		const value = modal.fields.getTextInputValue('sugerenciasInput');
 		function onlySpaces(str: string) {return str.trim().length === 0;}
 		if (onlySpaces(value) === true) {
-			modal.reply({content: 'Buen intento enviando un mensaje vacío :D', ephemeral: true})
+			modal.reply({content: 'Buen intento enviando un mensaje vacío >:D', ephemeral: true})
 		} else {
 		// then we create the embed which will be sent when the thing is sent
 		const modalEmbed = new EmbedBuilder()
