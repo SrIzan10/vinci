@@ -14,10 +14,13 @@ export default commandModule({
 	async execute (modal) {
 		// first we get the value
 		const value = modal.fields.getTextInputValue('sugerenciasInput');
-		function onlySpaces(str: string) {return str.trim().length === 0;}
+		function onlySpaces(str: string) {return str.trim().length === 0}
 		if (onlySpaces(value) === true) {
 			modal.reply({content: 'Buen intento enviando un mensaje vacío >:D', ephemeral: true})
-		} else {
+		} else if (value.indexOf('**') >= 0 || value.indexOf('*') >= 0 || value.indexOf('**') >= 0 || value.indexOf('__') >= 0 || value.indexOf('***') >= 0 || value.indexOf('_') >= 0) {
+			modal.reply({content: 'Debido a varios problemas, el formatting de Discord ha sido desactivado.\nPara más info, visita <https://vinci.tk/k>.\nSiento las molestias!', ephemeral: true})
+		}
+		else {
 		// then we create the embed which will be sent when the thing is sent
 		const modalEmbed = new EmbedBuilder()
 			.setColor("Random")
@@ -31,8 +34,7 @@ export default commandModule({
 		message2.react("✅")
 		message2.react("❎")
 		// and return the user that it worked
-		modal.reply({content: '¡Enviado!', ephemeral: true})
+		modal.reply({content: '¡Enviado!\nRECUERDA QUE NO ESTÁ PERMITIDO ENVIAR MENSAJES VACÍOS.', ephemeral: true})
 		}
-
 	}
 });
