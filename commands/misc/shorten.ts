@@ -19,6 +19,6 @@ export default commandModule({
 	//alias : [],
 	execute: async (ctx, options) => {
 		const url = options[1].getString('url', true);
-		const request = await axios(`https://vinci.tk/yourls-api.php?signature=${process.env.YOURLS_KEY}&action=shorturl&format=json&url=${url}`, {validateStatus: function (status) {return status === 200|| status === 400; }}).then((res: AxiosResponse) => res.data)
+		const request = await axios(`https://vinci.tk/yourls-api.php?signature=${process.env.YOURLS_KEY}&action=shorturl&format=json&url=${url}`, {validateStatus: function (status) {return status === 200 || status === 400; }}).then((res: AxiosResponse) => res.data)
 		ctx.reply({content: `URL acortada: <${request.shorturl}>\nURL original: <${url}>`, ephemeral: true});
 }})
