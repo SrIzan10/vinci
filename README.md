@@ -11,6 +11,6 @@ vinci bot
 - chatbot using IBM's AI (thanks @gosevil for the idea)
 - ~~joke command~~
   
-<img src="https://srizan.s-ul.eu/RddzT2f9">
+<!--<img src="https://srizan.s-ul.eu/RddzT2f9">-->
 
 3 stars! tysm!
