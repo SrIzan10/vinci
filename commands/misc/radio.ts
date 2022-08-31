@@ -1,7 +1,7 @@
 const { commandModule, CommandType } = require('@sern/handler');
 import { publish } from "../../src/plugins/publish";
 import { createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice";
-import got from "got"
+import got from "got";
 import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
 /*
 import { publish } from "../../src/plugins/publish";
@@ -44,78 +44,33 @@ export default commandModule({
 			.setTitle(`Radio ${radioname} no encontrada.`)
 			.setDescription(`La radio no ha sido encontrada, asegúrate que la radio está escogida de la lista.`);
 
+		async function playRadio(radioname: string) {
+			const stream = await got.stream(radioname)
+			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
+			const resource = createAudioResource(stream, { inlineVolume: true });
+			const player = createAudioPlayer();
+			connection.subscribe(player)
+			player.play(resource)
+			resource.volume!.setVolume(0.7)
+			ctx.reply({embeds: [embed], ephemeral: true})
+		}
+
 		if (radioname === 'Rock FM') {
-			const stream = await got.stream("https://flucast-m04-06.flumotion.com/cope/rockfm.mp3")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio("https://flucast-m04-06.flumotion.com/cope/rockfm.mp3")
 		} else if (radioname === 'Cadena 100') {
-			const stream = await got.stream("https://server8.emitironline.com:18196/stream")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio("https://server8.emitironline.com:18196/stream")
 		} else if (radioname === 'Cadena Dial') {
-			const stream = await got.stream("http://20853.live.streamtheworld.com/CADENADIAL.mp3")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			ctx.reply({embeds: [embed], ephemeral: true})
-			resource.volume!.setVolume(0.7)
+			playRadio("http://20853.live.streamtheworld.com/CADENADIAL.mp3")
 		} else if (radioname === 'BBC 1') {
-			const stream = await got.stream("http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio("http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one")
 		} else if (radioname === 'BBC 5') {
-			const stream = await got.stream("https://server8.emitironline.com:18196/stream")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio("https://server8.emitironline.com:18196/stream")
 		} else if (radioname === 'RNE 1') {
-			const stream = await got.stream("https://crtve-rne1-cnr.cast.addradio.de/crtve/rne1/cnr/mp3/high")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio("https://crtve-rne1-cnr.cast.addradio.de/crtve/rne1/cnr/mp3/high")
 		} else if (radioname === 'RNE 5') {
-			const stream = await got.stream("http://crtve--di--crtve-ice--02--cdn.cast.addradio.de/crtve/rne5/sev/mp3/high")
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio("http://crtve--di--crtve-ice--02--cdn.cast.addradio.de/crtve/rne5/sev/mp3/high")
 		} else if (radioname === 'Los 40') {
-			const stream = await got.stream('http://stream.ondaceronoroeste.es:8000/stream')
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
-			const resource = createAudioResource(stream, { inlineVolume: true });
-			const player = createAudioPlayer();
-			connection.subscribe(player)
-			player.play(resource)
-			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			playRadio('http://stream.ondaceronoroeste.es:8000/stream')
 		} else {
 			ctx.reply({embeds: [notFoundEmbed], ephemeral: true})
 		}
