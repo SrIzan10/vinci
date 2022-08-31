@@ -10,7 +10,7 @@ export default commandModule({
 	execute: async (ctx, options) => {
 		const imagesArray = [
 			'./images/XaviXE.png',
-			// 'images/Paula.png',
+			'./images/Paula.png',
 			'./images/William.png',
 			'./images/Espejito2500.png',
 			'./images/Paula.png',
@@ -18,7 +18,8 @@ export default commandModule({
 			'./images/MarioCabrera.png',
 			'./images/Paticama.png',
 			'./images/Vinci.png',
-			'./images/SrIzan.png'
+			'./images/SrIzan.png',
+			'./images/ItsAdrian.png'
 		]
 		const images = imagesArray[Math.floor(Math.random() * imagesArray.length)];
 
