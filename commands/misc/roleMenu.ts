@@ -54,7 +54,7 @@ export default commandModule({
 		const embed = new EmbedBuilder()
 			.setTitle(message)
 			.setDescription(
-				`Please select your roles below\nYou can select multiple roles`
+				`Por favor selecciona los roles que quieras.\nPuedes seleccionar varios roles también!`
 			)
 			.setColor(0xcc5279);
 		await channel.send({

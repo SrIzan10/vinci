@@ -20,7 +20,7 @@ export default commandModule({
 		let content = `Los roles han sido actualizados. Te he dado estos::\n${roles
 			.map((r) => `<@&${r}>`)
 			.join("\n")}`;
-		if (roles.length === 0) content = "No se han seleccionado roles...";
+		if (roles.length === 0) content = "Se han actualizado los roles a ninguno o no se han seleccionado roles...";
 
 		const existing = member.roles.cache
 			.filter((r) => r.id !== interaction.guildId)
