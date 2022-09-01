@@ -19,7 +19,8 @@ export default commandModule({
 			'./images/Paticama.png',
 			'./images/Vinci.png',
 			'./images/SrIzan.png',
-			'./images/ItsAdrian.png'
+			'./images/ItsAdrian.png',
+			'./images/ByHGT.png'
 		]
 		const images = imagesArray[Math.floor(Math.random() * imagesArray.length)];
 
