@@ -64,6 +64,10 @@ const youtube_channel_id = "UC9G2yvrtrPeJFEzwlshg5HA";
 const discord_channel_id = "948690278498320404";
 Notifier.addNotifier(youtube_channel_id, discord_channel_id);
 
+async function twitchNotifications() {
+    
+}
+
 /*async function nowPlayingRadio() {
         const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006", {validateStatus: function (status) {return status === 200|| status === 403}}).then((res) => res.data).catch((err) => {console.log("now playing radio errored out? diesofcringe")})
         var parser = new DOMParser()
