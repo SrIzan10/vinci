@@ -28,12 +28,16 @@ export default commandModule({
 		}
 	],
 	execute: async (ctx, options) => {
-		const idMensaje = options[1].getString('id', true);
-		const channelID = options[1].getChannel('canal', true).id || ctx.channel.id
-		const guildId = ctx.guild.id
-		const guild = await ctx.client.guilds.fetch(guildId);
-		const channel = await guild.channels.fetch(channelID);
-		(await channel.messages.fetch(idMensaje)).delete();
-		await ctx.reply({content: 'Mensaje eliminado correctamente.', ephemeral: true});
+		try {
+			const idMensaje = options[1].getString('id', true);
+			const channelID = options[1].getChannel('canal', true).id || ctx.channel.id
+			const guildId = ctx.guild.id
+			const guild = await ctx.client.guilds.fetch(guildId);
+			const channel = await guild.channels.fetch(channelID);
+			(await channel.messages.fetch(idMensaje)).delete();
+			await ctx.reply({content: 'Mensaje eliminado correctamente.', ephemeral: true});
+		} catch (e) {
+			await ctx.reply({content: `ERROR: No se ha podido eliminar el mensaje, asegúrate que estás usando el ID y el canal correcto.`})
+		}
 	},
 });
