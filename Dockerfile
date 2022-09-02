@@ -8,7 +8,7 @@ RUN npm install
 
 RUN npm install -g ts-node typescript
 
-RUN apk update && apk add bash -y
+RUN apk update && apk add bash
 
 EXPOSE 7272
 
