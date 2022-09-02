@@ -10,4 +10,4 @@ RUN npm install -g ts-node typescript
 
 COPY . .
 
-CMD ts-node index.ts
+CMD ts-node --transpile-only index.ts

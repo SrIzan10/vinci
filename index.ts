@@ -8,6 +8,7 @@ require("dotenv").config();
 const sernPrefix = process.env.PREFIX
 const mongoose = require('mongoose');
 const youtube = require('discord-bot-youtube-notifications');
+
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildVoiceStates],
     restTimeOffset: 0

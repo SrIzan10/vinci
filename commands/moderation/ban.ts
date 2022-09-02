@@ -22,11 +22,15 @@ export default commandModule({
 	}],
 	//alias : [],
 	execute: async (ctx, options, message) => {
-		const userToBan = options[1].getMember('usuario', true);
-		const reason = options[1].get('razon', true).value;
-		userToBan.ban(reason)
-		const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
-		await sendToMods.send({content: `Se ha baneado a ${userToBan}.\nBan efectuado por ${ctx.user} con razón "${reason}."`})
-		await ctx.reply({content: 'Baneado correctamente!', ephemeral: true})
+		try {
+			const userToBan = options[1].getMember('usuario', true);
+			const reason = options[1].get('razon', true).value;
+			userToBan.ban(reason)
+			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
+			await sendToMods.send({content: `Se ha baneado a ${userToBan}.\nBan efectuado por ${ctx.user} con razón "${reason}."`})
+			await ctx.reply({content: 'Baneado correctamente!', ephemeral: true})
+		} catch (e) {
+			await ctx.reply({content: `ERROR: No puedo hacer este comando porque a lo mejor soy inferior que el rol de esa persona o estoy usándolo contra admins.`})
+		}
 	},
 });
