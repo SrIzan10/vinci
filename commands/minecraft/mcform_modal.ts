@@ -14,7 +14,6 @@ export default commandModule({
 		const modal = new ModalBuilder()
 		.setCustomId('mcform')
 		.setTitle('Formulario para entrar al servidor');
-
 				// Create the text input components
 				const input = new TextInputBuilder()
 					.setCustomId('mcUsernameInput')
@@ -22,20 +21,12 @@ export default commandModule({
 					.setLabel("Cuál es tu nombre de usuario de Minecraft?")
 					// Short means only a single line of text
 					.setStyle(TextInputStyle.Short);
-	
-				const tlinput = new TextInputBuilder()
-				.setCustomId('tlauncherInput')
-				// The label is the prompt the user sees for this input
-				.setLabel("TLauncher está permitido? Di Si o No.")
-				// Short means only a single line of text
-				.setStyle(TextInputStyle.Short);
 			// An action row only holds one text input,
 			// so you need one action row per text input.
 			const usernameActionRow = new ActionRowBuilder().addComponents(input);
-			const tlActionRow = new ActionRowBuilder().addComponents(tlinput);
 	
 			// Add inputs to the modal
-			modal.addComponents(usernameActionRow, tlActionRow);
+			modal.addComponents(usernameActionRow);
 			await ctx.interaction.showModal(modal);
 	}
 });
