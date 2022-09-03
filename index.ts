@@ -44,7 +44,7 @@ client.on('rateLimit', async () => {
     console.log(`I just got ratelimited!`)
 })
 
-const Notifier = new youtube.notifier(client, {
+/*const Notifier = new youtube.notifier(client, {
     // Default message
     message: "@everyone **¡HAY NUEVO VIDEO EN EL CANAL DE MARA!**\nRecomiendo verlo, es muy chulo.\nURL: {url}",
 
@@ -62,7 +62,7 @@ const Notifier = new youtube.notifier(client, {
 });
 const youtube_channel_id = "UC9G2yvrtrPeJFEzwlshg5HA";
 const discord_channel_id = "948690278498320404";
-Notifier.addNotifier(youtube_channel_id, discord_channel_id);
+Notifier.addNotifier(youtube_channel_id, discord_channel_id);*/
 
 async function twitchNotifications() {
     
