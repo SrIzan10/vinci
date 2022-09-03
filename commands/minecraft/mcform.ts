@@ -9,7 +9,7 @@ export default commandModule({
 	async execute (modal) {
 		const value = modal.fields.getTextInputValue('mcUsernameInput');
 		var specialChars = /[`!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?~]/;
-		if (value > 16 || value <= 2 || specialChars.test(value)) {
+		if (value > 16 || value < 3 || specialChars.test(value)) {
 			modal.reply({content: `ERROR: El nombre de usuario no es válido.`, ephemeral: true});
 		} else {
 			try {
