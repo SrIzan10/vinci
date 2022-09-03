@@ -1,6 +1,6 @@
-import { commandModule, CommandType } from '@sern/handler'
+const { commandModule, CommandType } = require('@sern/handler');
 import { publish } from "../../src/plugins/publish";
-import prettyMilliseconds from 'pretty-ms';
+const prettyMilliseconds = require('pretty-ms');
 
 export default commandModule({
 	name: 'uptime',
@@ -10,6 +10,7 @@ export default commandModule({
 	//alias : [],
 	options: [],
 	execute: async (ctx, options) => {
-		await ctx.reply(`El bot lleva encendido ${prettyMilliseconds(ctx.client.uptime!)}`);
+		const uptime = prettyMilliseconds(ctx.client.uptime!)
+		await ctx.reply(`El bot lleva encendido ${uptime}`);
 	},
 });
