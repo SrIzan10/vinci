@@ -1,5 +1,4 @@
 const { commandModule, CommandType } = require('@sern/handler');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType } = require('discord.js');
 import axios from "axios";
 
 export default commandModule({
@@ -10,8 +9,8 @@ export default commandModule({
 	async execute (modal) {
 		const value = modal.fields.getTextInputValue('mcUsernameInput');
 		try {
-			const res = await axios(`https://api.mojang.com/users/profiles/minecraft/${value}`)
-			const data = res.data
+			const request = await axios(`https://api.mojang.com/users/profiles/minecraft/${value}`, {validateStatus: function (status) {return status === 200 || status === 400; }})
+			const data = request.data
 			await modal.reply({content: 'Enviado!, Gracias por utilizar tu Mona Lisa de confianza\n~Sr Izan, 2022', ephemeral: true})
 			modal.client.guilds.cache.get("928018226330337280").channels.cache.get("998195363376803850").send(`Solicitud enviada por ${modal.user}.\nUsername de Minecraft: ${value}`);
 		} catch (err) {
