@@ -3,7 +3,7 @@ import { publish } from "../../src/plugins/publish";
 import { ownerOnly } from "../../src/plugins/ownerOnly"
 import { EmbedBuilder } from "discord.js";
 import axios from "axios";
-const prettySeconds = require('pretty-seconds')
+const prettySeconds = require('pretty-seconds-spanish')
 
 export default commandModule({
 	name: 'stats',

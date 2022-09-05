@@ -9,7 +9,7 @@ export default commandModule({
     // using CommandType.Modal to get the answers
 	type: CommandType.Modal,
 	plugins: [],
-	description: 'Envia el formulario para entrar al servidor.',
+	description: 'Envia sugerencias.',
 	//alias : [],
 	async execute (modal) {
 		// first we get the value
