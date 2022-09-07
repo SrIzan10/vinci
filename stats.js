@@ -1,4 +1,5 @@
 #!/usr/bin/node
+const port = 8080
 const express = require('express');
 const app = express();
 const si = require('systeminformation');
@@ -48,5 +49,4 @@ app.get("/dockertotal", async function (req, res) {
 })
 
 // start the server listening for requests
-app.listen(7271,
-	() => console.log("The webserver is listening on port " + 7271));
+app.listen(port, () => {console.log("The webserver is listening on port " + port)});
