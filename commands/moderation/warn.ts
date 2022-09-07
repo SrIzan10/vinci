@@ -57,7 +57,8 @@ export default commandModule({
 				{
 					name: 'usuario',
 					description: 'el usuario al que quitar el aviso.',
-					type: ApplicationCommandOptionType.User
+					type: ApplicationCommandOptionType.User,
+					required: true
 				}
 			]
 		}
