@@ -17,7 +17,7 @@ export default commandModule({
 		const member = interaction.member as GuildMember;
 		if (!member) return;
 
-		let content = `Los roles han sido actualizados. Te he dado estos::\n${roles
+		let content = `Los roles han sido actualizados. Te he dado estos:\n${roles
 			.map((r) => `<@&${r}>`)
 			.join("\n")}`;
 		if (roles.length === 0) content = "Se han actualizado los roles a ninguno o no se han seleccionado roles...";
