@@ -24,7 +24,7 @@ export default commandModule({
 				onEvent: [],
 				async execute(ctx){
 					const focusedValue = ctx.options.getFocused();
-					const choices = ['Rock FM', 'Cadena 100', 'Cadena Dial', 'BBC 1', 'BBC 5', 'RNE 1', 'RNE 5', 'Los 40'];
+					const choices = ['Rock FM', 'Cadena 100', 'Cadena Dial', 'Gensokyo Radio', 'BBC 1', 'BBC 5', 'RNE 1', 'RNE 5', 'Los 40'];
 					const filtered = choices.filter(choice => choice.startsWith(focusedValue));
 					await ctx.respond(
 						filtered.map(choice => ({ name: choice, value: choice })),
@@ -71,6 +71,8 @@ export default commandModule({
 			playRadio("http://crtve--di--crtve-ice--02--cdn.cast.addradio.de/crtve/rne5/sev/mp3/high")
 		} else if (radioname === 'Los 40') {
 			playRadio('http://stream.ondaceronoroeste.es:8000/stream')
+		} else if (radioname === 'Gensokyo Radio') {
+			playRadio('https://stream.gensokyoradio.net/3')
 		} else {
 			ctx.reply({embeds: [notFoundEmbed], ephemeral: true})
 		}
