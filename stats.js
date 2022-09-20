@@ -3,6 +3,7 @@ const port = 8080
 const express = require('express');
 const app = express();
 const si = require('systeminformation');
+const os = require('os');
 function formatBytes(bytes, decimals = 2) {
   if (bytes === 0) return '0 Bytes';
 
@@ -46,6 +47,11 @@ app.get("/ramfree", async function (req, res) {
 app.get("/dockertotal", async function (req, res) {
   const docker = await si.dockerInfo()
   res.send(`${docker.containers}`)
+})
+
+app.get("/uptime", async function (req, res) {
+  const uptime = os.uptime()
+  res.send(`${uptime}`)
 })
 
 // start the server listening for requests

@@ -19,6 +19,7 @@ export default commandModule({
 		const ramtotal = await axios(`http://192.168.1.44:7271/ramtotal`)
 		const ramfree = await axios(`http://192.168.1.44:7271/ramfree`)
 		const dockertotal = await axios(`http://192.168.1.44:7271/dockertotal`)
+		const nodeuptime = await axios(`http://192.168.1.44:7271/uptime`)
 		const uptime = prettySeconds(process.uptime())
 		const embed = new EmbedBuilder()
 			.setAuthor({name: `${ctx.user.username}`, iconURL: `${ctx.user.displayAvatarURL()}`})
@@ -33,7 +34,9 @@ export default commandModule({
 				{name: '\u200B', value: '\u200B', inline: true},
 				{name: 'Contenedores de Docker', value: `${dockertotal.data}`, inline: true},
 				{name: '\u200B', value: '\u200B', inline: true},
-				{name: 'Tiempo encendido', value: `${uptime}`},
+				{name: 'Tiempo encendido', value: `${uptime}`, inline: true},
+				{name: '\u200B', value: '\u200B', inline: true},
+				{name: 'Uptime del servidor', value: `${prettySeconds(`${nodeuptime.data}`)}`}
 				)
 		await ctx.interaction.editReply({embeds: [embed]})
 	},
