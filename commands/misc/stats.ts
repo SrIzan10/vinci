@@ -34,9 +34,9 @@ export default commandModule({
 				{name: '\u200B', value: '\u200B', inline: true},
 				{name: 'Contenedores de Docker', value: `${dockertotal.data}`, inline: true},
 				{name: '\u200B', value: '\u200B', inline: true},
-				{name: 'Tiempo encendido', value: `${uptime}`, inline: true},
-				{name: '\u200B', value: '\u200B', inline: true},
-				{name: 'Uptime del servidor', value: `${prettySeconds(`${nodeuptime.data}`)}`}
+				{name: 'Tiempo encendido', value: `${uptime}`},
+				// {name: '\u200B', value: '\u200B', inline: true},
+				// {name: 'Uptime del servidor', value: `${prettySeconds(`${nodeuptime.data}`)}`}
 				)
 		await ctx.interaction.editReply({embeds: [embed]})
 	},
