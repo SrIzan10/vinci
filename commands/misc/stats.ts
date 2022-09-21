@@ -25,6 +25,8 @@ export default commandModule({
 			.setAuthor({name: `${ctx.user.username}`, iconURL: `${ctx.user.displayAvatarURL()}`})
 			.setTitle(`Estadísticas de Vinci.`)
 			.setThumbnail(`https://i.imgur.com/UwC1x8T.png`)
+			.setURL('https://status.vinci.tk')
+			.setColor('Random')
 			.addFields(
 				{name: "Fabricante de CPU", value: `${cpubrand.data}`, inline: true},
 				{name: `Núcleos de CPU`, value: `${cpucores.data}`, inline: true},
@@ -38,6 +40,6 @@ export default commandModule({
 				// {name: '\u200B', value: '\u200B', inline: true},
 				// {name: 'Uptime del servidor', value: `${prettySeconds(`${nodeuptime.data}`)}`}
 				)
-		await ctx.interaction.editReply({embeds: [embed]})
+		await ctx.interaction.editReply({embeds: [embed], ephemeral: true})
 	},
 });
