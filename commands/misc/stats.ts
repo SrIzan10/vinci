@@ -13,7 +13,7 @@ export default commandModule({
 	//alias : [],
 	options: [],
 	execute: async (ctx, options) => {
-		await ctx.interaction.deferReply()
+		await ctx.interaction.deferReply({ ephemeral: true })
 		const cpubrand = await axios(`http://192.168.1.44:7271/cpubrand`)
 		const cpucores = await axios(`http://192.168.1.44:7271/cpucores`)
 		const ramtotal = await axios(`http://192.168.1.44:7271/ramtotal`)
