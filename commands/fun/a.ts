@@ -49,11 +49,7 @@ export default commandModule({
 			} else {
 				if (choices.indexOf(options[1].getString('usuario', true)) > -1) {
 					const attachmentbuilder = new AttachmentBuilder(`./images/${options[1].getString('usuario', true)}.png`)
-					const embed = new EmbedBuilder()
-						.setTitle("A")
-						.setImage(`attachment://${options[1].getString('usuario', true)}.png`)
-						.setColor("Random")
-					await ctx.reply({embeds: [embed], files: [attachmentbuilder]})
+					await ctx.reply({content: 'A', files: [attachmentbuilder]})
 				} else {
 					const embed = new EmbedBuilder()
 						.setTitle("A no encontrado!")
