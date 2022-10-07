@@ -29,21 +29,6 @@ export default commandModule({
 		}
 	],
 	execute: async (ctx, options) => {
-		try {
-			if (choices.indexOf(options[1].getString('usuario', true)) > -1) {
-				const attachmentbuilder = new AttachmentBuilder(`./images/${options[1].getString('usuario', true)}.png`)
-				const embed = new EmbedBuilder()
-					.setTitle("A")
-					.setImage(`attachment://${options[1].getString('usuario', true)}.png`)
-					.setColor("Random")
-				await ctx.reply({embeds: [embed], files: [attachmentbuilder]})
-			} else {
-				const embed = new EmbedBuilder()
-					.setTitle("A no encontrado!")
-					.setDescription(`Qué raro, no se ha encontrado ese /a...\nPorqué no pruebas a poner uno del autocompletado?`)
-					.setColor("Red")
-				await ctx.reply({embeds: [embed], ephemeral: true})
-			}
 			if (!options[1].getString('usuario', true)) {
 				const imagesArray = [
 					'./images/XaviXE.png',
@@ -61,7 +46,21 @@ export default commandModule({
 				const images = imagesArray[Math.floor(Math.random() * imagesArray.length)];
 
 				await ctx.reply({content: 'A', files: [images]});
+			} else {
+				if (choices.indexOf(options[1].getString('usuario', true)) > -1) {
+					const attachmentbuilder = new AttachmentBuilder(`./images/${options[1].getString('usuario', true)}.png`)
+					const embed = new EmbedBuilder()
+						.setTitle("A")
+						.setImage(`attachment://${options[1].getString('usuario', true)}.png`)
+						.setColor("Random")
+					await ctx.reply({embeds: [embed], files: [attachmentbuilder]})
+				} else {
+					const embed = new EmbedBuilder()
+						.setTitle("A no encontrado!")
+						.setDescription(`Qué raro, no se ha encontrado ese /a...\nPorqué no pruebas a poner uno del autocompletado?`)
+						.setColor("Red")
+					await ctx.reply({embeds: [embed], ephemeral: true})
+				}
 			}
-	} catch (err) {}
 	},
 });
