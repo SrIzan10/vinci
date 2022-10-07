@@ -27,7 +27,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.8.0",
     "@discordjs/voice": "^0.11.0",
-    "@sern/handler": "^1.2.0",
+    "@sern/handler": "^1.2.1",
     "@xmldom/xmldom": "^0.8.2",
     "axios": "^0.27.2",
     "discord-bot-youtube-notifications": "^1.1.4",

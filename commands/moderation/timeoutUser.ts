@@ -9,7 +9,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 
 export default commandModule({
 	name: 'timeout',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] }), ownerOnly()],
 	description: 'ADMIN: Silencia a usuarios.',
 	options: [

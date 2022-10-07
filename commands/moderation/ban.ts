@@ -5,7 +5,7 @@ import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js'
 
 export default commandModule({
 	name: 'ban',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] }), ownerOnly()],
 	description: 'ADMIN: Banea usuarios.',
 	options: [{
