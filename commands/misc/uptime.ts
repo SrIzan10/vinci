@@ -4,7 +4,7 @@ const prettySeconds = require('pretty-seconds-spanish')
 
 export default commandModule({
 	name: 'uptime',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Enseña el tiempo que ha estado encendido el bot.',
 	//alias : [],

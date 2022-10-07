@@ -18,7 +18,6 @@ export const db = mongoose.connect(process.env.MONGODB, {useNewUrlParser: true,u
 
 Sern.init({
 	client,
-	sernPrefix,
 	commands : './commands',
 	sernEmitter : new SernEmitter(),
 	events: './events'

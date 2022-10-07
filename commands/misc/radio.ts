@@ -10,7 +10,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 
 export default commandModule({
 	name: 'radio',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Reproduce la radio', 
 	options: [

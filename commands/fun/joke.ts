@@ -4,7 +4,7 @@ import { publish } from "../../src/plugins/publish";
 
 export default commandModule({
 	name: 'chiste',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Enseña un chiste en inglés.',
 	alias : ['joke'],

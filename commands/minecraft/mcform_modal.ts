@@ -6,7 +6,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 
 export default commandModule({
 	name: 'mcform',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Envia el formulario para entrar al servidor.',
 	//alias : [],

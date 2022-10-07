@@ -5,7 +5,7 @@ import { ApplicationCommandOptionType } from 'discord.js'
 
 export default commandModule({
 	name: 'prune',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] }), ownerOnly()],
 	description: 'ADMIN: Elimina hasta 100 mensajes',
 	options: [{

@@ -9,7 +9,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly"
 
 export default commandModule({
 	name: 'ip',
-    type: CommandType.Both,
+    type: CommandType.Slash,
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	// 
 	description: 'La IP del servidor de Minecraft',
