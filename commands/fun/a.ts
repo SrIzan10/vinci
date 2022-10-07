@@ -29,7 +29,9 @@ export default commandModule({
 		}
 	],
 	execute: async (ctx, options) => {
-			if (!options[1].getString('usuario', true)) {
+		let option
+		try {option = options[1].getString('usuario', true)} catch(error) {option = undefined}
+			if (!option) {
 				const imagesArray = [
 					'./images/XaviXE.png',
 					'./images/Paula.png',
