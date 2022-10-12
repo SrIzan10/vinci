@@ -52,7 +52,7 @@ export default commandModule({
 			connection.subscribe(player)
 			player.play(resource)
 			resource.volume!.setVolume(0.7)
-			ctx.reply({embeds: [embed], ephemeral: true})
+			await ctx.reply({embeds: [embed], ephemeral: true})
 		}
 
 		if (radioname === 'Rock FM') {
