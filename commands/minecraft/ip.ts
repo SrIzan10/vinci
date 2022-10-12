@@ -25,9 +25,9 @@ export default commandModule({
 		const usuario = options[1].getMember('usuario', true);
 
 		if (!usuario) {
-			await ctx.reply({content: "La IP del servidor de Minecraft es `minecraft.maraturing.com`,\nPide acceso con el comando /mcform.", ephemeral: true})
+			await ctx.reply({content: "La IP del servidor de Minecraft es `minecraft.maraturing.com`,\nPide acceso con el comando </mcform:1000747672690499594>.", ephemeral: true})
 		} else {
-			await ctx.reply({content: `${usuario}` + ", la IP del servidor de Minecraft es `minecraft.maraturing.com`,\nPide acceso con el comando /mcform"})
+			await ctx.reply({content: `${usuario}` + ", la IP del servidor de Minecraft es `minecraft.maraturing.com`,\nPide acceso con el comando </mcform:1000747672690499594>."})
 		}
 	},
 });
