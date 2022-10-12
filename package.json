@@ -28,7 +28,7 @@
     "@discordjs/opus": "^0.8.0",
     "@discordjs/voice": "^0.13.0",
     "@sern/handler": "^1.2.1",
-    "@xmldom/xmldom": "^0.8.2",
+    "@xmldom/xmldom": "^0.8.3",
     "axios": "^1.0.0",
     "discord-bot-youtube-notifications": "^1.1.4",
     "discord-tictactoe": "^4.0.0",
