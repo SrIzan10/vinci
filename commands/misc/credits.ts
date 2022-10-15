@@ -6,8 +6,7 @@ import { publish } from "../../src/plugins/publish";
 export default commandModule({
 	name: 'creditos',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298'] })],
-	// , '928018226330337280'
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Créditos del bot (en inglés)',
 	//alias : [],
 	options: [],
