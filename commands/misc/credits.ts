@@ -21,7 +21,7 @@ export default commandModule({
 				<@703974042700611634>: Main development.\n
 				<@464397024247152640>: Trusting me and inviting the bot.\n
 				**For helping me out**\n
-				<@182326315813306368>: sern handler dev, such a cool guy and helper <3\n
+				<@182326315813306368>: sern handler dev, helper at WOK, such a cool guy and helper <3\n
 				<@697795666373640213>: sern handler dev, also helper at WOK, helped me out a ton\n
 				*Some people at the D.JS discord*: yeah\n
 				**Motivation**\n
