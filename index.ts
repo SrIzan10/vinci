@@ -32,7 +32,8 @@ client.on('ready', async () => {
 		{ name: "cómo escribe Javi", type: ActivityType.Watching },
 		{ name: "a Hermes", type: ActivityType.Watching },
 		{ name: "tus comandos", type: ActivityType.Listening },
-		{ name: "tu voz", type: ActivityType.Listening }
+		{ name: "tu voz", type: ActivityType.Listening },
+		{ name: "ahora v1.0!", type: ActivityType.Playing }
 	]
 		var randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
 		client.user.setActivity(randomStatus);
