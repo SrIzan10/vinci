@@ -93,22 +93,22 @@ export default commandModule({
 				if (checker === "player1") {
 					winner = ctx.user.username
 					const setDescription = winEmbed.setDescription(`Tenemos resultados!\n**${winner}** ha ganado.`).setTitle(`Ha ganado ${winner}! <:Pog:1030169609178976346>`)
-					await message.edit({embeds: [setDescription]})
+					await message.edit({embeds: [setDescription], components: [], content: ``})
 				} else if (checker === "player2") {
 					winner = option.user.username
 					const setDescription = winEmbed.setDescription(`Tenemos resultados!\n**${winner}** ha ganado.`).setTitle(`Ha ganado ${winner}! <:Pog:1030169609178976346>`)
-					await message.edit({embeds: [setDescription]})
+					await message.edit({embeds: [setDescription], components: [], content: ``})
 				} else if (checker === "tie") {
-					await message.edit({embeds: [tieEmbed]})
+					await message.edit({embeds: [tieEmbed], components: [], content: ``})
 				}
 			}
 		})
 		collector.on('ignore', async (i) => {
-			await i.reply({content: 'No estás jugando!'})
+			await i.reply({content: 'No estás jugando!', ephemeral: true})
 		})
 		collector.on('end', async () => {
 			if (bothResponded) return;
-			await message.edit({embeds: [timeUpEmbed], components: []})
+			await message.edit({embeds: [timeUpEmbed], components: [], content: ``})
 		})
 	},
 });
