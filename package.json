@@ -39,8 +39,8 @@
     "got": "^11.8.5",
     "libsodium-wrappers": "^0.7.10",
     "mongoose": "^6.5.1",
-    "node-superfetch": "^0.3.0",
     "pretty-seconds-spanish": "^2.1.0",
+    "rockpaperscissors-checker": "^1.0.1",
     "systeminformation": "^5.12.6"
   },
   "devDependencies": {
