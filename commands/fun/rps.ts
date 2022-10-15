@@ -94,10 +94,12 @@ export default commandModule({
 					winner = ctx.user.username
 					const setDescription = winEmbed.setDescription(`Tenemos resultados!\n**${winner}** ha ganado.`).setTitle(`Ha ganado ${winner}! <:Pog:1030169609178976346>`)
 					await message.edit({embeds: [setDescription], components: [], content: ``})
+					message.react('<:Pog:1030169609178976346>')
 				} else if (checker === "player2") {
 					winner = option.user.username
 					const setDescription = winEmbed.setDescription(`Tenemos resultados!\n**${winner}** ha ganado.`).setTitle(`Ha ganado ${winner}! <:Pog:1030169609178976346>`)
 					await message.edit({embeds: [setDescription], components: [], content: ``})
+					message.react('<:Pog:1030169609178976346>')
 				} else if (checker === "tie") {
 					await message.edit({embeds: [tieEmbed], components: [], content: ``})
 				}
