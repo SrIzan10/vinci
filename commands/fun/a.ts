@@ -1,8 +1,8 @@
 const { commandModule, CommandType } = require('@sern/handler');
 import { Context } from "@sern/handler";
-import { ApplicationCommandOptionType, AttachmentBuilder, EmbedBuilder } from "discord.js";
+import { ApplicationCommandOptionType, AttachmentBuilder, AutocompleteInteraction, EmbedBuilder } from "discord.js";
 import { publish } from "../../src/plugins/publish";
-const choices = ['XaviXE', 'Paula', 'William', 'Espejito2500', 'Wheelook', 'MarioCabrera', 'Paticama', 'Vinci', 'SrIzan', 'ItsAdrian', 'ByHGT'];
+const choices = ['XaviXE', 'Paula', 'William', 'Espejito2500', 'Wheelook', 'MarioCabrera', 'Paticama', 'Vinci', 'SrIzan', 'ItsAdrian', 'ByHGT', 'Irene'];
 
 export default commandModule({
 	name: 'a',
@@ -18,7 +18,7 @@ export default commandModule({
 			autocomplete: true,
 			command: {
 				onEvent: [],
-				async execute(ctx){
+				async execute(ctx: AutocompleteInteraction){
 					const focusedValue = ctx.options.getFocused();
 					const filtered = choices.filter(choice => choice.startsWith(focusedValue));
 					await ctx.respond(
@@ -43,7 +43,8 @@ export default commandModule({
 					'./images/Vinci.png',
 					'./images/SrIzan.png',
 					'./images/ItsAdrian.png',
-					'./images/ByHGT.png'
+					'./images/ByHGT.png',
+					'./images/Irene.png',
 				]
 				const images = imagesArray[Math.floor(Math.random() * imagesArray.length)];
 
