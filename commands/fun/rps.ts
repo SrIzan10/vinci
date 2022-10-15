@@ -9,8 +9,7 @@ import { setNonEnumerableProperties } from "got/dist/source";
 export default commandModule({
 	name: 'rps',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298'] })],
-	// , '928018226330337280'
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Juega piedra papel tijeras con los panas',
 	//alias : [],
 	options: [
