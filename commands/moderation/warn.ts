@@ -140,7 +140,7 @@ export default commandModule({
 									}
 									ctx.client.users.fetch(user, false).then((user) => {
 										user.send({embeds: [dmEmbedTimeout]})
-									}).catch(err, async => {console.log(`couldn't send a DM to user ID ${user}.`)});
+									}).catch(console.log(`couldn't send a DM to user ID ${user}.`));
 								});
 							} else {
 								ctx.reply({content: `se ha añadido un aviso con el motivo ${reason}.\navisos que tiene ahora: ${times.times + 1}`, ephemeral: true})
@@ -148,7 +148,7 @@ export default commandModule({
 								times.save()
 								ctx.client.users.fetch(user, false).then((user) => {
 									user.send({embeds: [dmEmbed]});
-								}).catch(err, async => {console.log(`couldn't send a DM to user ID ${user}.`)})
+								}).catch(console.log(`couldn't send a DM to user ID ${user}.`))
 							}
 						}
 					}
@@ -165,7 +165,7 @@ export default commandModule({
 							ctx.reply({content: `Se ha avisado a ${usermember} correctamente y añadido a la base de datos.`, ephemeral: true})
 							ctx.client.users.fetch(user, false).then((user) => {
 								user.send({embeds: [dmEmbed]});
-							}).catch(err, async => {console.log(`couldn't send a DM to user ID ${user}.`)})
+							}).catch(console.log(`couldn't send a DM to user ID ${user}.`))
 						} else {
 							if (times.times >= 4) {
 								const msg = await ctx.reply({content: `El usuario ha excedido 3 avisos, ¿qué hacer?`, fetchReply: true, ephemeral: true, components: [buttons]})
@@ -193,7 +193,7 @@ export default commandModule({
 									}
 									ctx.client.users.fetch(user, false).then((user) => {
 										user.send({embeds: [dmEmbedTimeout]})
-									}).catch(err, async => {console.log(`couldn't send a DM to user ID ${user}.`)});
+									}).catch(console.log(`couldn't send a DM to user ID ${user}.`));
 								});
 							} else {
 								ctx.reply({content: `se ha añadido un aviso con el motivo ${reason}.\navisos que tiene ahora: ${times.times + 2}`, ephemeral: true})
@@ -201,7 +201,7 @@ export default commandModule({
 								times.save()
 								ctx.client.users.fetch(user, false).then((user) => {
 									user.send({embeds: [dmEmbed]});
-								}).catch(err, async => {console.log(`couldn't send a DM to user ID ${user}.`)})
+								}).catch(console.log(`couldn't send a DM to user ID ${user}.`))
 							}
 						}
 					}
