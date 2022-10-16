@@ -37,7 +37,7 @@ client.on('ready', async () => {
 		{ name: "tu voz", type: ActivityType.Listening },
 		{ name: "ahora v1.0!", type: ActivityType.Playing }
 	]
-		var randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+		const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
 		client.user.setActivity(randomStatus);
 	  }, 10000);
 });
@@ -53,7 +53,7 @@ app.get("/", function (req, res) {
 })
 
 app.listen(process.env.PORT || 7272,
-           () => console.log("The webserver is listening on port " + process.env.PORT || 3000));
+           () => console.log("The webserver is listening"));
 
 /*async function nowPlayingRadio() {
 		const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006", {validateStatus: function (status) {return status === 200|| status === 403}}).then((res) => res.data).catch((err) => {console.log("now playing radio errored out? diesofcringe")})
