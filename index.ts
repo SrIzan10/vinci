@@ -8,6 +8,8 @@ require("dotenv").config();
 const sernPrefix = process.env.PREFIX
 const mongoose = require('mongoose');
 const youtube = require('discord-bot-youtube-notifications');
+import express from 'express'
+const app = express();
 
 const client = new Client({
 	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildVoiceStates],
@@ -43,6 +45,15 @@ client.on('ready', async () => {
 client.on('rateLimit', async () => {
 	console.log(`I just got ratelimited!`)
 })
+
+app.use(express.static("public"))
+
+app.get("/", function (req, res) {
+    res.send("<p>This is the monitoring server for the Vinci discord bot!</p><br><p>If you see this, the bot is up and running.</p>")
+})
+
+app.listen(process.env.PORT || 7272,
+           () => console.log("The webserver is listening on port " + process.env.PORT || 3000));
 
 /*async function nowPlayingRadio() {
 		const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006", {validateStatus: function (status) {return status === 200|| status === 403}}).then((res) => res.data).catch((err) => {console.log("now playing radio errored out? diesofcringe")})
