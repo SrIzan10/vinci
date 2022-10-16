@@ -19,7 +19,7 @@ export default commandModule({
 			modal.reply({content: 'Buen intento enviando un mensaje vacío >:D', ephemeral: true})
 		} else if (value.indexOf('**') >= 0 || value.indexOf('*') >= 0 || value.indexOf('**') >= 0 || value.indexOf('__') >= 0 || value.indexOf('***') >= 0 || value.indexOf('_') >= 0) {
 			modal.reply({content: 'Debido a varios problemas, el formatting de Discord ha sido desactivado.\nPara más info, visita <https://vinci.tk/k>.\nSiento las molestias!', ephemeral: true})
-		} else if (value.indexOf('sugerencia') >= 0 || value.indexOf('sugerencias') >= 0) {
+		} else if (value.indexOf('sugerencia') >= 0 || value.indexOf('sugerencias') >= 0 || value.indexOf('Sugerencia') >= 0 || value.indexOf('Sugerencias') >= 0) {
 			modal.reply({content: 'No puedes enviar una sugerencia con la palabra sugerencia(s).'})
 		} else {
 			// we create the embed which will be sent when the thing is sent
