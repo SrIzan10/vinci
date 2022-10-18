@@ -38,6 +38,10 @@ export default commandModule({
 				new ButtonBuilder()
 					.setLabel('lol')
 					.setURL('https://discord.com/channels/928018226330337280/928018227156643857/1030480463690731530')
+					.setStyle(ButtonStyle.Link),
+				new ButtonBuilder()
+					.setLabel('<3')
+					.setURL('https://discord.com/channels/928018226330337280/1030913456846680134')
 					.setStyle(ButtonStyle.Link)
 			)
 		await ctx.reply({embeds: [page1], components: [buttons], ephemeral: true})
