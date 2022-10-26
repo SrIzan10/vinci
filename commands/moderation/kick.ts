@@ -1,7 +1,7 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly";
-import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js'
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js";
+import { ApplicationCommandOptionType, EmbedBuilder, GuildMember, TextChannel } from 'discord.js'
 
 export default commandModule({
 	name: 'kick',
@@ -23,16 +23,13 @@ export default commandModule({
 	}
 ],
 	//alias : [],
-	execute: async (ctx, options, message) => {
+	execute: async (ctx, options) => {
 		try {
-			const userToBan = options[1].getMember('usuario', true);
-			const reason = options[1].get('razon', true).value;
-			const kickEmbed = new EmbedBuilder()
-				.setTitle('Nuevo kick.')
-				.setDescription(`Kick efectuado por <@${ctx.author}>.\nRazón: ${reason}.`);
-			userToBan.kick(reason)
-			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
-			await sendToMods.send({content: `Se ha expulsado a ${userToBan}.\nKick efectuado por ${ctx.user} con razón "${reason}."`})
+			const userToKick = options[1].getMember('usuario');
+			const reason = options[1].getString('razon') as string;
+			(userToKick as GuildMember).kick(reason)
+			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257') as TextChannel
+			await sendToMods!.send({content: `Se ha expulsado a ${userToKick}.\nKick efectuado por ${ctx.user} con razón "${reason}."`})
 			await ctx.reply({content: 'Expulsado correctamente!'})
 		} catch (e) {
 			await ctx.reply({content: `ERROR: No puedo hacer este comando porque a lo mejor soy inferior que el rol de esa persona o estoy usándolo contra admins.`})

@@ -1,10 +1,10 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { ApplicationCommandOptionType } from "discord.js";
 /*
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 */
 
 export default commandModule({

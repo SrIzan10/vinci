@@ -1,6 +1,6 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-const prettySeconds = require('pretty-seconds-spanish')
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import prettySeconds from 'pretty-seconds-spanish'
 
 export default commandModule({
 	name: 'uptime',

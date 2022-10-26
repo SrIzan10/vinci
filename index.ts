@@ -2,21 +2,19 @@ import { SernEmitter } from "@sern/handler";
 import axios from "axios";
 import { ActivityType, TextChannel, EmbedBuilder, Message, VoiceBasedChannel } from "discord.js";
 import { DOMParser } from "@xmldom/xmldom";
-const { Client, GatewayIntentBits } = require("discord.js");
-const { Sern } = require("@sern/handler");
-require("dotenv").config();
-const sernPrefix = process.env.PREFIX
-const mongoose = require('mongoose');
-const youtube = require('discord-bot-youtube-notifications');
+import { Client, GatewayIntentBits } from "discord.js";
+import { Sern } from "@sern/handler"
+import 'dotenv/config'
+import mongoose from 'mongoose'
+import youtube from 'discord-bot-youtube-notifications'
 import express from 'express'
 const app = express();
 
 const client = new Client({
 	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildVoiceStates],
-	restTimeOffset: 0
 });
 
-export const db = mongoose.connect(process.env.MONGODB, {useNewUrlParser: true,useUnifiedTopology: true}).then(async => {console.log('Connected to MongoDB');})
+export const db = mongoose.connect(process.env.MONGODB as string).then(() => {console.log('Connected to MongoDB');})
 
 Sern.init({
 	client,
@@ -37,8 +35,9 @@ client.on('ready', async () => {
 		{ name: "tu voz", type: ActivityType.Listening },
 		{ name: "ahora v1.0!", type: ActivityType.Playing }
 	]
-		const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-		client.user.setActivity(randomStatus);
+		const randomStatus = statuses[Math.floor(Math.random() * statuses.length)]
+		// @ts-ignore
+		client.user!.setActivity(randomStatus);
 	  }, 10000);
 });
 
@@ -53,7 +52,7 @@ app.get("/", function (req, res) {
 })
 
 app.listen(process.env.PORT || 7272,
-           () => console.log("The webserver is listening"));
+    () => console.log("The webserver is listening"));
 
 /*async function nowPlayingRadio() {
 		const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006", {validateStatus: function (status) {return status === 200|| status === 403}}).then((res) => res.data).catch((err) => {console.log("now playing radio errored out? diesofcringe")})

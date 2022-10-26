@@ -1,10 +1,10 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { ApplicationCommandOptionType, TextChannel } from "discord.js";
 /*
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 */
 
 export default commandModule({
@@ -30,11 +30,10 @@ export default commandModule({
 	execute: async (ctx, options) => {
 		try {
 			const idMensaje = options[1].getString('id', true);
-			const channelID = options[1].getChannel('canal', true).id || ctx.channel.id
 			const guildId = ctx.guild.id
 			const guild = await ctx.client.guilds.fetch(guildId);
-			const channel = await guild.channels.fetch(channelID);
-			(await channel.messages.fetch(idMensaje)).delete();
+			const channel = await guild.channels.fetch(ctx.channel!.id);
+			(await (channel as TextChannel).messages.fetch(idMensaje)).delete();
 			await ctx.reply({content: 'Mensaje eliminado correctamente.', ephemeral: true});
 		} catch (e) {
 			await ctx.reply({content: `ERROR: No se ha podido eliminar el mensaje, asegúrate que estás usando el ID y el canal correcto.`})

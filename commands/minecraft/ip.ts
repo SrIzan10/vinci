@@ -1,10 +1,10 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { ApplicationCommandOptionType } from "discord.js";
 /*
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 */
 
 export default commandModule({
@@ -22,7 +22,7 @@ export default commandModule({
 	],
 	//alias : [],
 	execute: async (ctx, options) => {
-		const usuario = options[1].getMember('usuario', true);
+		const usuario = options[1].getMember('usuario');
 
 		if (!usuario) {
 			await ctx.reply({content: "La IP del servidor de Minecraft es `minecraft.maraturing.com`,\nPide acceso con el comando </mcform:1000747672690499594>.", ephemeral: true})

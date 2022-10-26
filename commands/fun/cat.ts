@@ -1,11 +1,11 @@
-const { commandModule, CommandType } = require('@sern/handler');
+import { commandModule, CommandType } from '@sern/handler'
 import { Context } from "@sern/handler";
 import axios from "axios";
 import { ActionRowBuilder, APIMessageActionRowComponent, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } from "discord.js";
-import { publish } from "../../src/plugins/publish";
+import { publish } from "../../src/plugins/publish.js";
 /*
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 */
 
 export default commandModule({
