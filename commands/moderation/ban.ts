@@ -1,7 +1,7 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly";
-import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js'
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js";
+import { ApplicationCommandOptionType, EmbedBuilder, GuildMember, TextChannel } from 'discord.js'
 
 export default commandModule({
 	name: 'ban',
@@ -21,12 +21,12 @@ export default commandModule({
 		required: true
 	}],
 	//alias : [],
-	execute: async (ctx, options, message) => {
+	execute: async (ctx, options) => {
 		try {
-			const userToBan = options[1].getMember('usuario', true);
-			const reason = options[1].get('razon', true).value;
-			userToBan.ban(reason)
-			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257')
+			const userToBan = options[1].getMember('usuario') as GuildMember
+			const reason = options[1].getString('razon') as string
+			userToBan.ban({reason: reason})
+			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257') as TextChannel
 			await sendToMods.send({content: `Se ha baneado a ${userToBan}.\nBan efectuado por ${ctx.user} con razón "${reason}."`})
 			await ctx.reply({content: 'Baneado correctamente!', ephemeral: true})
 		} catch (e) {

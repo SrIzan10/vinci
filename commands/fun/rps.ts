@@ -1,8 +1,8 @@
-const { commandModule, CommandType } = require('@sern/handler');
+import { commandModule, CommandType } from '@sern/handler'
 import { Context, SlashOptions } from "@sern/handler";
 import axios from "axios";
 import { ActionRowBuilder, APIMessageActionRowComponent, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder, GuildMember } from "discord.js";
-import { publish } from "../../src/plugins/publish";
+import { publish } from "../../src/plugins/publish.js";
 import rockpaperscissors from "rockpaperscissors-checker";
 import { setNonEnumerableProperties } from "got/dist/source";
 
@@ -20,7 +20,7 @@ export default commandModule({
 			required: true
 		}
 	],
-	execute: async (ctx: Context, options: SlashOptions) => {
+	execute: async (ctx, options) => {
 		// also the code is mine, I didn't steal from anyone
         let player1, player2, winner, bothResponded
 		const option = options[1].getMember('usuario') as GuildMember

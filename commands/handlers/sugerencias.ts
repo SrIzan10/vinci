@@ -1,8 +1,8 @@
 // import everything
-const { commandModule, CommandType } = require('@sern/handler');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType } = require('discord.js');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { commandModule, CommandType } from '@sern/handler'
+import { EmbedBuilder } from 'discord.js';
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { TextChannel, ThreadAutoArchiveDuration, ThreadManager } from "discord.js";
 
 export default commandModule({
@@ -29,7 +29,7 @@ export default commandModule({
 				.setAuthor({name: `${modal.user.username}`, iconURL: `${modal.user.displayAvatarURL()}`})
 				.setDescription(value);
 			// finally send the message to the text channel
-			const message1 = modal.client.guilds.cache.get('928018226330337280').channels.cache.get('1007269448140476436') as TextChannel
+			const message1 = modal.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1007269448140476436') as TextChannel
 			const message2 = (await message1.send({embeds: [modalEmbed]}))
 			message2.startThread({name: `Sugerencia de ${modal.user.username}`, autoArchiveDuration: ThreadAutoArchiveDuration.ThreeDays, reason: 'AUTOMATIZADO: Hilo para discutir sobre la sugerencia.'})
 			message2.react("✅")

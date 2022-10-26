@@ -1,9 +1,9 @@
-const { commandModule, CommandType } = require('@sern/handler');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { commandModule, CommandType } from '@sern/handler'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { EmbedBuilder } from "discord.js";
 import axios from "axios";
-const prettySeconds = require('pretty-seconds-spanish')
+import prettySeconds from 'pretty-seconds-spanish'
 
 export default commandModule({
 	name: 'stats',
@@ -40,6 +40,6 @@ export default commandModule({
 				// {name: '\u200B', value: '\u200B', inline: true},
 				// {name: 'Uptime del servidor', value: `${prettySeconds(`${nodeuptime.data}`)}`}
 				)
-		await ctx.interaction.editReply({embeds: [embed], ephemeral: true})
+		await ctx.interaction.editReply({embeds: [embed]})
 	},
 });

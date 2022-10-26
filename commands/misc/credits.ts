@@ -1,7 +1,7 @@
-const { commandModule, CommandType } = require('@sern/handler');
+import { commandModule, CommandType } from '@sern/handler'
 import { Context, SlashOptions } from "@sern/handler";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
-import { publish } from "../../src/plugins/publish";
+import { publish } from "../../src/plugins/publish.js";
 
 export default commandModule({
 	name: 'creditos',
@@ -10,7 +10,7 @@ export default commandModule({
 	description: 'Créditos del bot (en inglés)',
 	//alias : [],
 	options: [],
-	execute: async (ctx: Context, options: SlashOptions) => {
+	execute: async (ctx, options) => {
 		const baseEmbed = new EmbedBuilder()
 			.setColor('Blurple')
 			.setTitle(`Without these people, the bot wouldn't exist!`)

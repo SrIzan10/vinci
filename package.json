@@ -18,6 +18,7 @@
   "keywords": [
     "discord-bot"
   ],
+  "type": "module",
   "author": "Sr Izan",
   "license": "MIT",
   "bugs": {

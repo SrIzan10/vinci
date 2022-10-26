@@ -1,7 +1,7 @@
-const { commandModule, CommandType } = require('@sern/handler');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, EmbedBuilder, TextInputBuilder, TextInputStyle, InteractionType } = require('discord.js');
-import { publish } from "../../src/plugins/publish";
-import { ownerOnly } from "../../src/plugins/ownerOnly"
+import { commandModule, CommandType } from '@sern/handler'
+import { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ModalActionRowComponentBuilder } from 'discord.js'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 
 
 export default commandModule({
@@ -10,7 +10,7 @@ export default commandModule({
 	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Envia el formulario para entrar al servidor.',
 	//alias : [],
-	execute: async (ctx, args, interaction) => {
+	execute: async (ctx) => {
 		const modal = new ModalBuilder()
 		.setCustomId('mcform')
 		.setTitle('Formulario para entrar al servidor');
@@ -23,7 +23,7 @@ export default commandModule({
 					.setStyle(TextInputStyle.Short);
 			// An action row only holds one text input,
 			// so you need one action row per text input.
-			const usernameActionRow = new ActionRowBuilder().addComponents(input);
+			const usernameActionRow = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(input);
 	
 			// Add inputs to the modal
 			modal.addComponents(usernameActionRow);
