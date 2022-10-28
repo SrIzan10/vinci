@@ -1,7 +1,5 @@
 import { SernEmitter } from "@sern/handler";
-import axios from "axios";
 import { ActivityType, TextChannel, EmbedBuilder, Message, VoiceBasedChannel } from "discord.js";
-import { DOMParser } from "@xmldom/xmldom";
 import { Client, GatewayIntentBits } from "discord.js";
 import { Sern } from "@sern/handler"
 import 'dotenv/config'

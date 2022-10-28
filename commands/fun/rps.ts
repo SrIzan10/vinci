@@ -1,10 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { Context, SlashOptions } from "@sern/handler";
-import axios from "axios";
-import { ActionRowBuilder, APIMessageActionRowComponent, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder, GuildMember } from "discord.js";
+import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder, GuildMember } from "discord.js";
 import { publish } from "../../src/plugins/publish.js";
 import rockpaperscissors from "rockpaperscissors-checker";
-import { setNonEnumerableProperties } from "got/dist/source";
 
 export default commandModule({
 	name: 'rps',
