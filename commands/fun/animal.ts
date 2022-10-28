@@ -24,6 +24,11 @@ export default commandModule({
 			description: 'Enseña un capybara',
 			type: ApplicationCommandOptionType.Subcommand
 		},
+		{
+			name: 'zorro',
+			description: 'Enseña un zorro',
+			type: ApplicationCommandOptionType.Subcommand
+		}
 	],
 	execute: async (ctx, options) => {
 		switch (options[1].getSubcommand()) {
@@ -92,7 +97,16 @@ export default commandModule({
 					.setColor('Random')
 					.setImage(request.image_urls.medium)
 					.setFooter({text: `ID: ${request.id}`})
-				await ctx.interaction.reply({embeds: [embed], ephemeral: true})
+				await ctx.interaction.reply({embeds: [embed]})
+			}
+			case 'zorro': {
+				const request = await axios('https://randomfox.ca/floof/').then(res => res.data)
+				const embed = new EmbedBuilder()
+					.setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
+					.setTitle('Zorro')
+					.setColor('Random')
+					.setImage(request.image)
+				await ctx.interaction.reply({embeds: [embed]})
 			}
 		}
 	},
