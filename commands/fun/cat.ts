@@ -34,6 +34,19 @@ export default commandModule({
 					.setEmoji("⬇️")
 					.setStyle(ButtonStyle.Danger),
 			)
+		const rowdisabled = new ActionRowBuilder<ButtonBuilder>()
+			.addComponents(
+				new ButtonBuilder()
+					.setCustomId("cat-upvote")
+					.setEmoji("⬆️")
+					.setStyle(ButtonStyle.Success)
+					.setDisabled(true),
+					new ButtonBuilder()
+					.setCustomId("cat-downvote")
+					.setEmoji("⬇️")
+					.setStyle(ButtonStyle.Danger)
+					.setDisabled(true),
+		)
 		const message = await ctx.reply({embeds: [embed], components: [row]})
 		const collector = message.createMessageComponentCollector({time: 30000, componentType: ComponentType.Button})
 		collector.on('collect', async (i) => {
@@ -54,6 +67,9 @@ export default commandModule({
 				})
 				i.editReply({content: "Has votado negativamente al gato con ID " + "`" + request[0].id + "`"})
 			}
+		})
+		collector.on('end', async (i) => {
+			await message.edit({components: [rowdisabled]})
 		})
 	},
 });
