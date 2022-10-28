@@ -28,6 +28,11 @@ export default commandModule({
 			name: 'zorro',
 			description: 'Enseña un zorro',
 			type: ApplicationCommandOptionType.Subcommand
+		},
+		{
+			name: 'perro',
+			description: 'what the dog doin',
+			type: ApplicationCommandOptionType.Subcommand
 		}
 	],
 	execute: async (ctx, options) => {
@@ -107,6 +112,63 @@ export default commandModule({
 					.setColor('Random')
 					.setImage(request.image)
 				await ctx.interaction.reply({embeds: [embed]})
+			}
+			case 'perro': {
+				const request = await axios.get(`https://api.thedogapi.com/v1/images/search?api_key=${process.env.DOGAPI}`).then(res => res.data)
+				const embed = new EmbedBuilder()
+					.setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
+					.setColor("Random")
+					.setImage(request[0].url)
+					.setFooter({text: `ID: ${request[0].id}`})
+					.setTitle('Perro')
+				const row = new ActionRowBuilder<ButtonBuilder>()
+					.addComponents(
+						new ButtonBuilder()
+							.setCustomId("dog-upvote")
+							.setEmoji("⬆️")
+							.setStyle(ButtonStyle.Success),
+							new ButtonBuilder()
+							.setCustomId("dog-downvote")
+							.setEmoji("⬇️")
+							.setStyle(ButtonStyle.Danger),
+					)
+				const rowdisabled = new ActionRowBuilder<ButtonBuilder>()
+					.addComponents(
+						new ButtonBuilder()
+							.setCustomId("dog-upvote")
+							.setEmoji("⬆️")
+							.setStyle(ButtonStyle.Success)
+							.setDisabled(true),
+							new ButtonBuilder()
+							.setCustomId("dog-downvote")
+							.setEmoji("⬇️")
+							.setStyle(ButtonStyle.Danger)
+							.setDisabled(true),
+				)
+				const message = await ctx.reply({embeds: [embed], components: [row]})
+				const collector = message.createMessageComponentCollector({time: 30000, componentType: ComponentType.Button})
+				collector.on('collect', async (i) => {
+					await i.deferReply({ephemeral: true})
+					if (i.customId === "dog-upvote") {
+						await axios.post(`https://api.thedogapi.com/v1/votes?api_key=${process.env.DOGAPI}`, {
+							"image_id": request[0].id,
+							"sub_id": i.user.id,
+							"value": 1
+						})
+						i.editReply({content: "Has votado positivamente al gato con ID " + "`" + request[0].id + "`"})
+					}
+					if (i.customId === "dog-downvote") {
+						await axios.post(`https://api.thedogapi.com/v1/votes?api_key=${process.env.DOGAPI}`, {
+							"image_id": request[0].id,
+							"sub_id": i.user.id,
+							"value": -1
+						})
+						i.editReply({content: "Has votado negativamente al gato con ID " + "`" + request[0].id + "`"})
+					}
+				})
+				collector.on('end', async () => {
+					await message.edit({components: [rowdisabled]})
+				})
 			}
 		}
 	},
