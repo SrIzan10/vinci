@@ -6,7 +6,7 @@ something_went_wrong () {
     curl \
     -X POST \
     -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer $($COMMITSTATUS)" \
+    -H "Authorization: Bearer $COMMITSTATUS" \
     https://api.github.com/repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
     -d '{"state":"failure","description":"The build errored!","context":"deployment/rpi"}'
 }
@@ -16,7 +16,7 @@ something_went_wrong () {
 curl \
 -X POST \
 -H "Accept: application/vnd.github+json" \
--H "Authorization: Bearer $($COMMITSTATUS)" \
+-H "Authorization: Bearer $COMMITSTATUS" \
 https://api.github.com/repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
 -d '{"state":"pending","description":"Building...","context":"deployment/rpi"}'
 
@@ -34,9 +34,7 @@ https://api.github.com/repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main
         curl \
     -X POST \
     -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer $($COMMITSTATUS)" \
+    -H "Authorization: Bearer $COMMITSTATUS" \
     https://api.github.com/repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
     -d '{"state":"success","description":"The build errored!","context":"deployment/rpi"}'
-} || {
-    something_went_wrong()
-}
+} || something_went_wrong()
