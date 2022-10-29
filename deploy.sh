@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# login
+# login ig
 
-gh auth login --with-token < $COMMITSTATUS
+export GITHUB_TOKEN = $COMMITSTATUS
 
 # something went wrong function
 
@@ -47,4 +47,7 @@ gh api \
 } || {
     something_went_wrong()
 }
-    
+
+# unset env var
+
+unset GITHUB_TOKEN
