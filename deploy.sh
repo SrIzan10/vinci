@@ -2,7 +2,7 @@
 
 # login
 
-echo $COMMITSTATUS | gh auth login --with-token
+gh auth login --with-token < $COMMITSTATUS
 
 # something went wrong function
 
