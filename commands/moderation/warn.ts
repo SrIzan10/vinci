@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { publish } from "../../src/plugins/publish.js";
 import { ownerOnly } from "../../src/plugins/ownerOnly.js";
-import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, EmbedBuilder, GuildMember } from "discord.js";
+import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonInteraction, ButtonStyle, EmbedBuilder, GuildMember } from "discord.js";
 import db from '../../schemas/warn.js';
 
 export default commandModule({
@@ -116,7 +116,7 @@ export default commandModule({
 							if (times.times > 2) {
 								const msg = await ctx.reply({content: `El usuario ha excedido 3 avisos, ¿qué hacer?`, ephemeral: true, components: [buttons]})
 								const collector = msg.createMessageComponentCollector({ time: 15000, max: 1 });
-								collector.on('collect', async i => {
+								collector.on('collect', async (i: ButtonInteraction) => {
 									await i.deferReply({ephemeral: true})
 									if (i.customId === '1hour') {
 										await i.editReply({content: `Se ha silenciado a ${usermember} durante 1 hora correctamente. ;-;`})
@@ -170,7 +170,7 @@ export default commandModule({
 							if (times.times >= 4) {
 								const msg = await ctx.reply({content: `El usuario ha excedido 3 avisos, ¿qué hacer?`, ephemeral: true, components: [buttons]})
 								const collector = await msg.createMessageComponentCollector({ time: 1000, max: 1 });
-								collector.on('collect', async i => {
+								collector.on('collect', async (i: ButtonInteraction) => {
 									if (i.customId === '1hour') {
 										await i.channel!.send({content: `Se ha silenciado a ${usermember} durante 1 hora correctamente. ;-;`})
 										usermember.timeout(60 * 60 * 1000, reason)
