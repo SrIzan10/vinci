@@ -33,6 +33,11 @@ export default commandModule({
 			name: 'perro',
 			description: 'what the dog doin',
 			type: ApplicationCommandOptionType.Subcommand
+		},
+		{
+			name: 'mapache',
+			description: 'Enseña un mapache',
+			type: ApplicationCommandOptionType.Subcommand
 		}
 	],
 	execute: async (ctx, options) => {
@@ -169,6 +174,16 @@ export default commandModule({
 				collector.on('end', async () => {
 					await message.edit({components: [rowdisabled]})
 				})
+			}
+			case 'mapache': {
+				const request = await axios('https://some-random-api.ml/animal/raccoon').then(res => res.data)
+				const embed = new EmbedBuilder()
+					.setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
+					.setTitle('Mapache')
+					.setDescription(`Fun fact: ${request.fact}`)
+					.setColor('Random')
+					.setImage(request.image)
+				await ctx.interaction.reply({embeds: [embed]})
 			}
 		}
 	},
