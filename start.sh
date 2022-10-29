@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ts-node --transpile-only index.ts
+node ./dist/index.js
