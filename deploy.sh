@@ -7,7 +7,7 @@ something_went_wrong () {
     /repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
     -f state='failure' \
     -f description='The build just errored!' \
-    -f context='deployment/rpi'
+    -f context='deployment/rpi' < $COMMITSTATUS
 }
 
 # send a pending request thing
@@ -18,11 +18,9 @@ gh api \
 /repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
 -f state='pending' \
 -f description='The build succeded!' \
--f context='deployment/rpi'
+-f context='deployment/rpi' < $COMMITSTATUS
 
-# do all commands
-
-try
+{
     git pull
 
     docker build . -t srizan10/vinci
@@ -39,8 +37,9 @@ try
     /repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
     -f state='pending' \
     -f description='The build succeded!' \
-    -f context='deployment/rpi'
-
-catch
+    -f context='deployment/rpi' < $COMMITSTATUS
+} || {
     something_went_wrong()
     exit 1
+}
+    
