@@ -2,7 +2,7 @@
 
 # login ig
 
-export GITHUB_TOKEN = $COMMITSTATUS
+echo $COMMITSTATUS >> $GITHUB_TOKEN
 
 # something went wrong function
 
