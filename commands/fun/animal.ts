@@ -101,9 +101,11 @@ export default commandModule({
 			}
 			case 'capybara': {
 				const request = await axios('https://api.capybara-api.xyz/v1/image/random').then(res => res.data)
+				const requestfacts = await axios('https://api.capybara-api.xyz/v1/facts/random').then(res => res.data)
 				const embed = new EmbedBuilder()
 					.setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
 					.setTitle('Capybara')
+					.setDescription(`Fun fact: ${requestfacts.fact}`)
 					.setColor('Random')
 					.setImage(request.image_urls.medium)
 					.setFooter({text: `ID: ${request.id}`})
