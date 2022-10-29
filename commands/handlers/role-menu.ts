@@ -12,6 +12,7 @@ export default commandModule({
 		const menuRoles: string[] = (
 			interaction.message.components[0].components[0]
 				.data as Readonly<APISelectMenuComponent>
+		// @ts-ignore
 		).options.map((o: { label: string; value: string }) => o.value);
 
 		const member = interaction.member as GuildMember;
