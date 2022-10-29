@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# login
+
+echo $COMMITSTATUS | gh auth login --with-token
+
+# something went wrong function
+
 something_went_wrong () {
     gh api \
     --method POST \
@@ -7,7 +13,7 @@ something_went_wrong () {
     /repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
     -f state='failure' \
     -f description='The build just errored!' \
-    -f context='deployment/rpi' < $COMMITSTATUS
+    -f context='deployment/rpi'
 }
 
 # send a pending request thing
@@ -18,7 +24,7 @@ gh api \
 /repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
 -f state='pending' \
 -f description='The build succeded!' \
--f context='deployment/rpi' < $COMMITSTATUS
+-f context='deployment/rpi'
 
 {
     git pull
@@ -37,9 +43,8 @@ gh api \
     /repos/SrIzan10/vinci/statuses/$(git rev-parse origin/main) \
     -f state='pending' \
     -f description='The build succeded!' \
-    -f context='deployment/rpi' < $COMMITSTATUS
+    -f context='deployment/rpi'
 } || {
     something_went_wrong()
-    exit 1
 }
     
