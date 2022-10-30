@@ -13,4 +13,7 @@ vinci bot
   
 <!--<img src="https://srizan.s-ul.eu/RddzT2f9">-->
 
-3 stars! tysm!
+<img src="https://cdn.discordapp.com/attachments/928230817673641995/1036390945945559140/makesweet-hbt4h3.gif">  
+by [Oliverlg8](https://osu.ppy.sh/users/Oliverlg8)
+
+9 stars! tysm!
