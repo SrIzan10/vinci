@@ -6,10 +6,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { TextChannel, ThreadAutoArchiveDuration, ThreadManager } from "discord.js";
 
 export default commandModule({
-    // using CommandType.Modal to get the answers
 	type: CommandType.Modal,
-	plugins: [],
-	description: 'Envia sugerencias.',
 	//alias : [],
 	async execute (modal) {
 		// first we get the value

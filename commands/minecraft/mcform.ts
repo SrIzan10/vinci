@@ -1,26 +1,32 @@
 import { commandModule, CommandType } from '@sern/handler'
-import axios from "axios";
-import { GuildBasedChannel, TextChannel } from 'discord.js';
+import { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ModalActionRowComponentBuilder } from 'discord.js'
+import { publish } from "../../src/plugins/publish.js";
+import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+
 
 export default commandModule({
-    type: CommandType.Modal,
-	plugins: [],
+	name: 'mcform',
+    type: CommandType.Slash,
+	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
 	description: 'Envia el formulario para entrar al servidor.',
 	//alias : [],
-	async execute (modal) {
-		const value = modal.fields.getTextInputValue('mcUsernameInput') as any
-		var specialChars = /[`!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?~]/;
-		if (value > 16 || value < 3 || specialChars.test(value)) {
-			modal.reply({content: `ERROR: El nombre de usuario no es válido.`, ephemeral: true});
-		} else {
-			try {
-				const request = await axios(`https://api.mojang.com/users/profiles/minecraft/${value}`, {validateStatus: function (status) {return status === 200 || status === 400; }})
-				const data = request.data
-				await modal.reply({content: 'Enviado!, Gracias por utilizar tu Mona Lisa de confianza\n~Sr Izan, 2022', ephemeral: true});
-				(modal.client.guilds.cache.get("928018226330337280")!.channels.cache.get("998195363376803850") as TextChannel).send(`Solicitud enviada por ${modal.user}.\nUsername de Minecraft: ${value}`);
-			} catch (err) {
-				await modal.reply({content: 'ERROR: No se ha podido enviar ya que eres un usuario no premium o de MC Bedrock.\nAsegúrate que has puesto bien el nombre de usuario.', ephemeral: true})
-			}
-	}
+	execute: async (ctx) => {
+		const modal = new ModalBuilder()
+		.setCustomId('mcform')
+		.setTitle('Formulario para entrar al servidor');
+				// Create the text input components
+				const input = new TextInputBuilder()
+					.setCustomId('mcUsernameInput')
+					// The label is the prompt the user sees for this input
+					.setLabel("Cuál es tu nombre de usuario de Minecraft?")
+					// Short means only a single line of text
+					.setStyle(TextInputStyle.Short);
+			// An action row only holds one text input,
+			// so you need one action row per text input.
+			const usernameActionRow = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(input);
+	
+			// Add inputs to the modal
+			modal.addComponents(usernameActionRow);
+			await ctx.interaction.showModal(modal);
 	}
 });
