@@ -2,7 +2,7 @@ import { commandModule, CommandType } from '@sern/handler'
 import { publish } from "../../src/plugins/publish.js";
 import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 import { ActionRowBuilder, ApplicationCommandOptionType, ChannelType, Collection, EmbedBuilder, Role, SelectMenuBuilder, TextChannel } from "discord.js";
-import { Resolver } from "../../resolver.js";
+import { Resolver } from "../../util/resolver.js";
 
 export default commandModule({
 	name: 'rolemenu',
