@@ -58,5 +58,4 @@ client.login(process.env.TOKEN);
 
 setIntervalAsync(async () => {
 	await youtubenotifications(client)
-	console.log('tested')
-}, 12000);
+}, 120_000);
