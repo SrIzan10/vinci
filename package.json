@@ -42,6 +42,7 @@
     "mongoose": "^6.5.1",
     "pretty-seconds-spanish": "^2.1.0",
     "rockpaperscissors-checker": "^1.1.5",
+    "set-interval-async": "^3.0.2",
     "systeminformation": "^5.12.6"
   },
   "devDependencies": {

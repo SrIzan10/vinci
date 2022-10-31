@@ -7,6 +7,7 @@ import mongoose from 'mongoose'
 import youtube from 'discord-bot-youtube-notifications'
 import express from 'express'
 import youtubenotifications from "./util/youtubenotifications.js";
+import { setIntervalAsync } from "set-interval-async";
 const app = express();
 
 const client = new Client({
@@ -55,4 +56,7 @@ app.listen(process.env.PORT || 7272,
 
 client.login(process.env.TOKEN);
 
-setInterval(async () => await youtubenotifications(client), 180000)
+setIntervalAsync(async () => {
+	await youtubenotifications(client)
+	console.log('tested')
+}, 12000);
