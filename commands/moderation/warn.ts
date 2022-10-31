@@ -116,7 +116,7 @@ export default commandModule({
 							if (times.times > 2) {
 								const msg = await ctx.reply({content: `El usuario ha excedido 3 avisos, ¿qué hacer?`, ephemeral: true, components: [buttons]})
 								const collector = msg.createMessageComponentCollector({ time: 15000, max: 1 });
-								collector.on('collect', async (i: ButtonInteraction) => {
+								collector.on('collect', async (i) => {
 									await i.deferReply({ephemeral: true})
 									if (i.customId === '1hour') {
 										await i.editReply({content: `Se ha silenciado a ${usermember} durante 1 hora correctamente. ;-;`})
@@ -170,7 +170,7 @@ export default commandModule({
 							if (times.times >= 4) {
 								const msg = await ctx.reply({content: `El usuario ha excedido 3 avisos, ¿qué hacer?`, ephemeral: true, components: [buttons]})
 								const collector = await msg.createMessageComponentCollector({ time: 1000, max: 1 });
-								collector.on('collect', async (i: ButtonInteraction) => {
+								collector.on('collect', async (i) => {
 									if (i.customId === '1hour') {
 										await i.channel!.send({content: `Se ha silenciado a ${usermember} durante 1 hora correctamente. ;-;`})
 										usermember.timeout(60 * 60 * 1000, reason)
