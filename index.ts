@@ -6,6 +6,7 @@ import 'dotenv/config'
 import mongoose from 'mongoose'
 import youtube from 'discord-bot-youtube-notifications'
 import express from 'express'
+import youtubenotifications from "./util/youtubenotifications.js";
 const app = express();
 
 const client = new Client({
@@ -52,34 +53,6 @@ app.get("/", function (req, res) {
 app.listen(process.env.PORT || 7272,
     () => console.log("The webserver is listening"));
 
-/*async function nowPlayingRadio() {
-		const getAPI = await axios.get("https://opml.radiotime.com/Describe.ashx?id=s67006", {validateStatus: function (status) {return status === 200|| status === 403}}).then((res) => res.data).catch((err) => {console.log("now playing radio errored out? diesofcringe")})
-		var parser = new DOMParser()
-		var XMLDoc = parser.parseFromString(getAPI, "text/xml");
-		let getsong, getartist;
-		try {
-		getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
-		getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
-		} catch (err) {
-		getsong = "Anuncios o cambio de canción"
-		getartist = "catJAM"
-		}
-		const embed = new EmbedBuilder()
-			.setColor("Blurple")
-			.setTitle(`Ahora reproduciendo: ${getsong}`)
-			.setAuthor({name: 'Rock FM', iconURL: 'https://cdn-profiles.tunein.com/s67006/images/logoq.png'})
-			.setDescription(`Artista: ${getartist}`)
-			.setFooter({text: `El nombre no cambia al instante, aparece 10 segundos después de terminar una canción.`})
-		const guild = await client.guilds.fetch("928018226330337280");
-		const channel = await guild.channels.fetch("1008730592835281009");
-		const edit = (await channel.messages.fetch("1008778179252596736"))
-		await edit.edit({content: '', embeds: [embed]})
-}
-
-function nowPlayingInterval() {
-	setInterval(nowPlayingRadio, 4000)
-}
-
-nowPlayingInterval()*/
-
 client.login(process.env.TOKEN);
+
+setInterval(async () => await youtubenotifications(client), 180000)
