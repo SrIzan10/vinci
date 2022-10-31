@@ -25,7 +25,7 @@ Sern.init({
 
 
 client.on('ready', async () => {
-	console.log("logged on!");
+	console.log("Logged on!");
 	setInterval(() => {
 	const statuses = [
 		{ name: "Minecraft", type: ActivityType.Playing },
