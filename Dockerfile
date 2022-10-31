@@ -16,4 +16,6 @@ RUN npm run build
 
 COPY ./.env ./dist/.env
 
+COPY ./images/ ./dist/images/
+
 CMD bash start.sh
