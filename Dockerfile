@@ -6,7 +6,7 @@ COPY package.json ./
 
 RUN npm i
 
-RUN apk update && apk add bash
+RUN apk update && apk add bash ffmpeg
 
 EXPOSE 7272
 
