@@ -29,7 +29,7 @@
     "@discordjs/opus": "^0.9.0",
     "@discordjs/voice": "^0.13.0",
     "@sern/handler": "^1.2.1",
-    "@xmldom/xmldom": "^0.8.3",
+    "@xmldom/xmldom": "^0.8.5",
     "axios": "^1.0.0",
     "discord-bot-youtube-notifications": "^1.1.4",
     "discord-tictactoe": "^4.0.0",
@@ -37,12 +37,12 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "got": "^11.8.5",
-    "libsodium-wrappers": "^0.7.10",
     "mongoose": "^6.5.1",
     "pretty-seconds-spanish": "^2.1.0",
     "rockpaperscissors-checker": "^1.1.5",
     "set-interval-async": "^3.0.2",
-    "systeminformation": "^5.12.6"
+    "systeminformation": "^5.12.6",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
     "ts-node": "10.9.1",
