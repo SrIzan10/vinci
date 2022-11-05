@@ -15,7 +15,12 @@ export default commandModule({
 		try {
 			const repliedmessage = await ctx.message.channel.messages.fetch(ctx.message.reference!.messageId!);
 			const trimmedstring = repliedmessage.content.replaceAll('*', '')
-			await ctx.reply(`*${trimmedstring}*`)
+			if (trimmedstring.length === 0) {
+				await ctx.reply('No hay nada que cursivificar!')
+			} else {
+				await ctx.reply(`*${trimmedstring}*`)
+			}
+			
 		} catch (err) {
 			await ctx.reply('Asegúrate que estás respondiendo al mensaje que quieras hacer cursiva!')
 		}
