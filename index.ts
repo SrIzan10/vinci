@@ -7,7 +7,6 @@ import mongoose from 'mongoose'
 import express from 'express'
 import youtubenotifications from "./util/youtubenotifications.js";
 import { setIntervalAsync } from "set-interval-async";
-import birthdays from "./util/birthdays.js";
 const app = express();
 
 const client = new Client({
