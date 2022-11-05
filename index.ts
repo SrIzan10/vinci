@@ -4,10 +4,10 @@ import { Client, GatewayIntentBits } from "discord.js";
 import { Sern } from "@sern/handler"
 import 'dotenv/config'
 import mongoose from 'mongoose'
-import youtube from 'discord-bot-youtube-notifications'
 import express from 'express'
 import youtubenotifications from "./util/youtubenotifications.js";
 import { setIntervalAsync } from "set-interval-async";
+import birthdays from "./util/birthdays.js";
 const app = express();
 
 const client = new Client({
@@ -20,7 +20,8 @@ Sern.init({
 	client,
 	commands : './commands',
 	sernEmitter : new SernEmitter(),
-	events: './events'
+	events: './events',
+	defaultPrefix: process.env.PREFIX
 });
 
 
