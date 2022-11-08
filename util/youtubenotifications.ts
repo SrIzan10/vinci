@@ -25,7 +25,7 @@ export default async function youtubenotifications(client: Client) {
 				iconURL:
 					"https://yt3.ggpht.com/ytc/AMLnZu8rf3ZxWKKv9Dr6UjmWiDuKkaK06J5lDZ8WwwCg=s88-c-k-c0x00ffffff-no-rj",
 			})
-			.setColor("Random")
+			.setColor("Red")
 			.setTitle(`${noembed.title}`)
 			.setURL("https://youtu.be/" + request)
 			.setImage(`${noembed.thumbnail_url}`);
