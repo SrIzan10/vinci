@@ -14,6 +14,8 @@ COPY ./images/ ./dist/images/
 
 COPY ./util/daysinyear.txt ./dist/util/daysinyear.txt
 
+RUN apk update && apk add bash
+
 COPY . .
 
 RUN npm run build
