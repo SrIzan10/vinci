@@ -7,11 +7,11 @@ export async function nowPlayingRadio(client: Client) {
     var XMLDoc = parser.parseFromString(getAPI, "text/xml");
     let getsong, getartist;
     try {
-    getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
-    getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
+        getsong = XMLDoc.getElementsByTagName("current_song").item(0)!.textContent
+        getartist = XMLDoc.getElementsByTagName("current_artist").item(0)!.textContent
     } catch (err) {
-    getsong = "Anuncios o cambio de canción"
-    getartist = "catJAM"
+        getsong = "Anuncios o cambio de canción"
+        getartist = "catJAM"
     }
     const embed = new EmbedBuilder()
         .setColor("Blurple")

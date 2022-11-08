@@ -7,6 +7,7 @@ import mongoose from 'mongoose'
 import express from 'express'
 import youtubenotifications from "./util/youtubenotifications.js";
 import { setIntervalAsync } from "set-interval-async";
+import birthdays from "./util/birthdays.js";
 const app = express();
 
 const client = new Client({
@@ -59,3 +60,8 @@ client.login(process.env.TOKEN);
 setIntervalAsync(async () => {
 	await youtubenotifications(client)
 }, 120_000);
+
+setIntervalAsync(async () => {
+	await birthdays(client)
+}, 100);
+// 3_600_000
