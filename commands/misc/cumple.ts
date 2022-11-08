@@ -17,7 +17,7 @@ export default commandModule({
 	options: [
 		{
 			name: "fecha",
-			description: "La fecha de tu cumple (elige en el autocompletado)",
+			description: "La fecha de tu cumple (D-M) (elige en el autocompletado)",
 			type: ApplicationCommandOptionType.String,
 			autocomplete: true,
 			required: true,
