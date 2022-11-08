@@ -63,5 +63,4 @@ setIntervalAsync(async () => {
 
 setIntervalAsync(async () => {
 	await birthdays(client)
-}, 100);
-// 3_600_000
+}, 3_600_000);
