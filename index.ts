@@ -57,7 +57,7 @@ client.on('ready', async () => {
 
 	setIntervalAsync(async () => {
 		await twitternotifications(client);
-	}, 100);
+	}, 120_000);
 
 	setIntervalAsync(async () => {
 		await birthdays(client);
