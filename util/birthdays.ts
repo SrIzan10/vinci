@@ -15,9 +15,9 @@ export default async function birthdays(client: Client) {
 		if (finduser!.alreadysent === true && dayjs().format('D-M') !== finduser!.date) return saveit()
 		if (finduser!.alreadysent === true && dayjs().format('D-M') === finduser!.date) return
 		const sendtochannel = (await (
-			await client.guilds.fetch("1000400148289036298")
-		).channels.fetch("1037760113219469403")) as TextChannel;
-		const message = await sendtochannel.send({ content: `Es el cumpleaños de <@${finduser!.id}> 🎉🎉🎉\nMuchas felicidades!` })
+			await client.guilds.fetch("928018226330337280")
+		).channels.fetch("1039613653269352449")) as TextChannel;
+		const message = await sendtochannel.send({ content: `Hola <@&1039613683422208020>!\nHoy es el cumpleaños de <@${finduser!.id}> 🎉🎉🎉\nMuchas felicidades!` })
 		message.react('🎉')
 		message.react('<:Pog:1030169609178976346>')
 		finduser!.alreadysent = true
