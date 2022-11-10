@@ -9,8 +9,10 @@ export default async function youtubenotifications(client: Client) {
 			'https://decapi.me/youtube/latest_video?id=UC9G2yvrtrPeJFEzwlshg5HA&format={id}'
 		)
 		.then((res) => res.data);
-	const noembed = await axios
-		.get(`https://noembed.com/embed?url=https://youtube.com/watch?v=${request}`)
+	const titlerequest = await axios
+		.get(
+			'https://decapi.me/youtube/latest_video?id=UC9G2yvrtrPeJFEzwlshg5HA&format={title}'
+		)
 		.then((res) => res.data);
 	const fetchTextChannel = (await (
 		await client.guilds.fetch('928018226330337280')
@@ -26,9 +28,9 @@ export default async function youtubenotifications(client: Client) {
 					'https://yt3.ggpht.com/ytc/AMLnZu8rf3ZxWKKv9Dr6UjmWiDuKkaK06J5lDZ8WwwCg=s88-c-k-c0x00ffffff-no-rj',
 			})
 			.setColor('Red')
-			.setTitle(`${noembed.title}`)
-			.setURL('https://youtu.be/' + request)
-			.setImage(`${noembed.thumbnail_url}`);
+			.setTitle(`${titlerequest}`)
+			.setURL(`https://youtu.be/${request}`)
+			.setImage(`https://img.youtube.com/vi/${request}/hqdefault.jpg`);
 		const message = await fetchTextChannel.send({
 			content: 'Nuevo vídeo de Mara Turing, corre a verlo!',
 			embeds: [embed],
