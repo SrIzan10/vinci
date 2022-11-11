@@ -58,6 +58,7 @@ export function confirmation(
 						buttons
 					),
 				],
+				ephemeral: true
 			});
 
 			const collector = sent.createMessageComponentCollector({
