@@ -3,6 +3,7 @@ import { publish } from "../../src/plugins/publish.js";
 import { ApplicationCommandOptionType } from "discord.js";
 import { readFileSync } from "node:fs";
 import birthdays from "../../schemas/birthdays.js";
+import { confirmation } from "../../src/plugins/acceptingBirthday.js";
 /*
 import { publish } from "../../src/plugins/publish.js";
 import { ownerOnly } from "../../src/plugins/ownerOnly.js"
@@ -11,7 +12,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 export default commandModule({
 	name: "cumple",
 	type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298' , '928018226330337280'] })],
+	plugins: [publish({ guildIds: ['1000400148289036298' , '928018226330337280'] }), confirmation()],
 	description: "Pon tu cumpleaños en la base de datos para ser felicitado!",
 	//alias : [],
 	options: [
