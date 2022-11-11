@@ -44,7 +44,6 @@ export default commandModule({
 		},
 	],
 	execute: async (ctx, options) => {
-		await ctx.interaction.deferReply({ephemeral: true})
 		const option = ctx.interaction.options.getString("fecha")
 		const array = JSON.parse(
 			String(readFileSync("./util/daysinyear.txt"))
