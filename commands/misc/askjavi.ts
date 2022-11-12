@@ -19,7 +19,9 @@ import { randomnumbergen } from '../../util/randomnumbergen.js';
 export default commandModule({
 	name: 'askjavi',
 	type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
+	plugins: [
+		publish({ guildIds: ['1000400148289036298', '928018226330337280'] }),
+	],
 	description: 'TEMP: Pregunta a Javi LO QUE SEA!',
 	//alias : [],
 	options: [
@@ -37,14 +39,28 @@ export default commandModule({
 					name: 'id',
 					description: 'El ID de la pregunta',
 					type: ApplicationCommandOptionType.String,
-					required: true
-				}
-			]
+					required: true,
+				},
+			],
 		},
 		{
 			name: 'you',
 			description: 'Todos los IDs de las preguntas que hayas hecho',
 			type: ApplicationCommandOptionType.Subcommand,
+		},
+		{
+			name: 'answered',
+			description:
+				'ORGANIZADOR: Todos los IDs de las preguntas que hayas hecho',
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: 'id',
+					description: 'El ID de la pregunta',
+					type: ApplicationCommandOptionType.String,
+					required: true,
+				},
+			],
 		},
 	],
 	execute: async (ctx, options) => {
@@ -116,14 +132,60 @@ export default commandModule({
 				});
 			}
 			case 'get': {
-					const option = options[1].getString('id')
-					const db = await padyama.findOne({suggestionid: option})
-					if (db?.suggestion !== undefined) return await ctx.reply({content: `La sugerencia es:\n${db?.suggestion}`, ephemeral: true})
-					else return await ctx.reply({content: `Parece que ese ID no se ha encontrado...`, ephemeral: true})
+				const option = options[1].getString('id');
+				const db = await padyama.findOne({ suggestionid: option });
+				if (db?.suggestion !== undefined)
+					return await ctx.reply({
+						content: `La sugerencia es:\n${db?.suggestion}`,
+						ephemeral: true,
+					});
+				else
+					return await ctx.reply({
+						content: `Parece que ese ID no se ha encontrado...`,
+						ephemeral: true,
+					});
 			}
 			case 'you': {
-				const db = await padyama.find({id: ctx.user.id})
-				await ctx.reply({content: `Los IDs de las preguntas que has hecho:\n${db.map((doc) => `\`${doc.suggestionid}\``)}`, ephemeral: true})
+				const db = await padyama.find({ id: ctx.user.id });
+				await ctx.reply({
+					content: `Los IDs de las preguntas que has hecho:\n${db.map(
+						(doc) => `\`${doc.suggestionid}\``
+					)}`,
+					ephemeral: true,
+				});
+			}
+			case 'answered': {
+				if (ctx.user.id !== '703974042700611634')
+					return await ctx.reply({
+						content: `No puedes usar este comando.`,
+						ephemeral: true,
+					});
+				const option = options[1].getString('id');
+				const db = await padyama.findOne({ suggestionid: option });
+				if (db?.user !== undefined) {
+					try {
+						await (await ctx.user.fetch(db?.id))
+							.send({
+								content: `Hola!\nRespecto al AMA del sevidor de Mara:\nTu pregunta con ID \`${option}\` ha sido respondida correctamente!`,
+							})
+							.then(async () => {
+								await ctx.reply({
+									content: `DM enviado correctamente!`,
+									ephemeral: true,
+								});
+							});
+					} catch (err) {
+						await ctx.reply({
+							content: `Parece que no se ha podido enviar el DM...`,
+							ephemeral: true,
+						});
+					}
+				} else {
+					await ctx.reply({
+						content: `No se ha encontrado el usuario enlazado con el ID en cuestión...`,
+						ephemeral: true,
+					});
+				}
 			}
 		}
 	},

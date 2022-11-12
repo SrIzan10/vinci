@@ -116,7 +116,7 @@ export default commandModule({
 							if (times.times > 2) {
 								const msg = await ctx.reply({content: `El usuario ha excedido 3 avisos, ¿qué hacer?`, ephemeral: true, components: [buttons]})
 								const collector = msg.createMessageComponentCollector({ time: 15000, max: 1, componentType: ComponentType.Button });
-								collector.on('collect', async (i: any) => {
+								collector.on('collect', async (i) => {
 									await i.deferReply({ephemeral: true})
 									if (i.customId === '1hour') {
 										await i.editReply({content: `Se ha silenciado a ${usermember} durante 1 hora correctamente. ;-;`})
