@@ -91,7 +91,7 @@ export default commandModule({
 						});
 						const submitted = (await ctx.interaction
 							.awaitModalSubmit({
-								time: 60000,
+								time: 180000,
 								filter: (i) => i.user.id === ctx.user.id,
 							})
 							.catch((error) => {})) as ModalSubmitInteraction;
@@ -103,7 +103,7 @@ export default commandModule({
 						});
 						await db.save();
 						await submitted.reply({
-							content: `Tu pregunta ha sido registrada en la base de datos correctamente.\nEl ID de esta pregunta es: \`${suggestionid}\`. Se te contactará por DMs cuando se responda la pregunta.\nApunta bien tu ID!`,
+							content: `Tu pregunta ha sido registrada en la base de datos correctamente.\nEl ID de esta pregunta es: \`${suggestionid}\`. Se te contactará por DMs cuando se responda la pregunta.\nPuedes ver tus IDs de preguntas con el comando </askjavi you:1040938647001776199>.`,
 							ephemeral: true,
 						});
 					}
