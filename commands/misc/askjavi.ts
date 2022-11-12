@@ -30,7 +30,7 @@ export default commandModule({
 		},
 		{
 			name: 'get',
-			description: 'Mira una pregunta, mirando su ID.',
+			description: 'Mira una pregunta teniendo su ID.',
 			type: ApplicationCommandOptionType.Subcommand,
 			options: [
 				{
@@ -73,7 +73,7 @@ export default commandModule({
 						.setStyle(ButtonStyle.Danger)
 				);
 				const message = await ctx.reply({
-					content: `No puedes enviar sugerencias inútiles o spam.\nSi haces esto, serás descalificado.\nSabiendo esto, continuas?`,
+					content: `No puedes enviar sugerencias inútiles o spam.\nSi haces esto, serás descalificado.\nContinuas?`,
 					components: [buttons],
 					ephemeral: true,
 				});
