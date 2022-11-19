@@ -1,9 +1,9 @@
 // @ts-nocheck
 /**
- * This is publish plugin, it allows you to publish your slash commands with ease.
+ * This is publish plugin, it allows you to publish your application commands with ease.
  *
  * @author @EvolutionX-10 [<@697795666373640213>]
- * @version 1.2.3
+ * @version 1.3.0
  * @example
  * ```ts
  * import { publish } from "../plugins/publish";
@@ -22,6 +22,7 @@ import {
 	CommandType,
 	PluginType,
 	SernOptionsData,
+	SlashCommand,
 } from "@sern/handler";
 import {
 	ApplicationCommandData,
@@ -31,7 +32,12 @@ import {
 
 export function publish(
 	options?: PublishOptions
-): CommandPlugin<CommandType.Slash | CommandType.Both> {
+): CommandPlugin<
+	| CommandType.Slash
+	| CommandType.Both
+	| CommandType.MenuMsg
+	| CommandType.MenuUser
+> {
 	return {
 		type: PluginType.Command,
 		description: "Manage Slash Commands",
@@ -56,8 +62,18 @@ export function publish(
 				const commandData = {
 					type: CommandTypeRaw[module.type],
 					name: module.name!,
-					description: module.description,
-					options: optionsTransformer(module.options ?? []),
+					description: [CommandType.Slash, CommandType.Both].includes(
+						module.type
+					)
+						? module.description
+						: undefined,
+					options: [CommandType.Slash, CommandType.Both].includes(
+						module.type
+					)
+						? optionsTransformer(
+								(module as SlashCommand).options ?? []
+						  )
+						: [],
 					defaultMemberPermissions,
 					dmPermission,
 				} as ApplicationCommandData;
@@ -65,7 +81,11 @@ export function publish(
 				if (!guildIds.length) {
 					const cmd = (
 						await client.application!.commands.fetch()
-					).find((c) => c.name === module.name);
+					).find(
+						(c) =>
+							c.name === module.name &&
+							c.type === CommandTypeRaw[module.type]
+					);
 					if (cmd) {
 						if (!cmd.equals(commandData, true)) {
 							console.log(
@@ -92,7 +112,9 @@ export function publish(
 					const guild = await client.guilds.fetch(id).catch(c);
 					if (!guild) continue;
 					const guildcmd = (await guild.commands.fetch()).find(
-						(c) => c.name === module.name
+						(c) =>
+							c.name === module.name &&
+							c.type === CommandTypeRaw[module.type]
 					);
 					if (guildcmd) {
 						if (!guildcmd.equals(commandData, true)) {

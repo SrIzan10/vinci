@@ -1,5 +1,5 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { publish } from '../../src/plugins/publish_contextmenu.js';
+import { publish } from '../../src/plugins/publish.js';
 /*
 import { publish } from "../../src/plugins/publish.js";
 import { ownerOnly } from "../../src/plugins/ownerOnly.js"
