@@ -8,7 +8,7 @@ RUN npm i
 
 EXPOSE 7272
 
-RUN apk update && apk add bash
+RUN apk update && apk add bash ffmpeg
 
 COPY . .
 
