@@ -21,7 +21,8 @@ export default commandModule({
             } else {
                 const addToDB = new db({
                     msgid: interaction.message.id,
-                    userid: interaction.user.id
+                    userid: interaction.user.id,
+                    upordown: 1
                 })
                 await addToDB.save()
                 await interaction.message.edit({components: [upvotebuttons]})

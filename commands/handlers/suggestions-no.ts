@@ -6,7 +6,7 @@ export default commandModule({
     type: CommandType.Button,
     async execute(interaction) {
         const convertToNumber = Number(interaction.component.label!)
-        const upvotebuttons = new ActionRowBuilder<ButtonBuilder>().setComponents(
+        const downvotebuttons = new ActionRowBuilder<ButtonBuilder>().setComponents(
             new ButtonBuilder(interaction.message!.components[0].components[0].data),
             new ButtonBuilder()
                 .setCustomId('suggestions-no')
@@ -21,10 +21,11 @@ export default commandModule({
             } else {
                 const addToDB = new db({
                     msgid: interaction.message.id,
-                    userid: interaction.user.id
+                    userid: interaction.user.id,
+                    upordown: -1
                 })
                 await addToDB.save()
-                await interaction.message.edit({components: [upvotebuttons]})
+                await interaction.message.edit({components: [downvotebuttons]})
                 await interaction.deferUpdate()
             }
         })
