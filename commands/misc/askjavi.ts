@@ -10,7 +10,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 export default commandModule({
 	name: 'askjavi',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
+	plugins: [publish()],
 	description: 'DESACTIVADO: Pregunta a Javi LO QUE SEA!',
 	//alias : [],
 	execute: async (ctx, options) => {

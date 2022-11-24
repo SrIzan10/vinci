@@ -7,7 +7,7 @@ import db from '../../schemas/warn.js';
 export default commandModule({
 	name: 'warn',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] }), ownerOnly()],
+	plugins: [publish(), ownerOnly()],
 	description: 'ADMIN: Avisa a usuarios.',
 	//alias : [],
 	options: [
