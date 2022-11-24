@@ -2,7 +2,14 @@ import { SernEmitter } from '@sern/handler';
 import { ActivityType } from 'discord.js';
 import { Client, GatewayIntentBits } from 'discord.js';
 import { Sern } from '@sern/handler';
-import 'dotenv/config';
+import { config as dotenv } from 'dotenv';
+let devMode
+if (process.argv[2] === '--dev') {
+	devMode = true
+	dotenv({path: './.env.dev'})
+} else {
+	dotenv()
+}
 import mongoose from 'mongoose';
 import express from 'express';
 import youtubenotifications from './util/youtubenotifications.js';
@@ -23,7 +30,7 @@ const client = new Client({
 	],
 });
 
-export const db = mongoose.connect(process.env.MONGODB as string).then(() => {
+export const db = mongoose.connect(process.env.MONGODB!).then(() => {
 	console.log('Connected to MongoDB');
 });
 
@@ -51,17 +58,21 @@ client.on('ready', async () => {
 		client.user!.setActivity(randomStatus);
 	}, 10000);
 
-	setIntervalAsync(async () => {
-		await youtubenotifications(client);
-	}, 120_000);
+	if (!devMode) {
+		setIntervalAsync(async () => {
+			await youtubenotifications(client);
+		}, 120_000);
 
-	setIntervalAsync(async () => {
-		await twitternotifications(client);
-	}, 120_000);
+		setIntervalAsync(async () => {
+			await twitternotifications(client);
+		}, 120_000);
 
-	setIntervalAsync(async () => {
-		await birthdays(client);
-	}, 3_600_000);
+		setIntervalAsync(async () => {
+			await birthdays(client);
+		}, 3_600_000);
+	} else {
+		console.log('DevMode got activated, there are no checkers in this version.')
+	}
 });
 
 client.on('rateLimit', async () => {

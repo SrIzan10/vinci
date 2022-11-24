@@ -26,7 +26,7 @@ export default commandModule({
 			const userToBan = options[1].getMember('usuario') as GuildMember
 			const reason = options[1].getString('razon') as string
 			userToBan.ban({reason: reason})
-			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257') as TextChannel
+			const sendToMods = ctx.client.guilds.cache.get(process.env.GUILDID!)!.channels.cache.get(process.env.MODLOGS_CHANNEL!) as TextChannel
 			await sendToMods.send({content: `Se ha baneado a ${userToBan}.\nBan efectuado por ${ctx.user} con razón "${reason}."`})
 			await ctx.reply({content: 'Baneado correctamente!', ephemeral: true})
 		} catch (e) {

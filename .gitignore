@@ -1,4 +1,5 @@
 .env
+.env.dev
 node_modules/
 json.sqlite
 dist/

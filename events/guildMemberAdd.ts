@@ -13,7 +13,7 @@ export default eventModule({
             .setThumbnail(member.user.displayAvatarURL())
             .setTimestamp();
 
-        const channel = member.client.guilds.cache.get('928018226330337280')!.channels.cache.get('993599947364634694') as TextChannel
+        const channel = member.client.guilds.cache.get(process.env.GUILDID!)!.channels.cache.get(process.env.JOINSANDLEAVES_CHANNEL!) as TextChannel
         channel.send({embeds: [newMemberEmbed]})
     }
 });

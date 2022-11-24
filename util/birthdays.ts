@@ -15,8 +15,8 @@ db.find({}, (err, user) => {
 		if (finduser!.alreadysent === true && dayjs().format('D-M') !== finduser!.date) return saveit()
 		if (finduser!.alreadysent === true) return
 		const sendtochannel = (await (
-			await client.guilds.fetch("928018226330337280")
-		).channels.fetch("1039613653269352449")) as TextChannel;
+			await client.guilds.fetch(process.env.GUILDID!)
+		).channels.fetch(process.env.BIRTHDAYS_CHANNEL!)) as TextChannel;
 		const message = await sendtochannel.send({ content: `Hola <@&1039613683422208020>!\nHoy es el cumpleaños de <@${finduser!.id}> 🎉🎉🎉\nMuchas felicidades!` })
 		message.react('🎉')
 		message.react('<:Pog:1030169609178976346>')
