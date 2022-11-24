@@ -28,7 +28,7 @@ export default commandModule({
 			const userToKick = options[1].getMember('usuario');
 			const reason = options[1].getString('razon') as string;
 			(userToKick as GuildMember).kick(reason)
-			const sendToMods = ctx.client.guilds.cache.get('928018226330337280')!.channels.cache.get('1004118323258208257') as TextChannel
+			const sendToMods = ctx.client.guilds.cache.get(process.env.GUILDID!)!.channels.cache.get(process.env.MODLOGS_CHANNEL!) as TextChannel
 			await sendToMods!.send({content: `Se ha expulsado a ${userToKick}.\nKick efectuado por ${ctx.user} con razón "${reason}."`})
 			await ctx.reply({content: 'Expulsado correctamente!'})
 		} catch (e) {

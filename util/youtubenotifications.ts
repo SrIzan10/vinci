@@ -15,8 +15,8 @@ export default async function youtubenotifications(client: Client) {
 		)
 		.then((res) => res.data);
 	const fetchTextChannel = (await (
-		await client.guilds.fetch('928018226330337280')
-	).channels.fetch('948690278498320404')) as TextChannel;
+		await client.guilds.fetch(process.env.GUILDID!)
+	).channels.fetch(process.env.SOCIALS_CHANNEL!)) as TextChannel;
 	if (request === db!.id) return;
 	else {
 		db!.id = request;

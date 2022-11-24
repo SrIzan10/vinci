@@ -38,8 +38,8 @@ export default commandModule({
 					.setLabel('0')
 					.setStyle(ButtonStyle.Danger),
 			)
-		const message1 = await (await modal.client.guilds.fetch('928018226330337280'))
-			.channels.fetch('1007269448140476436') as TextChannel;
+		const message1 = await (await modal.client.guilds.fetch(process.env.GUILDID!))
+			.channels.fetch(process.env.SUGGESTIONS_CHANNEL!) as TextChannel;
 		const message2 = await message1.send({ embeds: [embed], components: [buttons] });
 		message2.startThread({
 			name: `Sugerencia de ${modal.user.username}`,
