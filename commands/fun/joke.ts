@@ -5,7 +5,7 @@ import { publish } from "../../src/plugins/publish.js";
 export default commandModule({
 	name: 'chiste',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
+	plugins: [publish()],
 	description: 'Enseña un chiste en inglés.',
 	execute: async (ctx, args) => {
 		const jokeJSON = await axios(

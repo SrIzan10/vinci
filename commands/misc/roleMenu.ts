@@ -7,7 +7,7 @@ import { Resolver } from "../../util/resolver.js";
 export default commandModule({
 	name: 'rolemenu',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] }), ownerOnly()],
+	plugins: [publish(), ownerOnly()],
 	description: 'ADMIN: Spawnea un menú de roles',
 	//alias : [],
 	options: [

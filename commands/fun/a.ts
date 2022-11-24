@@ -7,7 +7,7 @@ const choices = ['XaviXE', 'Paula', 'William', 'Espejito2500', 'Wheelook', 'Mari
 export default commandModule({
 	name: 'a',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
+	plugins: [publish()],
 	description: 'A',
 	//alias : [],
 	options: [

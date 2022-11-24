@@ -8,7 +8,7 @@ import prettySeconds from 'pretty-seconds-spanish'
 export default commandModule({
 	name: 'stats',
     type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298', '928018226330337280'] })],
+	plugins: [publish()],
 	description: 'Enseña estadísticas del bot.',
 	//alias : [],
 	options: [],

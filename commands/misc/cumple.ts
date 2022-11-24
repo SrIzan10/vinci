@@ -12,7 +12,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 export default commandModule({
 	name: "cumple",
 	type: CommandType.Slash,
-	plugins: [publish({ guildIds: ['1000400148289036298' , '928018226330337280'] }), confirmation()],
+	plugins: [publish(), confirmation()],
 	description: "Pon tu cumpleaños en la base de datos para ser felicitado!",
 	//alias : [],
 	options: [
