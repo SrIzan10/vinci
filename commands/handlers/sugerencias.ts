@@ -25,7 +25,7 @@ export default commandModule({
 				iconURL: `${modal.user.displayAvatarURL()}`,
 			})
 			.setDescription(value);
-		const buttons = new ActionRowBuilder<ButtonBuilder>()
+		const row = new ActionRowBuilder<ButtonBuilder>()
 			.addComponents(
 				new ButtonBuilder()
 					.setCustomId('suggestions-yes')
@@ -38,9 +38,23 @@ export default commandModule({
 					.setLabel('0')
 					.setStyle(ButtonStyle.Danger),
 			)
+		const row2 = new ActionRowBuilder<ButtonBuilder>()
+			.addComponents(
+				new ButtonBuilder()
+					.setCustomId('suggestions-yes-who')
+					.setEmoji('✅')
+					.setLabel('Quién')
+					.setStyle(ButtonStyle.Secondary),
+				new ButtonBuilder()
+					.setCustomId('suggestions-no-who')
+					.setEmoji('❎')
+					.setLabel('Quién')
+					.setStyle(ButtonStyle.Secondary),
+			)
+		
 		const message1 = await (await modal.client.guilds.fetch(process.env.GUILDID!))
 			.channels.fetch(process.env.SUGGESTIONS_CHANNEL!) as TextChannel;
-		const message2 = await message1.send({ embeds: [embed], components: [buttons] });
+		const message2 = await message1.send({ embeds: [embed], components: [row, row2] });
 		message2.startThread({
 			name: `Sugerencia de ${modal.user.username}`,
 			autoArchiveDuration: ThreadAutoArchiveDuration.ThreeDays,
