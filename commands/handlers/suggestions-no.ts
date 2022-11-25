@@ -14,6 +14,10 @@ export default commandModule({
                 .setLabel((convertToNumber + 1).toString())
                 .setStyle(ButtonStyle.Danger),
         )
+        const row2 = new ActionRowBuilder<ButtonBuilder>().setComponents(
+            new ButtonBuilder(interaction.message!.components[1].components[0].data),
+            new ButtonBuilder(interaction.message!.components[1].components[1].data)
+        )
         await db.exists({msgid: interaction.message.id, userid: interaction.user.id}, async (err, doc) => {
             if (err) throw err
             if (doc) {
@@ -25,7 +29,7 @@ export default commandModule({
                     upordown: -1
                 })
                 await addToDB.save()
-                await interaction.message.edit({components: [downvotebuttons]})
+                await interaction.message.edit({components: [downvotebuttons, row2]})
                 await interaction.deferUpdate()
             }
         })

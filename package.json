@@ -2,13 +2,15 @@
   "name": "vinci",
   "version": "1.0.0",
   "description": "Vinci Discord Bot for Mara Turing",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc-watch --onSuccess \"node ./dist/index.js --dev\"",
     "compile": "tsc --build",
     "build": "tsc --build",
-    "web": "node webserver.js"
+    "web": "node webserver.js",
+    "watch": "tsc --watch",
+    "start": "nodemon dist/index.js"
   },
   "repository": {
     "type": "git",
