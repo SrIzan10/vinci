@@ -19,7 +19,6 @@ export default commandModule({
 		const ramtotal = await axios(`http://192.168.1.44:7271/ramtotal`)
 		const ramfree = await axios(`http://192.168.1.44:7271/ramfree`)
 		const dockertotal = await axios(`http://192.168.1.44:7271/dockertotal`)
-		const nodeuptime = await axios(`http://192.168.1.44:7271/uptime`)
 		const uptime = prettySeconds(process.uptime())
 		const embed = new EmbedBuilder()
 			.setAuthor({name: `${ctx.user.username}`, iconURL: `${ctx.user.displayAvatarURL()}`})
