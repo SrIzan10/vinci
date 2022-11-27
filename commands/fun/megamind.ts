@@ -37,7 +37,7 @@ export default commandModule({
 		context.drawImage(background, 0, 0, canvas.width, canvas.height)
 
 		const text = `No ${option}?`
-		context.font = '40px Arial'
+		context.font = '40px Ubuntu'
 		context.fillStyle = 'red'
 		context.textAlign = 'center'
 		context.textBaseline = 'middle'
