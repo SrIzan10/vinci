@@ -90,6 +90,7 @@ export default commandModule({
 	],
 	execute: async (ctx, options) => {
 		const gogoanime = new ANIME.Gogoanime();
+		const doubleslashregex = new RegExp('(?<!:)\/\/+')
 		switch (options[1].getSubcommand()) {
 			case 'buscar': {
 				await ctx.interaction.deferReply()
@@ -98,14 +99,14 @@ export default commandModule({
 				const editedarray = await Promise.all(
 					search.results
 						.map((results) => {
-							return `[${results.title}](<${results.url}>)`;
+							return `[${results.title}](<${results.url!.replace(doubleslashregex, '/')}>)`;
 						})
 						.slice(0, 5)
 				);
 				const editedarrayids = await Promise.all(
 					search.results
 						.map((results) => {
-							return `[${results.id}](<${results.url}>)`;
+							return `[${results.id}](<${results.url!.replace(doubleslashregex, '/')}>)`;
 						})
 						.slice(0, 5)
 				);
@@ -129,17 +130,17 @@ export default commandModule({
 					})
 					await i.deferUpdate()
 				})
-			}
+			} break;
 			case 'capitulo': {
 				const selepisode = options[1].getString('id-capitulo', true)
 				try {
 					const search = await gogoanime.fetchEpisodeServers(selepisode)
-					const arrayed = await Promise.all(search.map((server) => `[${server.name}](<${server.url}>)`))
+					const arrayed = await Promise.all(search.map((server) => `[${server.name}](<${server.url!.replace(doubleslashregex, '/')}>)`))
 					await ctx.reply({content: `Todos los servidores de \`${selepisode}\` (Vinci no se hace cargo de los enlaces):\n${arrayed.join('\n')}`})
 				} catch (err) {
 					await ctx.reply({content: 'Ha ocurrido un error! Asegúrate que hayas seleccionado bien un capítulo.'})
 				}
-			}
+			} break;
 			case 'info': {
 				try {
 					const option = options[1].getString('id', true)
@@ -147,7 +148,7 @@ export default commandModule({
 					const embed = new EmbedBuilder()
 						.setColor('Random')
 						.setTitle(`${info.title}`)
-						.setURL(info.url!)
+						.setURL(info.url!.replace(doubleslashregex, '/'))
 						.setThumbnail(info.image!)
 						.setFields(
 							{name: 'Géneros', value: `${info.genres!.join(', ')}`},
@@ -162,7 +163,7 @@ export default commandModule({
 					await ctx.reply({content: 'Algo malo ha ocurrido, asegúrate que hayas escrito el ID correctamente\nTip: Usa el comando de buscar y conviértelos a ID.'})
 					console.log(err)
 				}
-			}
+			} break;
 		}
 	},
 });

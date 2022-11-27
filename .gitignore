@@ -3,4 +3,3 @@
 node_modules/
 json.sqlite
 dist/
-.dccache
