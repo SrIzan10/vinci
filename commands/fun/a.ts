@@ -33,19 +33,19 @@ export default commandModule({
 		try {option = options[1].getString('usuario', true)} catch(error) {option = undefined}
 			if (!option) {
 				const imagesArray = [
-					'./images/XaviXE.png',
-					'./images/Paula.png',
-					'./images/William.png',
-					'./images/Espejito2500.png',
-					'./images/Wheelook.png',
-					'./images/MarioCabrera.png',
-					'./images/Paticama.png',
-					'./images/Vinci.png',
-					'./images/SrIzan.png',
-					'./images/ItsAdrian.png',
-					'./images/ByHGT.png',
-					'./images/Irene.png',
-					'./images/Boniato64.png',
+					'./images/a/XaviXE.png',
+					'./images/a/Paula.png',
+					'./images/a/William.png',
+					'./images/a/Espejito2500.png',
+					'./images/a/Wheelook.png',
+					'./images/a/MarioCabrera.png',
+					'./images/a/Paticama.png',
+					'./images/a/Vinci.png',
+					'./images/a/SrIzan.png',
+					'./images/a/ItsAdrian.png',
+					'./images/a/ByHGT.png',
+					'./images/a/Irene.png',
+					'./images/a/Boniato64.png',
 				]
 				const images = imagesArray[Math.floor(Math.random() * imagesArray.length)];
 
