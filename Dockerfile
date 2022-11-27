@@ -8,7 +8,7 @@ RUN npm i
 
 EXPOSE 7272
 
-RUN apk update && apk add bash ffmpeg
+RUN apk update && apk add bash ffmpeg ttf-ubuntu-font-family
 
 COPY . .
 
