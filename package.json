@@ -33,6 +33,7 @@
     "@napi-rs/canvas": "^0.1.30",
     "@sern/handler": "^1.2.1",
     "axios": "^1.0.0",
+    "country-flag-emoji": "^1.0.3",
     "dayjs": "^1.11.6",
     "discord-bot-youtube-notifications": "^1.1.4",
     "discord-tictactoe": "^4.0.0",

@@ -24,7 +24,7 @@ export default commandModule({
 	],
 	execute: async (ctx, options) => {
 		const option = options[1].getString('texto', true)
-		if (option.length > 26) return await ctx.reply({content: `El texto es muy largo, intenta que sea menor que 26 caracteres.`, ephemeral: true})
+		if (option.length > 15) return await ctx.reply({content: `El texto es muy largo, intenta que sea menor que 15 caracteres.`, ephemeral: true})
 		
 		await ctx.reply({content: 'Cargando...'})
 		
@@ -37,7 +37,7 @@ export default commandModule({
 		context.drawImage(background, 0, 0, canvas.width, canvas.height)
 
 		const text = `No ${option}?`
-		context.font = '40px Ubuntu'
+		context.font = '40px Impact'
 		context.fillStyle = 'red'
 		context.textAlign = 'center'
 		context.textBaseline = 'middle'
