@@ -1,5 +1,8 @@
 FROM node:lts-alpine
 
+RUN apk add bash ffmpeg msttcorefonts-installer fontconfig
+RUN update-ms-fonts && fc-cache -f
+
 WORKDIR /app
 
 COPY package.json ./
@@ -7,8 +10,6 @@ COPY package.json ./
 RUN npm i
 
 EXPOSE 7272
-
-RUN apk update && apk add bash ffmpeg ttf-freefont
 
 COPY . .
 
