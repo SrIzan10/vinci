@@ -52,7 +52,7 @@ export default commandModule({
 				await ctx.reply({content: 'A', files: [images]});
 			} else {
 				if (choices.indexOf(options[1].getString('usuario', true)) > -1) {
-					const attachmentbuilder = new AttachmentBuilder(`./images/${options[1].getString('usuario', true)}.png`)
+					const attachmentbuilder = new AttachmentBuilder(`./images/a/${options[1].getString('usuario', true)}.png`)
 					await ctx.reply({content: 'A', files: [attachmentbuilder]})
 				} else {
 					const embed = new EmbedBuilder()

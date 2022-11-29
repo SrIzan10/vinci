@@ -47,7 +47,7 @@ export default commandModule({
 
 		const after = performance.now()
 		
-		const attachment = new AttachmentBuilder(encode, { name: 'profile-image.png' });
+		const attachment = new AttachmentBuilder(encode, { name: 'megamind.png' });
 		await ctx.interaction.editReply({
 			content: `Aquí está tu megamind:\nLa generación de imagen ha tardado \`${(after - before).toFixed(2)}ms\`.`,
 			files: [attachment]
