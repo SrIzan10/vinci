@@ -161,7 +161,6 @@ export default commandModule({
 					await ctx.reply({embeds: [embed]})
 				} catch (err) {
 					await ctx.reply({content: 'Algo malo ha ocurrido, asegúrate que hayas escrito el ID correctamente\nTip: Usa el comando de buscar y conviértelos a ID.'})
-					console.log(err)
 				}
 			} break;
 		}
