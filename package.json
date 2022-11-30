@@ -42,7 +42,7 @@
     "express": "^4.18.1",
     "got": "^11.8.5",
     "libsodium-wrappers": "^0.7.10",
-    "mongoose": "^6.5.1",
+    "mongoose": "^6.7.2",
     "pretty-seconds-spanish": "^2.1.0",
     "rockpaperscissors-checker": "^1.1.5",
     "set-interval-async": "^3.0.2",
