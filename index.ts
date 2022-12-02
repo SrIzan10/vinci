@@ -14,11 +14,12 @@ let devMode
 if (process.argv[2] === '--dev') {
 	devMode = true
 	dotenv({path: '.env.dev'})
+	console.clear()
 } else {
 	dotenv()
 }
 
-console.clear()
+
 
 const client = new Client({
 	intents: [
