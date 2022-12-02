@@ -18,6 +18,8 @@ if (process.argv[2] === '--dev') {
 	dotenv()
 }
 
+console.clear()
+
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,

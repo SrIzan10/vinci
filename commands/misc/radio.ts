@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { publish } from "../../src/plugins/publish.js";
-import { createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice";
+import { createAudioPlayer, createAudioResource, DiscordGatewayAdapterCreator, joinVoiceChannel } from "@discordjs/voice";
 import got from "got";
 import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
 /*
@@ -45,8 +45,8 @@ export default commandModule({
 			.setDescription(`La radio no ha sido encontrada, asegúrate que la radio está escogida de la lista.`);
 
 		async function playRadio(radioname: string) {
-			const stream = await got.stream(radioname)
-			const connection = joinVoiceChannel({adapterCreator: ctx.guild.voiceAdapterCreator,channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
+			const stream = got.stream(radioname)
+			const connection = joinVoiceChannel({adapterCreator: ctx.interaction.guild!.voiceAdapterCreator as DiscordGatewayAdapterCreator, channelId: '1008730592835281009',guildId: '928018226330337280',selfDeaf: true});
 			const resource = createAudioResource(stream, { inlineVolume: true });
 			const player = createAudioPlayer();
 			connection.subscribe(player)
