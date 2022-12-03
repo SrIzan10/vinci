@@ -19,8 +19,6 @@ if (process.argv[2] === '--dev') {
 	dotenv()
 }
 
-
-
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -67,9 +65,9 @@ client.on('ready', async () => {
 			await youtubenotifications(client);
 		}, 120_000);
 
-		setIntervalAsync(async () => {
-			await twitternotifications(client);
-		}, 120_000);
+		// setIntervalAsync(async () => {
+		// 	await twitternotifications(client);
+		// }, 120_000);
 
 		setIntervalAsync(async () => {
 			await birthdays(client);
