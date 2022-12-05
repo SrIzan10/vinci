@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { Client, TextChannel } from "discord.js";
+import { Client, TextChannel, ThreadAutoArchiveDuration } from "discord.js";
 import db from "../schemas/birthdays.js";
 
 export default async function birthdays(client: Client) {
@@ -17,9 +17,11 @@ db.find({}, (err, user) => {
 		const sendtochannel = (await (
 			await client.guilds.fetch(process.env.GUILDID!)
 		).channels.fetch(process.env.BIRTHDAYS_CHANNEL!)) as TextChannel;
+		const fetchuser = await client.users.fetch(user.id)
 		const message = await sendtochannel.send({ content: `Hola <@&1039613683422208020>!\nHoy es el cumpleaños de <@${finduser!.id}> 🎉🎉🎉\nMuchas felicidades!` })
 		message.react('🎉')
 		message.react('<:Pog:1030169609178976346>')
+		message.startThread({name: `Thread de felicitación a ${fetchuser.username}!`, autoArchiveDuration: ThreadAutoArchiveDuration.OneWeek})
 		finduser!.alreadysent = true
 		await finduser?.save()
 	})
