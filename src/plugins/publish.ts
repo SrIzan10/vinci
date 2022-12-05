@@ -66,7 +66,7 @@ export function publish(
 						module.type
 					)
 						? module.description
-						: undefined,
+						: "",
 					options: [CommandType.Slash, CommandType.Both].includes(
 						module.type
 					)
