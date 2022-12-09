@@ -9,6 +9,7 @@ import { setIntervalAsync } from 'set-interval-async';
 import birthdays from './util/birthdays.js';
 import twitternotifications from './util/twitternotifications.js';
 import webserver from './util/web/webserver.js'
+// import giveawaychecker from './util/giveawaychecker.js';
 
 let devMode
 if (process.argv[2] === '--dev') {
@@ -65,9 +66,9 @@ client.on('ready', async () => {
 			await youtubenotifications(client);
 		}, 120_000);
 
-		// setIntervalAsync(async () => {
-		// 	await twitternotifications(client);
-		// }, 120_000);
+		setIntervalAsync(async () => {
+			await twitternotifications(client);
+		}, 120_000);
 
 		setIntervalAsync(async () => {
 			await birthdays(client);
@@ -75,6 +76,9 @@ client.on('ready', async () => {
 		webserver()
 	} else {
 		console.log('DevMode got activated, there are no checkers or webserver in this version.')
+/* 		setIntervalAsync(async () => {
+			await giveawaychecker(client)
+		}, 10000); */
 	}
 });
 
