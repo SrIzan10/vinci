@@ -40,7 +40,7 @@
     "discord.js": "^14.5.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "got": "^11.8.5",
+    "got": "^12.0.0",
     "libsodium-wrappers": "^0.7.10",
     "mongoose": "^6.5.1",
     "pretty-seconds-spanish": "^2.1.0",
