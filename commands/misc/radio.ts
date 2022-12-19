@@ -10,7 +10,7 @@ import { ownerOnly } from "../../src/plugins/ownerOnly.js"
 
 export default commandModule({
 	name: 'radio',
-    type: CommandType.Slash,
+	type: CommandType.Slash,
 	plugins: [publish()],
 	description: 'Reproduce la radio', 
 	options: [
@@ -24,7 +24,7 @@ export default commandModule({
 				onEvent: [],
 				async execute(ctx){
 					const focusedValue = ctx.options.getFocused();
-					const choices = ['Rock FM', 'Cadena 100', 'Cadena Dial', 'Gensokyo Radio', 'BBC 1', 'BBC 5', 'RNE 1', 'RNE 5', 'Los 40', 'Flaixbac', 'FlaixFM'];
+					const choices = ['Rock FM', 'Cadena 100', 'Cadena Dial', 'Gensokyo Radio', 'BBC 1', 'RNE 1', 'RNE 5', 'Los 40', 'Flaixbac', 'FlaixFM'];
 					const filtered = choices.filter(choice => choice.startsWith(focusedValue));
 					await ctx.respond(
 						filtered.map(choice => ({ name: choice, value: choice })),
@@ -34,7 +34,7 @@ export default commandModule({
 		}
 	],
 	execute: async (ctx, options) => {
-		const radioname = options[1].getString("reproducir", true) as string;
+		const radioname = options[1].getString("reproducir", true)
 		const embed = new EmbedBuilder()
 			.setColor("Green")
 			.setTitle(`Reproduciendo ${radioname} en Vinci Radio.`)
@@ -59,30 +59,40 @@ export default commandModule({
 			await ctx.reply({embeds: [embed], ephemeral: true})
 		}
 
-		if (radioname === 'Rock FM') {
-			playRadio("https://flucast-m04-06.flumotion.com/cope/rockfm.mp3")
-		} else if (radioname === 'Cadena 100') {
-			playRadio("https://server8.emitironline.com:18196/stream")
-		} else if (radioname === 'Cadena Dial') {
-			playRadio("http://20853.live.streamtheworld.com/CADENADIAL.mp3")
-		} else if (radioname === 'BBC 1') {
-			playRadio("http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one")
-		} else if (radioname === 'BBC 5') {
-			playRadio("https://server8.emitironline.com:18196/stream")
-		} else if (radioname === 'RNE 1') {
-			playRadio("https://crtve--di--crtve-ice--01--cdn.cast.addradio.de/crtve/rne1/main/mp3/high")
-		} else if (radioname === 'RNE 5') {
-			playRadio("https://crtve--di--crtve-ice--01--cdn.cast.addradio.de/crtve/rne5/main/mp3/high")
-		} else if (radioname === 'Los 40') {
-			playRadio('http://stream.ondaceronoroeste.es:8000/stream')
-		} else if (radioname === 'Gensokyo Radio') {
-			playRadio('https://stream.gensokyoradio.net/3')
-		} else if (radioname === 'Flaixbac') {
-			playRadio('https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3', true)
-		} else if (radioname === 'FlaixFM') {
-			playRadio('https://nodo07-cloud01.streaming-pro.com:8001/flaixfm.mp3', true)
-		} else {
-			ctx.reply({embeds: [notFoundEmbed], ephemeral: true})
+		switch (radioname) {
+			case 'Rock FM': {
+				playRadio("https://flucast-m04-06.flumotion.com/cope/rockfm.mp3")
+			} break;
+			case 'Cadena 100': {
+				playRadio("https://server8.emitironline.com:18196/stream")
+			} break;
+			case 'Cadena Dial': {
+				playRadio("http://20853.live.streamtheworld.com/CADENADIAL.mp3")
+			} break;
+			case 'BBC 1': {
+				playRadio("http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one")
+			} break;
+			case 'RNE 1': {
+				playRadio("https://crtve--di--crtve-ice--01--cdn.cast.addradio.de/crtve/rne1/main/mp3/high")
+			} break;
+			case 'RNE 5': {
+				playRadio("https://crtve--di--crtve-ice--01--cdn.cast.addradio.de/crtve/rne5/main/mp3/high")
+			} break;
+			case 'Los 40': {
+				playRadio('http://stream.ondaceronoroeste.es:8000/stream')
+			} break;
+			case 'Gensokyo Radio': {
+				playRadio('https://stream.gensokyoradio.net/3')
+			} break;
+			case 'Flaixbac': {
+				playRadio('https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3', true)
+			} break;
+			case 'FlaixFM': {
+				playRadio('https://nodo07-cloud01.streaming-pro.com:8001/flaixfm.mp3', true)
+			} break;
+			default: {
+				await ctx.reply({embeds: [notFoundEmbed], ephemeral: true})
+			} break;
 		}
 	},
 });
