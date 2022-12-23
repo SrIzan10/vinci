@@ -24,7 +24,6 @@ export default commandModule({
 	],
 	execute: async (ctx, options) => {
 		const option = options[1].getString('texto', true)
-		if (option.length > 15) return await ctx.reply({content: `El texto es muy largo, intenta que sea menor que 15 caracteres.`, ephemeral: true})
 		
 		await ctx.reply({content: 'Cargando...'})
 		
