@@ -36,8 +36,8 @@ export default commandModule({
 		context.drawImage(background, 0, 0, canvas.width, canvas.height)
 
 		const text = `No ${option}?`
-		context.font = '40px Impact'
-		context.fillStyle = 'red'
+		context.font = '50px Impact'
+		context.fillStyle = 'white'
 		context.textAlign = 'center'
 		context.textBaseline = 'middle'
 		context.fillText(text, canvas.width / 2, canvas.height - 510)
