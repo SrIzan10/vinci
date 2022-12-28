@@ -33,7 +33,7 @@ export default commandModule({
 			ctx.reply({content: `Se han añadido ${seconds} segundos de modo lento al canal de voz actual`})
 			const sendToMods = ctx.client.guilds.cache.get(process.env.GUILDID!)!.channels.cache.get(process.env.MODLOGS_CHANNEL!) as TextChannel
 			await sendToMods.send({content: `Se ha aplicado modo lento al canal ${ctx.channel}.\nEfectuado por ${ctx.user} con ${seconds} segundos de retardo.\nRazón: ${reason}`})
-		} catch (e) {
+		} catch {
 			ctx.reply({content: `No se ha podido aplicar modo lento al canal.`})
 		}
 	},

@@ -29,5 +29,5 @@ export default async function twitternotifications(client: Client) {
 			});
 			message.react('<:Pog:1030169609178976346>');
 		}
-	} catch (err) {}
+	} catch {}
 }

@@ -66,7 +66,7 @@ export default commandModule({
 										value: choice.id.toString(),
 									}))
 								)
-							} catch (err) {
+							} catch {
 								await autocomplete.respond([{name: 'Algo malo ha ocurrido! Asegúrate que hayas puesto el ID correctamente', value: 'error'}])
 							}
 						}
@@ -137,7 +137,7 @@ export default commandModule({
 					const search = await gogoanime.fetchEpisodeServers(selepisode)
 					const arrayed = await Promise.all(search.map((server) => `[${server.name}](<${server.url!.replace(doubleslashregex, '/')}>)`))
 					await ctx.reply({content: `Todos los servidores de \`${selepisode}\` (Vinci no se hace cargo de los enlaces):\n${arrayed.join('\n')}`})
-				} catch (err) {
+				} catch {
 					await ctx.reply({content: 'Ha ocurrido un error! Asegúrate que hayas seleccionado bien un capítulo.'})
 				}
 			} break;
@@ -159,7 +159,7 @@ export default commandModule({
 						)
 
 					await ctx.reply({embeds: [embed]})
-				} catch (err) {
+				} catch {
 					await ctx.reply({content: 'Algo malo ha ocurrido, asegúrate que hayas escrito el ID correctamente\nTip: Usa el comando de buscar y conviértelos a ID.'})
 				}
 			} break;
