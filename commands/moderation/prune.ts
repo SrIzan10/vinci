@@ -26,7 +26,7 @@ export default commandModule({
 			await ctx.reply({content: `Se han eliminado ${amount} mensajes.`})
 			const sendToMods = ctx.client.guilds.cache.get(process.env.GUILDID!)!.channels.cache.get(process.env.MODLOGS_CHANNEL!) as TextChannel
 			await sendToMods.send({content: `Se han eliminado ${amount} mensajes en ${ctx.channel}\nEfectuado por ${ctx.user}.`})
-		} catch (e){
+		} catch {
 			ctx.reply({content: 'Ha habido un error eliminando mensajes! Error reportado automáticamente.', ephemeral: true})};
 		}
 });

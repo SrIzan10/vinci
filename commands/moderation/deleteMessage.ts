@@ -35,7 +35,7 @@ export default commandModule({
 			const channel = await guild.channels.fetch(ctx.channel!.id);
 			(await (channel as TextChannel).messages.fetch(idMensaje)).delete();
 			await ctx.reply({content: 'Mensaje eliminado correctamente.', ephemeral: true});
-		} catch (e) {
+		} catch {
 			await ctx.reply({content: `ERROR: No se ha podido eliminar el mensaje, asegúrate que estás usando el ID y el canal correcto.`})
 		}
 	},

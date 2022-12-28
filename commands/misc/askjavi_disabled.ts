@@ -174,7 +174,7 @@ export default commandModule({
 									ephemeral: true,
 								});
 							});
-					} catch (err) {
+					} catch {
 						await ctx.reply({
 							content: `Parece que no se ha podido enviar el DM...`,
 							ephemeral: true,

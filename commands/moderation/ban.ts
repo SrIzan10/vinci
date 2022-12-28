@@ -29,7 +29,7 @@ export default commandModule({
 			const sendToMods = ctx.client.guilds.cache.get(process.env.GUILDID!)!.channels.cache.get(process.env.MODLOGS_CHANNEL!) as TextChannel
 			await sendToMods.send({content: `Se ha baneado a ${userToBan}.\nBan efectuado por ${ctx.user} con razón "${reason}."`})
 			await ctx.reply({content: 'Baneado correctamente!', ephemeral: true})
-		} catch (e) {
+		} catch {
 			await ctx.reply({content: `ERROR: No puedo hacer este comando porque a lo mejor soy inferior que el rol de esa persona o estoy usándolo contra admins.`})
 		}
 	},
