@@ -90,7 +90,6 @@ client.on('ready', async () => {
 			await giveawaychecker(client)
 		}, 10000); */
 	}
-	(await (await client.application!.fetch()).commands.fetch('1045375985815654511')).delete().then(() => console.log('ok'))
 });
 
 client.on('rateLimit', async () => {
