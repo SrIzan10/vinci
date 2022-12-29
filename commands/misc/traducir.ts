@@ -1,13 +1,13 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins";
 import axios from 'axios';
 import { readFileSync } from 'node:fs'
 import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } from 'discord.js';
 const choices = ['es', 'en', 'fr', 'de', 'hi', 'it', 'ja', 'ko', 'pl']
 /*
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins"
 */
 
 export default commandModule({

@@ -16,7 +16,7 @@
 
 import { CommandType, EventPlugin, PluginType } from "@sern/handler";
 const ownerIDs = ['703974042700611634']; //! Fill your ID
-export function ownerOnly(): EventPlugin<CommandType.Both> {
+export function srIzanOnly(): EventPlugin<CommandType.Both> {
 	return {
 		type: PluginType.Event,
 		description: "Allows only bot owner to run command",

@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ModalActionRowComponentBuilder } from 'discord.js'
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins";
 
 
 export default commandModule({
