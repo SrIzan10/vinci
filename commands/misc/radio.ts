@@ -1,11 +1,11 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 import { createAudioPlayer, createAudioResource, DiscordGatewayAdapterCreator, joinVoiceChannel } from "@discordjs/voice";
 import got from "got";
 import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
 /*
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins"
 */
 
 export default commandModule({

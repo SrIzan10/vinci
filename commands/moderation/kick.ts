@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js";
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins";;
 import { ApplicationCommandOptionType, EmbedBuilder, GuildMember, TextChannel } from 'discord.js'
 
 export default commandModule({

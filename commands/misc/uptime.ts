@@ -1,5 +1,5 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 import prettySeconds from 'pretty-seconds-spanish'
 
 export default commandModule({

@@ -27,7 +27,7 @@ import {
 	ComponentType,
 } from "discord.js";
 
-export function confirmation(
+export function acceptingBirthday(
 	options?: Partial<ConfirmationOptions>
 ): EventPlugin<CommandType.Both> {
 	return {

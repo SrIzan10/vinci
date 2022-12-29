@@ -1,10 +1,10 @@
 import { commandModule, CommandType } from '@sern/handler'
 import axios from "axios";
 import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } from "discord.js";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 /*
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins"
 */
 
 export default commandModule({

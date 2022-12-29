@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
 import axios from "axios";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 
 export default commandModule({
 	name: 'chiste',

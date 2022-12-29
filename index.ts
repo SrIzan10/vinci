@@ -1,4 +1,4 @@
-import { SernEmitter } from '@sern/handler';
+import { DefaultLogging, Dependencies, single, Singleton } from '@sern/handler';
 import { ActivityType } from 'discord.js';
 import { Client, GatewayIntentBits } from 'discord.js';
 import { Sern } from '@sern/handler';
@@ -36,12 +36,22 @@ mongoose.connect(process.env.MONGODB!).then(() => {
 	console.log('Connected to MongoDB');
 });
 
+interface MyDependencies extends Dependencies {
+    '@sern/client' : Singleton<Client>;
+    '@sern/logger' : Singleton<DefaultLogging>
+}
+export const useContainer = Sern.makeDependencies<MyDependencies>({
+    build: root => root
+        .add({ '@sern/client': single(client)  }) 
+        .add({ '@sern/logger': single(new DefaultLogging()) })
+});
 Sern.init({
-	client,
-	commands: './dist/commands',
-	sernEmitter: new SernEmitter(),
-	events: './dist/events',
+	commands: 'dist/commands',
+	events: 'dist/events',
 	defaultPrefix: process.env.PREFIX,
+	containerConfig: {
+		get: useContainer
+	}
 });
 
 client.on('ready', async () => {
@@ -80,6 +90,7 @@ client.on('ready', async () => {
 			await giveawaychecker(client)
 		}, 10000); */
 	}
+	(await (await client.application!.fetch()).commands.fetch('1045375985815654511')).delete().then(() => console.log('ok'))
 });
 
 client.on('rateLimit', async () => {

@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { Context } from "@sern/handler";
 import { ApplicationCommandOptionType, AttachmentBuilder, AutocompleteInteraction, EmbedBuilder } from "discord.js";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 const choices = ['XaviXE', 'Paula', 'William', 'Espejito2500', 'Wheelook', 'MarioCabrera', 'Paticama', 'Vinci', 'SrIzan', 'ItsAdrian', 'ByHGT', 'Irene', 'Boniato64'];
 
 export default commandModule({

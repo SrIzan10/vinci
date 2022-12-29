@@ -1,7 +1,7 @@
 import TicTacToe from 'discord-tictactoe';
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins";
 import { ApplicationCommandOptionType } from "discord.js";
 const game = new TicTacToe({language: 'en'})
 

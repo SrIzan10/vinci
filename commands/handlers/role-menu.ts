@@ -2,7 +2,7 @@ import { commandModule, CommandType } from "@sern/handler";
 import type { APISelectMenuComponent, GuildMember } from "discord.js";
 
 export default commandModule({
-	type: CommandType.MenuSelect,
+	type: CommandType.StringSelect,
     name: 'role-menu',
 	async execute(interaction) {
 		await interaction.deferReply({ ephemeral: true });

@@ -1,18 +1,18 @@
 import { commandModule, CommandType } from "@sern/handler";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 import { ApplicationCommandOptionType } from "discord.js";
 import { readFileSync } from "node:fs";
 import birthdays from "../../schemas/birthdays.js";
-import { confirmation } from "../../src/plugins/acceptingBirthday.js";
+import { acceptingBirthday } from "#plugins";
 /*
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins"
 */
 
 export default commandModule({
 	name: "cumple",
 	type: CommandType.Slash,
-	plugins: [publish(), confirmation()],
+	plugins: [publish(), acceptingBirthday()],
 	description: "Pon tu cumpleaños en la base de datos para ser felicitado!",
 	//alias : [],
 	options: [

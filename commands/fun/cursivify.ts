@@ -1,13 +1,13 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 /*
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins"
 */
 
 export default commandModule({
 	name: 'cursivify',
-	type: CommandType.MenuMsg,
+	type: CommandType.CtxMsg,
 	plugins: [publish()],
 	execute: async (ctx) => {
 		await ctx.deferReply()

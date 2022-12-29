@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder, GuildMember } from "discord.js";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 import rockpaperscissors from "rockpaperscissors-checker";
 
 export default commandModule({

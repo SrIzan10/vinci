@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins";
 import { ActionRowBuilder, ApplicationCommandOptionType, ChannelType, Collection, EmbedBuilder, Role, SelectMenuBuilder, TextChannel } from "discord.js";
 import { Resolver } from "../../util/resolver.js";
 

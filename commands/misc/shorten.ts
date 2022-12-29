@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from "@sern/handler";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { ApplicationCommandOptionType } from "discord.js";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 
 export default commandModule({
 	name: "acortar",

@@ -1,10 +1,10 @@
 import { commandModule, CommandType } from '@sern/handler'
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "../../plugins/index.js";
+import { ownerOnly } from "#plugins";
 import { ApplicationCommandOptionType, TextChannel } from "discord.js";
 /*
-import { publish } from "../../src/plugins/publish.js";
-import { ownerOnly } from "../../src/plugins/ownerOnly.js"
+import { publish } from "#plugins";
+import { ownerOnly } from "#plugins"
 */
 
 export default commandModule({
@@ -30,7 +30,7 @@ export default commandModule({
 	execute: async (ctx, options) => {
 		try {
 			const idMensaje = options[1].getString('id', true);
-			const guildId = ctx.guild.id
+			const guildId = ctx.guild!.id
 			const guild = await ctx.client.guilds.fetch(guildId);
 			const channel = await guild.channels.fetch(ctx.channel!.id);
 			(await (channel as TextChannel).messages.fetch(idMensaje)).delete();

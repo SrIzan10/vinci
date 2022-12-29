@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { Context, SlashOptions } from "@sern/handler";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "#plugins";
 
 export default commandModule({
 	name: 'creditos',
