@@ -1,4 +1,4 @@
-import { DefaultLogging, Dependencies, single, Singleton } from '@sern/handler';
+import { DefaultLogging, Dependencies, ModuleManager, single, Singleton } from '@sern/handler';
 import { ActivityType } from 'discord.js';
 import { Client, GatewayIntentBits } from 'discord.js';
 import { Sern } from '@sern/handler';

@@ -9,6 +9,7 @@ import {
 } from 'discord.js';
 
 export default commandModule({
+	name: 'mcform-main',
 	type: CommandType.Modal,
 	plugins: [],
 	description: 'Envia el formulario para entrar al servidor.',
