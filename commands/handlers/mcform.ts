@@ -33,7 +33,7 @@ export default commandModule({
 					.then((res) => res.data);
 				await modal.reply({
 					content:
-						'Enviado!, Gracias por utilizar tu Mona Lisa de confianza\n~Sr Izan, 2022',
+						'Enviado!\nSé paciente ya que el bot no es automático.',
 					ephemeral: true,
 				});
 				const embed = new EmbedBuilder()
