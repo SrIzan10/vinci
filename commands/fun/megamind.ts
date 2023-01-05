@@ -36,7 +36,11 @@ export default commandModule({
 		context.drawImage(background, 0, 0, canvas.width, canvas.height)
 
 		const text = `No ${option}?`
-		context.font = '50px Impact'
+		let fontsize = 60
+		do {
+			fontsize--;
+			context.font = fontsize + "px Impact";
+		} while (context.measureText(text).width > canvas.width)
 		context.fillStyle = 'white'
 		context.textAlign = 'center'
 		context.textBaseline = 'middle'
