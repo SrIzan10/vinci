@@ -10,7 +10,6 @@ export default commandModule({
 	name: 'ping',
     type: CommandType.Slash,
 	plugins: [publish()],
-	// , '928018226330337280'
 	description: 'A ping command',
 	//alias : [],
 	options: [],

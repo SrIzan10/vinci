@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Outdated client! I'm on 1.19.2",
+		"text": "Tu cliente de Minecraft está desactualizado.\nTienes que cerrarlo y elegir la versión 1.19.2 en tu launcher de confianza.",
+		"color": "#8B0000"
+	},
+	{
+		"title": "You are not whitelisted!",
+		"text": "No estás en la whitelist del servidor.\nTienes que poner el comando `/mcform` para que te acepten.\n**NO ES AUTOMÁTICO, LA VERIFICACIÓN ES HUMANA**",
+		"color": "#8B0000"
+	},
+	{
+		"title": "No me puedo mover!",
+		"text": "Tienes que registrarte o iniciar sesión con una contraseña.\n`/register tucontraseña` si es la primera vez que entras al server con esta nueva funcionalidad, `/login tucontraseña` para cuando te vuelvas a reconectar. Recuérdala!",
+		"color": "#8B0000"
+	},
+	{
+		"title": "No puedo entrar a nada en el garaje!",
+		"text": "<@375984365181599744> te tiene que dar el rol.\nMenciónale cuando esté conectado diciendo que te de el rol. Después espera un tiempo hasta que te lo de y listo.",
+		"color": "#8B0000"
+	}
+]
