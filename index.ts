@@ -1,4 +1,4 @@
-import { DefaultLogging, Dependencies, ModuleManager, single, Singleton } from '@sern/handler';
+import { DefaultLogging, Dependencies, single, Singleton } from '@sern/handler';
 import { ActivityType } from 'discord.js';
 import { Client, GatewayIntentBits } from 'discord.js';
 import { Sern } from '@sern/handler';
@@ -9,9 +9,10 @@ import { setIntervalAsync } from 'set-interval-async';
 import birthdays from './util/birthdays.js';
 import twitternotifications from './util/twitternotifications.js';
 import webserver from './util/web/webserver.js'
+import minecraftstatus from './util/minecraftstatus.js';
 // import giveawaychecker from './util/giveawaychecker.js';
 
-let devMode
+let devMode: boolean
 if (process.argv[2] === '--dev') {
 	devMode = true
 	dotenv({path: '.env.dev'})
@@ -83,6 +84,11 @@ client.on('ready', async () => {
 		setIntervalAsync(async () => {
 			await birthdays(client);
 		}, 3_600_000);
+
+		setIntervalAsync(async () => {
+			await minecraftstatus(client);
+		}, 30_000);
+
 		webserver()
 	} else {
 		console.log('DevMode got activated, there are no checkers or webserver in this version.')
@@ -90,10 +96,6 @@ client.on('ready', async () => {
 			await giveawaychecker(client)
 		}, 10000); */
 	}
-});
-
-client.on('rateLimit', async () => {
-	console.log(`I just got ratelimited!`);
 });
 
 client.login(process.env.TOKEN);
