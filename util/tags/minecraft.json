@@ -21,7 +21,7 @@
 	},
 	{
 		"title": "No puedo hacer nada en mi plot! <:PANIK:1063806522993418300>",
-		"text": "Ha habido un problemilla en el sistema de plots, y eso ha hecho que se rompan todos los IDs de todos los plots.\nEsto significa que el plot no es tuyo.\nPuedes mencionar a <@375984365181599744> para que te configure de nuevo el plot.",
+		"text": "Ha habido un problemilla en el sistema de plots, y eso ha hecho que se rompan todos los IDs de todos los plots del servidor.\nEsto significa que el plot no es tuyo.\nPuedes mencionar a <@375984365181599744> para que te configure de nuevo el plot.",
 		"color": "#8B0000"
 	}
 ]
