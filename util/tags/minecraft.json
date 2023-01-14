@@ -18,5 +18,10 @@
 		"title": "No puedo entrar a nada en el garaje!",
 		"text": "<@375984365181599744> te tiene que dar el rol.\nMenciónale cuando esté conectado diciendo que te de el rol. Después espera un tiempo hasta que te lo de y listo.",
 		"color": "#8B0000"
+	},
+	{
+		"title": "No puedo hacer nada en mi plot! <:PANIK:1063806522993418300>",
+		"text": "Ha habido un problemilla en el sistema de plots, y eso ha hecho que se rompan todos los IDs de todos los plots.\nEsto significa que el plot no es tuyo.\nPuedes mencionar a <@375984365181599744> para que te configure de nuevo el plot.",
+		"color": "#8B0000"
 	}
 ]
