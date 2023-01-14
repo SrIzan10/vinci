@@ -57,6 +57,7 @@ Sern.init({
 
 client.on('ready', async () => {
 	console.log('Logged on!');
+
 	setInterval(() => {
 		const statuses = [
 			{ name: 'Minecraft', type: ActivityType.Playing },
@@ -87,7 +88,11 @@ client.on('ready', async () => {
 
 		setIntervalAsync(async () => {
 			await minecraftstatus(client);
-		}, 30_000);
+		}, 20_000);
+
+		setIntervalAsync(async () => {
+			await minecraftstatus(client);
+		}, 20_000);
 
 		webserver()
 	} else {
