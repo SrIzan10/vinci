@@ -2,8 +2,11 @@ vinci bot
 
 # little shoutout
 this discord bot has been made with [sern handler](https://sern.dev) and MAN I LOVE THIS HANDLER.
+
 the maintainers helped me out from day one of the bot (and also teached me a lotta js along the way)
+
 so tysm for everything, and I hope I can continue making new bots with this <3
+
 (also, fellow programmer, consider using it please)
 
 # badges yes sir
