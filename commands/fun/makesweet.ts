@@ -137,7 +137,7 @@ export default commandModule({
 							new ButtonBuilder()
 								.setLabel('Enlace al GIF')
 								.setEmoji('📲')
-								.setURL(message.attachments.first()!.url)
+								.setURL(`https://api.srizan.ml/misc/download?url=${message.attachments.first()!.url}&type=gif`)
 								.setStyle(ButtonStyle.Link)
 						);
 						await ctx.interaction.editReply({
