@@ -1,5 +1,4 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { Context } from '@sern/handler';
 import {
 	ApplicationCommandOptionType,
 	AttachmentBuilder,
@@ -22,6 +21,8 @@ const choices = [
 	'Irene',
 	'Boniato64',
 	'Tormentarosa',
+	'H',
+	'SpRaY',
 ];
 
 export default commandModule({
@@ -68,6 +69,8 @@ export default commandModule({
 				'./images/a/Irene.png',
 				'./images/a/Boniato64.png',
 				'./images/a/Tormentarosa.png',
+				'./images/a/H.png',
+				'./images/a/SpRaY.png',
 			];
 			const images =
 				imagesArray[Math.floor(Math.random() * imagesArray.length)];
