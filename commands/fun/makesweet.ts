@@ -18,6 +18,7 @@ export default commandModule({
 	type: CommandType.Slash,
 	plugins: [publish()],
 	//alias : [],
+	description: 'no one will read this (i hope)',
 	options: [
 		{
 			name: 'heartlocket',
