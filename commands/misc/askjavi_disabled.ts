@@ -14,7 +14,7 @@ import {
 import { publish } from '../../plugins/publish.js';
 import { ownerOnly } from '../../plugins/ownerOnly.js';
 import padyama from '../../schemas/padyama.js';
-import { randomnumbergen } from '../../util/randomnumbergen.js';
+import { random } from '../../util/randomstring.js';
 
 export default commandModule({
 	name: 'askjavi',
@@ -100,7 +100,7 @@ export default commandModule({
 				});
 				collector.on('collect', async (i) => {
 					if (i.customId === 'askjavi-buttons-yes') {
-						const suggestionid = randomnumbergen(5);
+						const suggestionid = random(5);
 						await i.showModal(modal);
 						await ctx.interaction.editReply({
 							components: [],

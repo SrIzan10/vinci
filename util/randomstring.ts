@@ -1,4 +1,4 @@
-export function randomnumbergen(length: number) {
+export function random(length: number) {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
