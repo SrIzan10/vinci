@@ -9,6 +9,7 @@ import {
 	ButtonStyle,
 } from 'discord.js';
 import axios from 'axios';
+import https from 'node:https'
 /*
 import { publish } from "#plugins";
 import { ownerOnly } from "#plugins"
@@ -85,7 +86,9 @@ export default commandModule({
 								.then((res) => res.data);
 
 						// compress the image
-						const compress = await axios.get(`https://api.resmush.it/ws.php?img=${(tempupload.data.url as string).replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/')}&qlty=80`).then(res => res.data)
+						const compress = await axios.get(`https://api.resmush.it/ws.php?img=${(tempupload.data.url as string).replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/')}&qlty=70`, {
+							httpsAgent: new https.Agent({ rejectUnauthorized: false })
+						}).then(res => res.data)
 						
 						// convert image to a binary so it can be sent to the MakeSweet API.
 						const formData = new FormData();
@@ -138,7 +141,7 @@ export default commandModule({
 							new ButtonBuilder()
 								.setLabel('Enlace al GIF')
 								.setEmoji('📲')
-								.setURL(`https://api.srizan.ml/misc/download?url=${message.attachments.first()!.url}&type=gif`)
+								.setURL(`https://api.srizan.dev/misc/download?url=${message.attachments.first()!.url}&type=gif`)
 								.setStyle(ButtonStyle.Link)
 						);
 						await ctx.interaction.editReply({
@@ -149,7 +152,7 @@ export default commandModule({
 						
 					} catch (e) {
 						await ctx.interaction.editReply({
-							content: `He intentado comprimir la imagen, pero no ha sido suficiente. Intenta usar una imagen menos pesada (1mb o menos)`,
+							content: `ERROR: He intentado comprimir la imagen, pero no ha sido suficiente. Intenta usar una imagen menos pesada (1mb o menos)\nSi no es eso, probablemente ha ocurrido un error del que no tengo conocimiento.`,
 						});
 					}
 				}
