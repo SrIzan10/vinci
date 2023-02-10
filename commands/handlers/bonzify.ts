@@ -17,17 +17,20 @@ export default commandModule({
         const url = `https://www.tetyys.com/SAPI4/SAPI4?text=${encodedText}&voice=Adult%20Male%20%232%2C%20American%20English%20(TruVoice)&pitch=140&speed=157`;
 
         const request = await fetch(url).then(res => res.arrayBuffer())
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         const randomnumber = random(5)
         const randomnumber_wav = `bonzi-wav-${randomnumber}.wav`
         const randomnumber_mp3 = `bonzi-mp3-${randomnumber}.mp3`
         fs.writeFileSync(`./util/bonzi_temp/${randomnumber_wav}`, new Uint8Array(request))
-        execa('ffmpeg', [
+        const command = execa('ffmpeg', [
             '-i', `./util/bonzi_temp/${randomnumber_wav}`,
             '-vn',
             `./util/bonzi_temp/${randomnumber_mp3}`
         ], { shell: true })
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise( (resolve) => {
+            command.on('close', resolve)
+        })
 
         const stream = new Readable();
         stream._read = () => {};
