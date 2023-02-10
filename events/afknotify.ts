@@ -10,6 +10,7 @@ export default eventModule({
 
         dbEntries.forEach(async (doc) => {
             if (!message.content.includes(`<@${doc.id}`)) return;
+            if (message.author.bot) return;
             const username = (await message.client.users.fetch(doc.id)).username
             const embed = new EmbedBuilder()
                 .setColor('Red')

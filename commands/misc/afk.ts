@@ -31,6 +31,11 @@ export default commandModule({
 			name: 'eliminar',
 			description: 'Elimina tu AFK',
 			type: ApplicationCommandOptionType.Subcommand
+		},
+		{
+			name: 'lista',
+			description: 'Listado de todas las personas AFK',
+			type: ApplicationCommandOptionType.Subcommand
 		}
 	],
 	execute: async (ctx, options) => {
@@ -44,7 +49,7 @@ export default commandModule({
 					.setAuthor({ name: ctx.user.username, iconURL: ctx.user.displayAvatarURL() })
 					.setTitle('AFK añadido!')
 					.setColor('Green')
-					.setDescription(`AFK añadido!\nRazón: ${reason}`)
+					.setDescription(`Razón: ${reason}`)
 				
 				await ctx.reply({ embeds: [embed] })
 			} break;
@@ -54,6 +59,16 @@ export default commandModule({
 				await db.deleteOne({ id: ctx.user.id })
 
 				await ctx.reply('Ok, has sido eliminado correctamente de la base de datos.')
+			} break;
+			case 'lista': {
+				const map = await Promise.all((await db.find()).map(async (doc) => {
+					return `${await ctx.client.users.fetch(doc.id)}`
+				}))
+
+				await ctx.reply({
+					content: `Lista de usuarios AFK:\n${(map.length === 0) ? 'Nadie' : map.join(', ')}`,
+					allowedMentions: { repliedUser: false }
+				})
 			} break;
 		}
 	},
