@@ -52,7 +52,7 @@ export default commandModule({
 		},
 	],
 	execute: async (ctx, options) => {
-		const option = options[1].getString('usuario');
+		const option = ctx.interaction.options.getString('usuario');
 		if (!option) {
 			const imagesArray = [
 				'./images/a/XaviXE.png',

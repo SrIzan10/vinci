@@ -18,6 +18,7 @@ export default async function youtubenotifications(client: Client) {
 		await client.guilds.fetch(process.env.GUILDID!)
 	).channels.fetch(process.env.SOCIALS_CHANNEL!)) as TextChannel;
 	if (request === db!.id) return;
+	if (request === 'Xj3FH0DOabo') return;
 	else {
 		db!.id = request;
 		await db?.save();

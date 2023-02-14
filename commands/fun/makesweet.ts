@@ -86,7 +86,7 @@ export default commandModule({
 								.then((res) => res.data);
 
 						// compress the image
-						const compress = await axios.get(`https://api.resmush.it/ws.php?img=${(tempupload.data.url as string).replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/')}&qlty=70`, {
+						const compress = await axios.get(`https://api.resmush.it/ws.php?img=${(tempupload.data.url as string).replace('https://tmpfiles.org/', 'https://tmpfiles.org/dl/')}&qlty=80`, {
 							httpsAgent: new https.Agent({ rejectUnauthorized: false })
 						}).then(res => res.data)
 						
