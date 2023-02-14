@@ -28,7 +28,7 @@ export default commandModule({
             '-vn',
             `./util/bonzi_temp/${randomnumber_mp3}`
         ], { shell: true })
-        await new Promise( (resolve) => {
+        await new Promise((resolve) => {
             command.on('close', resolve)
         })
 
