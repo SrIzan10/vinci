@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { ApplicationCommandOptionType, ColorResolvable, EmbedBuilder } from 'discord.js';
-import { publish } from "../../plugins/publish.js";
+import { publish } from "#plugins";
 import fs from 'node:fs';
 import mctags from '../../util/tags/minecraft.json' assert { type: 'json' }
 

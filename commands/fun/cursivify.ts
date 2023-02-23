@@ -1,5 +1,5 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { publish } from '../../plugins/publish.js';
+import { publish } from '#plugins';
 /*
 import { publish } from "#plugins";
 import { ownerOnly } from "#plugins"
