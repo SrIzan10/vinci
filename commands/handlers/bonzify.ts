@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { AttachmentBuilder } from 'discord.js';
-import { publish } from '../../plugins/publish.js';
+import { publish } from '#plugins';
 import { Readable } from 'node:stream'
 import { random } from '../../util/randomstring.js';
 import fs from 'fs';

@@ -11,8 +11,8 @@ import {
 	ModalSubmitInteraction,
 	ApplicationCommandOptionType,
 } from 'discord.js';
-import { publish } from '../../plugins/publish.js';
-import { ownerOnly } from '../../plugins/ownerOnly.js';
+import { publish } from '#plugins';
+import { ownerOnly } from '#plugins';
 import padyama from '../../schemas/padyama.js';
 import { random } from '../../util/randomstring.js';
 
