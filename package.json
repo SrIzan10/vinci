@@ -49,7 +49,7 @@
     "googlethis": "^1.7.1",
     "got": "^12.5.3",
     "libsodium-wrappers": "^0.7.10",
-    "mongoose": "^6.5.1",
+    "mongoose": "^6.8.3",
     "pretty-seconds-spanish": "^2.1.1",
     "rockpaperscissors-checker": "^1.2.0",
     "set-interval-async": "^3.0.2",
