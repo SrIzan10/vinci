@@ -10,6 +10,8 @@ import birthdays from './util/birthdays.js';
 import twitternotifications from './util/twitternotifications.js';
 import webserver from './util/web/webserver.js'
 import minecraftstatus from './util/minecraftstatus.js';
+import * as tf from '@tensorflow/tfjs-node'
+import * as nsfw from 'nsfwjs'
 // import giveawaychecker from './util/giveawaychecker.js';
 
 let devMode: boolean
@@ -32,6 +34,9 @@ const client = new Client({
 		GatewayIntentBits.GuildVoiceStates,
 	],
 });
+
+tf.enableProdMode()
+export const nsfwModel = await nsfw.load()
 
 mongoose.connect(process.env.MONGODB!).then(() => {
 	console.log('Connected to MongoDB');
