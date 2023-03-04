@@ -10,7 +10,7 @@ RUN apt-get update && \
     libc6-dev \
     bash \
     ffmpeg \
-    msttcorefonts-installer \
+    ttf-mscorefonts-installer \
     fontconfig
 
 WORKDIR /app
