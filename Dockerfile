@@ -1,6 +1,16 @@
-FROM node:lts-alpine
+FROM node:lts
 
-RUN apk add bash ffmpeg msttcorefonts-installer fontconfig libc-dev
+RUN apt-get update && \ 
+    apt-get install -y build-essential \
+    wget \
+    python3 \
+    make \
+    gcc \ 
+    libc6-dev \
+    bash \
+    ffmpeg \
+    msttcorefonts-installer \
+    fontconfig
 RUN update-ms-fonts && fc-cache -f
 
 WORKDIR /app
@@ -14,7 +24,5 @@ EXPOSE 7272
 COPY . .
 
 RUN npm run build
-
-RUN npm prune --production
 
 CMD node ./dist/index.js
