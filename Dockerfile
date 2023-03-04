@@ -1,7 +1,6 @@
 FROM node:lts
 
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-RUN add-apt-repository multiverse
 RUN apt-get update && \ 
     apt-get install -y build-essential \
     wget \
@@ -11,8 +10,9 @@ RUN apt-get update && \
     libc6-dev \
     bash \
     ffmpeg \
-    ttf-mscorefonts-installer \
     fontconfig
+RUN wget http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
+RUN apt install ./ttf-mscorefonts-installer_3.6_all.deb -y
 
 WORKDIR /app
 
