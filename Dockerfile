@@ -1,5 +1,6 @@
 FROM node:lts
 
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 RUN apt-get update && \ 
     apt-get install -y build-essential \
     wget \
@@ -11,7 +12,6 @@ RUN apt-get update && \
     ffmpeg \
     msttcorefonts-installer \
     fontconfig
-RUN update-ms-fonts && fc-cache -f
 
 WORKDIR /app
 
