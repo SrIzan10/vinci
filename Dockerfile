@@ -19,6 +19,7 @@ WORKDIR /app
 COPY package.json ./
 
 RUN npm i
+RUN npm rebuild @tensorflow/tfjs-node --build-from-source
 
 EXPOSE 7272
 
