@@ -108,5 +108,5 @@ tf.enableProdMode()
 export const nsfwModel = await nsfw.load()
 
 export const scamLinks = await axios.get('https://api.hyperphish.com/gimme-domains').then(res => res.data as Array<string>)
-console.log(scamLinks)
+
 client.login(process.env.TOKEN);
