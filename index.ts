@@ -12,6 +12,7 @@ import webserver from './util/web/webserver.js'
 import minecraftstatus from './util/minecraftstatus.js';
 import * as tf from '@tensorflow/tfjs-node'
 import * as nsfw from 'nsfwjs'
+import axios from 'axios';
 // import giveawaychecker from './util/giveawaychecker.js';
 
 let devMode: boolean
@@ -34,9 +35,6 @@ const client = new Client({
 		GatewayIntentBits.GuildVoiceStates,
 	],
 });
-
-tf.enableProdMode()
-export const nsfwModel = await nsfw.load()
 
 mongoose.connect(process.env.MONGODB!).then(() => {
 	console.log('Connected to MongoDB');
@@ -103,10 +101,12 @@ client.on('ready', async () => {
 		webserver()
 	} else {
 		console.log('DevMode got activated, there are no checkers or webserver in this version.')
-/* 		setIntervalAsync(async () => {
-			await giveawaychecker(client)
-		}, 10000); */
 	}
 });
 
+tf.enableProdMode()
+export const nsfwModel = await nsfw.load()
+
+export const scamLinks = await axios.get('https://api.hyperphish.com/gimme-domains').then(res => res.data as Array<string>)
+console.log(scamLinks)
 client.login(process.env.TOKEN);
