@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-RUN apk add bash ffmpeg msttcorefonts-installer fontconfig
+RUN apk add bash ffmpeg msttcorefonts-installer fontconfig libc-dev
 RUN update-ms-fonts && fc-cache -f
 
 WORKDIR /app

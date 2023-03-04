@@ -1,11 +1,10 @@
-import { EventType, eventModule } from '@sern/handler';
+import { discordEvent } from '@sern/handler';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Message, TextChannel } from 'discord.js';
-import * as tf from '@tensorflow/tfjs-node'
+import tf from '@tensorflow/tfjs-node'
 import axios from 'axios';
 import { nsfwModel } from '../index.js';
 
-export default eventModule({
-	type: EventType.Discord,
+export default discordEvent({
 	name: 'messageCreate',
 	execute(message: Message) {
         message.attachments.forEach(async (attachment) => {
