@@ -3,12 +3,15 @@ import axios from 'axios'
 import dayjs from "dayjs";
 import timezone from 'dayjs/plugin/timezone.js'
 import utc from 'dayjs/plugin/utc.js'
+import https from 'node:https'
 
 export default async function minecraftstatus(client: Client) {
     dayjs.extend(utc)
     dayjs.extend(timezone)
 
-    const request = await axios.get('https://api.minetools.eu/ping/minecraft.maraturing.com/25565').then(res => res.data)
+    const request = await axios.get('https://api.minetools.eu/ping/minecraft.maraturing.com/25565', {
+        httpsAgent: new https.Agent({ rejectUnauthorized: false })
+    }).then(res => res.data)
     const fetchMsg = await (await client.channels.fetch('1063944267258662922')! as TextChannel).messages.fetch('1063950406474010674') as Message
     
     let onlineorelse: string
