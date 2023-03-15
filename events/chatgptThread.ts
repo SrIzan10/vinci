@@ -9,6 +9,7 @@ export default discordEvent({
         const thread = message.channel as ThreadChannel
         if (thread.parentId !== process.env.CHATGPT_CHANNEL) return;
         if (message.author.bot) return;
+        if (message.content.includes('ig')) return;
 
         try {
             await thread.sendTyping()
