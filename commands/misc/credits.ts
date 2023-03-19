@@ -30,6 +30,7 @@ export default commandModule({
 				<@678000774441336842>: My good'ol friend, always has been trying new Vinci stuff\n
 				<@758743564879659069>: Believe it or not, this looper has alvays been beta-testing stuff\n
 				<@697146020647403651>: For always thanking all my work\n
+				<@630502288154427414>: he bans everyone on my twitch\n
 				**And, of course, you <3**\n
 				Thanks everyone, this has been an absolute ride, I don't have words to express my appreciation! <:Pepelove:1030904410307563542>
 			`)
