@@ -787,20 +787,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mapbox/node-pre-gyp@1.0.9":
-  version "1.0.9"
-  resolved "https://registry.npmjs.org/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.9.tgz"
-  dependencies:
-    detect-libc "^2.0.0"
-    https-proxy-agent "^5.0.0"
-    make-dir "^3.1.0"
-    node-fetch "^2.6.7"
-    nopt "^5.0.0"
-    npmlog "^5.0.1"
-    rimraf "^3.0.2"
-    semver "^7.3.5"
-    tar "^6.1.11"
-
 "@napi-rs/canvas-android-arm64@0.1.37":
   version "0.1.37"
   resolved "https://registry.yarnpkg.com/@napi-rs/canvas-android-arm64/-/canvas-android-arm64-0.1.37.tgz#812724d3c0fa9e3147c3a74a8f705fa7e661a437"
@@ -851,24 +837,6 @@
     "@napi-rs/canvas-linux-x64-musl" "0.1.37"
     "@napi-rs/canvas-win32-x64-msvc" "0.1.37"
 
-"@nsfw-filter/gif-frames@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/@nsfw-filter/gif-frames/-/gif-frames-1.0.2.tgz"
-  dependencies:
-    "@nsfw-filter/save-pixels" "^2.3.4"
-    get-pixels-frame-info-update "3.3.2"
-    multi-integer-range "3.0.0"
-
-"@nsfw-filter/save-pixels@^2.3.4":
-  version "2.3.4"
-  resolved "https://registry.npmjs.org/@nsfw-filter/save-pixels/-/save-pixels-2.3.4.tgz"
-  dependencies:
-    gif-encoder "0.4.1"
-    ndarray "1.0.18"
-    ndarray-ops "1.2.2"
-    pngjs-nozlib "1.0.0"
-    through "2.3.4"
-
 "@sapphire/async-queue@^1.5.0":
   version "1.5.0"
   resolved "https://registry.npmjs.org/@sapphire/async-queue/-/async-queue-1.5.0.tgz"
@@ -915,81 +883,6 @@
   resolved "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-5.0.1.tgz"
   dependencies:
     defer-to-connect "^2.0.1"
-
-"@tensorflow/tfjs-backend-cpu@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-backend-cpu/-/tfjs-backend-cpu-4.1.0.tgz"
-  dependencies:
-    "@types/seedrandom" "^2.4.28"
-    seedrandom "^3.0.5"
-
-"@tensorflow/tfjs-backend-webgl@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-backend-webgl/-/tfjs-backend-webgl-4.1.0.tgz"
-  dependencies:
-    "@tensorflow/tfjs-backend-cpu" "4.1.0"
-    "@types/offscreencanvas" "~2019.3.0"
-    "@types/seedrandom" "^2.4.28"
-    "@types/webgl-ext" "0.0.30"
-    seedrandom "^3.0.5"
-
-"@tensorflow/tfjs-converter@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-converter/-/tfjs-converter-4.1.0.tgz"
-
-"@tensorflow/tfjs-core@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-core/-/tfjs-core-4.1.0.tgz"
-  dependencies:
-    "@types/long" "^4.0.1"
-    "@types/offscreencanvas" "~2019.7.0"
-    "@types/seedrandom" "^2.4.28"
-    "@types/webgl-ext" "0.0.30"
-    "@webgpu/types" "0.1.21"
-    long "4.0.0"
-    node-fetch "~2.6.1"
-    seedrandom "^3.0.5"
-
-"@tensorflow/tfjs-data@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-data/-/tfjs-data-4.1.0.tgz"
-  dependencies:
-    "@types/node-fetch" "^2.1.2"
-    node-fetch "~2.6.1"
-    string_decoder "^1.3.0"
-
-"@tensorflow/tfjs-layers@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-layers/-/tfjs-layers-4.1.0.tgz"
-
-"@tensorflow/tfjs-node@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs-node/-/tfjs-node-4.1.0.tgz"
-  dependencies:
-    "@mapbox/node-pre-gyp" "1.0.9"
-    "@tensorflow/tfjs" "4.1.0"
-    adm-zip "^0.5.2"
-    google-protobuf "^3.9.2"
-    https-proxy-agent "^2.2.1"
-    progress "^2.0.0"
-    rimraf "^2.6.2"
-    tar "^4.4.6"
-
-"@tensorflow/tfjs@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@tensorflow/tfjs/-/tfjs-4.1.0.tgz"
-  dependencies:
-    "@tensorflow/tfjs-backend-cpu" "4.1.0"
-    "@tensorflow/tfjs-backend-webgl" "4.1.0"
-    "@tensorflow/tfjs-converter" "4.1.0"
-    "@tensorflow/tfjs-core" "4.1.0"
-    "@tensorflow/tfjs-data" "4.1.0"
-    "@tensorflow/tfjs-layers" "4.1.0"
-    argparse "^1.0.10"
-    chalk "^4.1.0"
-    core-js "3"
-    regenerator-runtime "^0.13.5"
-    yargs "^16.0.3"
 
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
@@ -1045,32 +938,13 @@
   version "4.0.1"
   resolved "https://registry.npmjs.org/@types/http-cache-semantics/-/http-cache-semantics-4.0.1.tgz"
 
-"@types/long@^4.0.1":
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/@types/long/-/long-4.0.2.tgz"
-
 "@types/mime@*":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@types/mime/-/mime-3.0.1.tgz"
 
-"@types/node-fetch@^2.1.2":
-  version "2.6.2"
-  resolved "https://registry.npmjs.org/@types/node-fetch/-/node-fetch-2.6.2.tgz"
-  dependencies:
-    "@types/node" "*"
-    form-data "^3.0.0"
-
 "@types/node@*":
   version "18.14.5"
   resolved "https://registry.npmjs.org/@types/node/-/node-18.14.5.tgz"
-
-"@types/offscreencanvas@~2019.3.0":
-  version "2019.3.0"
-  resolved "https://registry.npmjs.org/@types/offscreencanvas/-/offscreencanvas-2019.3.0.tgz"
-
-"@types/offscreencanvas@~2019.7.0":
-  version "2019.7.0"
-  resolved "https://registry.npmjs.org/@types/offscreencanvas/-/offscreencanvas-2019.7.0.tgz"
 
 "@types/qs@*":
   version "6.9.7"
@@ -1080,20 +954,12 @@
   version "1.2.4"
   resolved "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz"
 
-"@types/seedrandom@^2.4.28":
-  version "2.4.30"
-  resolved "https://registry.npmjs.org/@types/seedrandom/-/seedrandom-2.4.30.tgz"
-
 "@types/serve-static@*":
   version "1.15.1"
   resolved "https://registry.npmjs.org/@types/serve-static/-/serve-static-1.15.1.tgz"
   dependencies:
     "@types/mime" "*"
     "@types/node" "*"
-
-"@types/webgl-ext@0.0.30":
-  version "0.0.30"
-  resolved "https://registry.npmjs.org/@types/webgl-ext/-/webgl-ext-0.0.30.tgz"
 
 "@types/webidl-conversions@*":
   version "7.0.0"
@@ -1111,10 +977,6 @@
   resolved "https://registry.npmjs.org/@types/ws/-/ws-8.5.4.tgz"
   dependencies:
     "@types/node" "*"
-
-"@webgpu/types@0.1.21":
-  version "0.1.21"
-  resolved "https://registry.npmjs.org/@webgpu/types/-/types-0.1.21.tgz"
 
 abbrev@1:
   version "1.1.1"
@@ -1135,40 +997,15 @@ acorn@^8.4.1:
   version "8.8.2"
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.8.2.tgz"
 
-adm-zip@^0.5.2:
-  version "0.5.10"
-  resolved "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.10.tgz"
-
 agent-base@6:
   version "6.0.2"
   resolved "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
   dependencies:
     debug "4"
 
-agent-base@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/agent-base/-/agent-base-4.3.0.tgz"
-  dependencies:
-    es6-promisify "^5.0.0"
-
-ajv@^6.12.3:
-  version "6.12.6"
-  resolved "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
-
 ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz"
-
-ansi-styles@^4.0.0, ansi-styles@^4.1.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz"
-  dependencies:
-    color-convert "^2.0.1"
 
 "aproba@^1.0.3 || ^2.0.0":
   version "2.0.0"
@@ -1185,12 +1022,6 @@ arg@^4.1.0:
   version "4.1.3"
   resolved "https://registry.npmjs.org/arg/-/arg-4.1.3.tgz"
 
-argparse@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.npmjs.org/argparse/-/argparse-1.0.10.tgz"
-  dependencies:
-    sprintf-js "~1.0.2"
-
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz"
@@ -1199,27 +1030,9 @@ ascii-url-encoder@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/ascii-url-encoder/-/ascii-url-encoder-1.2.0.tgz"
 
-asn1@~0.2.3:
-  version "0.2.6"
-  resolved "https://registry.npmjs.org/asn1/-/asn1-0.2.6.tgz"
-  dependencies:
-    safer-buffer "~2.1.0"
-
-assert-plus@1.0.0, assert-plus@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz"
-
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
-
-aws-sign2@~0.7.0:
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz"
-
-aws4@^1.8.0:
-  version "1.12.0"
-  resolved "https://registry.npmjs.org/aws4/-/aws4-1.12.0.tgz"
 
 axios@^0.21.1:
   version "0.21.4"
@@ -1249,12 +1062,6 @@ balanced-match@^1.0.0:
 base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz"
-
-bcrypt-pbkdf@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz"
-  dependencies:
-    tweetnacl "^0.14.3"
 
 body-parser@1.20.1:
   version "1.20.1"
@@ -1288,9 +1095,10 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-bson@^4.7.0:
+bson@^4.7.2:
   version "4.7.2"
-  resolved "https://registry.npmjs.org/bson/-/bson-4.7.2.tgz"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-4.7.2.tgz#320f4ad0eaf5312dd9b45dc369cc48945e2a5f2e"
+  integrity sha512-Ry9wCtIZ5kGqkJoi6aD8KjxFZEx78guTQDnpXWiNthsxzrxAK/i8E6pCHAIZTbaEFWcOCvbecMukfK7XUvyLpQ==
   dependencies:
     buffer "^5.6.0"
 
@@ -1333,17 +1141,6 @@ call-bind@^1.0.0:
   dependencies:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
-
-caseless@~0.12.0:
-  version "0.12.0"
-  resolved "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
-
-chalk@^4.1.0:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
 
 cheerio-select@^1.5.0:
   version "1.6.0"
@@ -1390,37 +1187,15 @@ cheerio@^1.0.0-rc.11, cheerio@^1.0.0-rc.9:
     parse5 "^7.0.0"
     parse5-htmlparser2-tree-adapter "^7.0.0"
 
-chownr@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/chownr/-/chownr-1.1.4.tgz"
-
 chownr@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz"
-
-cliui@^7.0.2:
-  version "7.0.4"
-  resolved "https://registry.npmjs.org/cliui/-/cliui-7.0.4.tgz"
-  dependencies:
-    string-width "^4.2.0"
-    strip-ansi "^6.0.0"
-    wrap-ansi "^7.0.0"
-
-color-convert@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz"
-  dependencies:
-    color-name "~1.1.4"
-
-color-name@~1.1.4:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
 
 color-support@^1.1.2:
   version "1.1.3"
   resolved "https://registry.npmjs.org/color-support/-/color-support-1.1.3.tgz"
 
-combined-stream@^1.0.6, combined-stream@^1.0.8, combined-stream@~1.0.6:
+combined-stream@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz"
   dependencies:
@@ -1451,18 +1226,6 @@ cookie-signature@1.0.6:
 cookie@0.5.0:
   version "0.5.0"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.5.0.tgz"
-
-core-js@3:
-  version "3.29.0"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-3.29.0.tgz"
-
-core-util-is@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
-
-core-util-is@~1.0.0:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
 
 create-require@^1.1.0:
   version "1.1.1"
@@ -1504,22 +1267,6 @@ css-what@^6.0.1, css-what@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/css-what/-/css-what-6.1.0.tgz"
 
-cwise-compiler@^1.0.0, cwise-compiler@^1.1.2:
-  version "1.1.3"
-  resolved "https://registry.npmjs.org/cwise-compiler/-/cwise-compiler-1.1.3.tgz"
-  dependencies:
-    uniq "^1.0.0"
-
-dashdash@^1.12.0:
-  version "1.14.1"
-  resolved "https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz"
-  dependencies:
-    assert-plus "^1.0.0"
-
-data-uri-to-buffer@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-0.0.3.tgz"
-
 data-uri-to-buffer@^4.0.0:
   version "4.0.1"
   resolved "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz"
@@ -1539,12 +1286,6 @@ debug@4, debug@4.x:
   resolved "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz"
   dependencies:
     ms "2.1.2"
-
-debug@^3.1.0:
-  version "3.2.7"
-  resolved "https://registry.npmjs.org/debug/-/debug-3.2.7.tgz"
-  dependencies:
-    ms "^2.1.1"
 
 decompress-response@^6.0.0:
   version "6.0.0"
@@ -1663,13 +1404,6 @@ duplexer@~0.1.1:
   version "0.1.2"
   resolved "https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz"
 
-ecc-jsbn@~0.1.1:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz"
-  dependencies:
-    jsbn "~0.1.0"
-    safer-buffer "^2.1.0"
-
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
@@ -1689,20 +1423,6 @@ entities@^2.0.0:
 entities@^4.2.0, entities@^4.3.0, entities@^4.4.0:
   version "4.4.0"
   resolved "https://registry.npmjs.org/entities/-/entities-4.4.0.tgz"
-
-es6-promise@^4.0.3:
-  version "4.2.8"
-  resolved "https://registry.npmjs.org/es6-promise/-/es6-promise-4.2.8.tgz"
-
-es6-promisify@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/es6-promisify/-/es6-promisify-5.0.0.tgz"
-  dependencies:
-    es6-promise "^4.0.3"
-
-escalade@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -1774,25 +1494,9 @@ express@^4.18.1:
     utils-merge "1.0.1"
     vary "~1.1.2"
 
-extend@~3.0.2:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz"
-
-extsprintf@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz"
-
-extsprintf@^1.2.0:
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/extsprintf/-/extsprintf-1.4.1.tgz"
-
-fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
+fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
-
-fast-json-stable-stringify@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz"
 
 fast-xml-parser@4.2.4:
   version "4.2.4"
@@ -1831,21 +1535,9 @@ follow-redirects@^1.14.0, follow-redirects@^1.14.9, follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
 
-forever-agent@~0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
-
 form-data-encoder@^2.1.2:
   version "2.1.4"
   resolved "https://registry.npmjs.org/form-data-encoder/-/form-data-encoder-2.1.4.tgz"
-
-form-data@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/form-data/-/form-data-3.0.1.tgz"
-  dependencies:
-    asynckit "^0.4.0"
-    combined-stream "^1.0.8"
-    mime-types "^2.1.12"
 
 form-data@^4.0.0:
   version "4.0.0"
@@ -1853,14 +1545,6 @@ form-data@^4.0.0:
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
-    mime-types "^2.1.12"
-
-form-data@~2.3.2:
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/form-data/-/form-data-2.3.3.tgz"
-  dependencies:
-    asynckit "^0.4.0"
-    combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
 formdata-polyfill@^4.0.10:
@@ -1880,12 +1564,6 @@ fresh@0.5.2:
 from@~0:
   version "0.1.7"
   resolved "https://registry.npmjs.org/from/-/from-0.1.7.tgz"
-
-fs-minipass@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.npmjs.org/fs-minipass/-/fs-minipass-1.2.7.tgz"
-  dependencies:
-    minipass "^2.6.0"
 
 fs-minipass@^2.0.0:
   version "2.1.0"
@@ -1922,10 +1600,6 @@ genius-lyrics@^4.4.3:
     cheerio "^1.0.0-rc.9"
     undici "^5.8.2"
 
-get-caller-file@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
-
 get-intrinsic@^1.0.2:
   version "1.2.0"
   resolved "https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.2.0.tgz"
@@ -1934,37 +1608,9 @@ get-intrinsic@^1.0.2:
     has "^1.0.3"
     has-symbols "^1.0.3"
 
-get-pixels-frame-info-update@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.npmjs.org/get-pixels-frame-info-update/-/get-pixels-frame-info-update-3.3.2.tgz"
-  dependencies:
-    data-uri-to-buffer "0.0.3"
-    jpeg-js "^0.3.2"
-    mime-types "^2.0.1"
-    ndarray "^1.0.13"
-    ndarray-pack "^1.1.1"
-    node-bitmap "0.0.1"
-    omggif "^1.0.5"
-    parse-data-uri "^0.2.0"
-    pngjs "^3.3.3"
-    request "^2.44.0"
-    through "^2.3.4"
-
 get-stream@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/get-stream/-/get-stream-6.0.1.tgz"
-
-getpass@^0.1.1:
-  version "0.1.7"
-  resolved "https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz"
-  dependencies:
-    assert-plus "^1.0.0"
-
-gif-encoder@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/gif-encoder/-/gif-encoder-0.4.1.tgz"
-  dependencies:
-    readable-stream "~1.1.9"
 
 glob@^7.1.3:
   version "7.2.3"
@@ -1976,10 +1622,6 @@ glob@^7.1.3:
     minimatch "^3.1.1"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
-
-google-protobuf@^3.9.2:
-  version "3.21.2"
-  resolved "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.21.2.tgz"
 
 googlethis@^1.7.1:
   version "1.7.1"
@@ -2005,21 +1647,6 @@ got@^12.5.3:
     lowercase-keys "^3.0.0"
     p-cancelable "^3.0.0"
     responselike "^3.0.0"
-
-har-schema@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/har-schema/-/har-schema-2.0.0.tgz"
-
-har-validator@~5.1.3:
-  version "5.1.5"
-  resolved "https://registry.npmjs.org/har-validator/-/har-validator-5.1.5.tgz"
-  dependencies:
-    ajv "^6.12.3"
-    har-schema "^2.0.0"
-
-has-flag@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz"
 
 has-symbols@^1.0.3:
   version "1.0.3"
@@ -2067,27 +1694,12 @@ http-errors@2.0.0:
     statuses "2.0.1"
     toidentifier "1.0.1"
 
-http-signature@~1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/http-signature/-/http-signature-1.2.0.tgz"
-  dependencies:
-    assert-plus "^1.0.0"
-    jsprim "^1.2.2"
-    sshpk "^1.7.0"
-
 http2-wrapper@^2.1.10:
   version "2.2.0"
   resolved "https://registry.npmjs.org/http2-wrapper/-/http2-wrapper-2.2.0.tgz"
   dependencies:
     quick-lru "^5.1.1"
     resolve-alpn "^1.2.0"
-
-https-proxy-agent@^2.2.1:
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-2.2.4.tgz"
-  dependencies:
-    agent-base "^4.3.0"
-    debug "^3.1.0"
 
 https-proxy-agent@^5.0.0:
   version "5.0.1"
@@ -2117,13 +1729,9 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.4, inherits@^2.0.3, inherits@~2.0.1:
+inherits@2, inherits@2.0.4, inherits@^2.0.3:
   version "2.0.4"
   resolved "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
-
-iota-array@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/iota-array/-/iota-array-1.0.0.tgz"
 
 ip@^2.0.0:
   version "2.0.0"
@@ -2133,10 +1741,6 @@ ipaddr.js@1.9.1:
   version "1.9.1"
   resolved "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz"
 
-is-buffer@^1.0.2:
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.6.tgz"
-
 is-fullwidth-code-point@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz"
@@ -2145,21 +1749,9 @@ is-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/is-stream/-/is-stream-3.0.0.tgz"
 
-is-typedarray@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz"
-
-isarray@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz"
-
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
-
-isstream@~0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz"
 
 iti@^0.6.0:
   version "0.6.0"
@@ -2167,38 +1759,9 @@ iti@^0.6.0:
   dependencies:
     utility-types "^3.10.0"
 
-jpeg-js@^0.3.2:
-  version "0.3.7"
-  resolved "https://registry.npmjs.org/jpeg-js/-/jpeg-js-0.3.7.tgz"
-
-jsbn@~0.1.0:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/jsbn/-/jsbn-0.1.1.tgz"
-
 json-buffer@3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/json-buffer/-/json-buffer-3.0.1.tgz"
-
-json-schema-traverse@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz"
-
-json-schema@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz"
-
-json-stringify-safe@~5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz"
-
-jsprim@^1.2.2:
-  version "1.4.2"
-  resolved "https://registry.npmjs.org/jsprim/-/jsprim-1.4.2.tgz"
-  dependencies:
-    assert-plus "1.0.0"
-    extsprintf "1.3.0"
-    json-schema "0.4.0"
-    verror "1.10.0"
 
 kareem@2.5.1:
   version "2.5.1"
@@ -2227,10 +1790,6 @@ lodash.snakecase@^4.1.1:
 lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
-
-long@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/long/-/long-4.0.0.tgz"
 
 lowercase-keys@^3.0.0:
   version "3.0.0"
@@ -2280,7 +1839,7 @@ mime-db@1.52.0:
   version "1.52.0"
   resolved "https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz"
 
-mime-types@^2.0.1, mime-types@^2.1.12, mime-types@~2.1.19, mime-types@~2.1.24, mime-types@~2.1.34:
+mime-types@^2.1.12, mime-types@~2.1.24, mime-types@~2.1.34:
   version "2.1.35"
   resolved "https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz"
   dependencies:
@@ -2308,17 +1867,6 @@ minimatch@^3.1.1:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.6:
-  version "1.2.8"
-  resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
-
-minipass@^2.6.0, minipass@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.npmjs.org/minipass/-/minipass-2.9.0.tgz"
-  dependencies:
-    safe-buffer "^5.1.2"
-    yallist "^3.0.0"
-
 minipass@^3.0.0:
   version "3.3.6"
   resolved "https://registry.npmjs.org/minipass/-/minipass-3.3.6.tgz"
@@ -2329,24 +1877,12 @@ minipass@^4.0.0:
   version "4.2.4"
   resolved "https://registry.npmjs.org/minipass/-/minipass-4.2.4.tgz"
 
-minizlib@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.npmjs.org/minizlib/-/minizlib-1.3.3.tgz"
-  dependencies:
-    minipass "^2.9.0"
-
 minizlib@^2.1.1:
   version "2.1.2"
   resolved "https://registry.npmjs.org/minizlib/-/minizlib-2.1.2.tgz"
   dependencies:
     minipass "^3.0.0"
     yallist "^4.0.0"
-
-mkdirp@^0.5.5:
-  version "0.5.6"
-  resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.6.tgz"
-  dependencies:
-    minimist "^1.2.6"
 
 mkdirp@^1.0.3:
   version "1.0.4"
@@ -2359,24 +1895,26 @@ mongodb-connection-string-url@^2.5.4:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@4.14.0:
-  version "4.14.0"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-4.14.0.tgz"
+mongodb@4.16.0:
+  version "4.16.0"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.16.0.tgz#8b0043de7b577c6a7e0ce44a2ca7315b9c0a7927"
+  integrity sha512-0EB113Fsucaq1wsY0dOhi1fmZOwFtLOtteQkiqOXGklvWMnSH3g2QS53f0KTP+/6qOkuoXE2JksubSZNmxeI+g==
   dependencies:
-    bson "^4.7.0"
+    bson "^4.7.2"
     mongodb-connection-string-url "^2.5.4"
     socks "^2.7.1"
   optionalDependencies:
     "@aws-sdk/credential-providers" "^3.186.0"
     saslprep "^1.0.3"
 
-mongoose@^6.5.1:
-  version "6.10.1"
-  resolved "https://registry.npmjs.org/mongoose/-/mongoose-6.10.1.tgz"
+mongoose@^6.11.3:
+  version "6.11.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.11.5.tgz#caac6406698af9802a3832ce676cf151742ae380"
+  integrity sha512-ZarPe1rCHG4aVb78xLuok4BBIm0HMz/Y/CjxYXCk3Qz1mEhS7bPMy6ZhSX2/Dng//R7ei8719j6K87UVM/1b3g==
   dependencies:
-    bson "^4.7.0"
+    bson "^4.7.2"
     kareem "2.5.1"
-    mongodb "4.14.0"
+    mongodb "4.16.0"
     mpath "0.9.0"
     mquery "4.0.3"
     ms "2.1.3"
@@ -2400,40 +1938,9 @@ ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
 
-ms@2.1.3, ms@^2.1.1:
+ms@2.1.3:
   version "2.1.3"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
-
-multi-integer-range@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/multi-integer-range/-/multi-integer-range-3.0.0.tgz"
-
-ndarray-ops@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/ndarray-ops/-/ndarray-ops-1.2.2.tgz"
-  dependencies:
-    cwise-compiler "^1.0.0"
-
-ndarray-pack@^1.1.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/ndarray-pack/-/ndarray-pack-1.2.1.tgz"
-  dependencies:
-    cwise-compiler "^1.1.2"
-    ndarray "^1.0.13"
-
-ndarray@1.0.18:
-  version "1.0.18"
-  resolved "https://registry.npmjs.org/ndarray/-/ndarray-1.0.18.tgz"
-  dependencies:
-    iota-array "^1.0.0"
-    is-buffer "^1.0.2"
-
-ndarray@^1.0.13:
-  version "1.0.19"
-  resolved "https://registry.npmjs.org/ndarray/-/ndarray-1.0.19.tgz"
-  dependencies:
-    iota-array "^1.0.0"
-    is-buffer "^1.0.2"
 
 negotiator@0.6.3:
   version "0.6.3"
@@ -2443,10 +1950,6 @@ node-addon-api@^5.0.0:
   version "5.1.0"
   resolved "https://registry.npmjs.org/node-addon-api/-/node-addon-api-5.1.0.tgz"
 
-node-bitmap@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/node-bitmap/-/node-bitmap-0.0.1.tgz"
-
 node-cleanup@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/node-cleanup/-/node-cleanup-2.1.2.tgz"
@@ -2455,7 +1958,7 @@ node-domexception@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/node-domexception/-/node-domexception-1.0.0.tgz"
 
-node-fetch@^2.6.7, node-fetch@~2.6.1:
+node-fetch@^2.6.7:
   version "2.6.9"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.9.tgz"
   dependencies:
@@ -2494,21 +1997,11 @@ npmlog@^5.0.1:
     gauge "^3.0.0"
     set-blocking "^2.0.0"
 
-nsfwjs@^2.4.2:
-  version "2.4.2"
-  resolved "https://registry.npmjs.org/nsfwjs/-/nsfwjs-2.4.2.tgz"
-  dependencies:
-    "@nsfw-filter/gif-frames" "1.0.2"
-
 nth-check@^2.0.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/nth-check/-/nth-check-2.1.1.tgz"
   dependencies:
     boolbase "^1.0.0"
-
-oauth-sign@~0.9.0:
-  version "0.9.0"
-  resolved "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz"
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -2517,10 +2010,6 @@ object-assign@^4.1.1:
 object-inspect@^1.9.0:
   version "1.12.3"
   resolved "https://registry.npmjs.org/object-inspect/-/object-inspect-1.12.3.tgz"
-
-omggif@^1.0.5:
-  version "1.0.10"
-  resolved "https://registry.npmjs.org/omggif/-/omggif-1.0.10.tgz"
 
 on-finished@2.4.1:
   version "2.4.1"
@@ -2543,12 +2032,6 @@ onetime@^6.0.0:
 p-cancelable@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/p-cancelable/-/p-cancelable-3.0.0.tgz"
-
-parse-data-uri@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/parse-data-uri/-/parse-data-uri-0.2.0.tgz"
-  dependencies:
-    data-uri-to-buffer "0.0.3"
 
 parse5-htmlparser2-tree-adapter@^6.0.1:
   version "6.0.1"
@@ -2603,18 +2086,6 @@ peek-readable@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/peek-readable/-/peek-readable-5.0.0.tgz"
 
-performance-now@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz"
-
-pngjs-nozlib@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/pngjs-nozlib/-/pngjs-nozlib-1.0.0.tgz"
-
-pngjs@^3.3.3:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/pngjs/-/pngjs-3.4.0.tgz"
-
 pretty-seconds-spanish@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/pretty-seconds-spanish/-/pretty-seconds-spanish-2.1.1.tgz"
@@ -2622,10 +2093,6 @@ pretty-seconds-spanish@^2.1.1:
 prism-media@^1.3.5:
   version "1.3.5"
   resolved "https://registry.npmjs.org/prism-media/-/prism-media-1.3.5.tgz"
-
-progress@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz"
 
 proxy-addr@~2.0.7:
   version "2.0.7"
@@ -2644,11 +2111,7 @@ ps-tree@^1.2.0:
   dependencies:
     event-stream "=3.3.4"
 
-psl@^1.1.28:
-  version "1.9.0"
-  resolved "https://registry.npmjs.org/psl/-/psl-1.9.0.tgz"
-
-punycode@^2.1.0, punycode@^2.1.1:
+punycode@^2.1.1:
   version "2.3.0"
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz"
 
@@ -2657,10 +2120,6 @@ qs@6.11.0:
   resolved "https://registry.npmjs.org/qs/-/qs-6.11.0.tgz"
   dependencies:
     side-channel "^1.0.4"
-
-qs@~6.5.2:
-  version "6.5.3"
-  resolved "https://registry.npmjs.org/qs/-/qs-6.5.3.tgz"
 
 quick-lru@^5.1.1:
   version "5.1.1"
@@ -2687,53 +2146,11 @@ readable-stream@^3.6.0:
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
 
-readable-stream@~1.1.9:
-  version "1.1.14"
-  resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz"
-  dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "0.0.1"
-    string_decoder "~0.10.x"
-
 readable-web-to-node-stream@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/readable-web-to-node-stream/-/readable-web-to-node-stream-3.0.2.tgz"
   dependencies:
     readable-stream "^3.6.0"
-
-regenerator-runtime@^0.13.5:
-  version "0.13.11"
-  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
-
-request@^2.44.0:
-  version "2.88.2"
-  resolved "https://registry.npmjs.org/request/-/request-2.88.2.tgz"
-  dependencies:
-    aws-sign2 "~0.7.0"
-    aws4 "^1.8.0"
-    caseless "~0.12.0"
-    combined-stream "~1.0.6"
-    extend "~3.0.2"
-    forever-agent "~0.6.1"
-    form-data "~2.3.2"
-    har-validator "~5.1.3"
-    http-signature "~1.2.0"
-    is-typedarray "~1.0.0"
-    isstream "~0.1.2"
-    json-stringify-safe "~5.0.1"
-    mime-types "~2.1.19"
-    oauth-sign "~0.9.0"
-    performance-now "^2.1.0"
-    qs "~6.5.2"
-    safe-buffer "^5.1.2"
-    tough-cookie "~2.5.0"
-    tunnel-agent "^0.6.0"
-    uuid "^3.3.2"
-
-require-directory@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz"
 
 resolve-alpn@^1.2.0:
   version "1.2.1"
@@ -2744,12 +2161,6 @@ responselike@^3.0.0:
   resolved "https://registry.npmjs.org/responselike/-/responselike-3.0.0.tgz"
   dependencies:
     lowercase-keys "^3.0.0"
-
-rimraf@^2.6.2:
-  version "2.7.1"
-  resolved "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz"
-  dependencies:
-    glob "^7.1.3"
 
 rimraf@^3.0.2:
   version "3.0.2"
@@ -2767,11 +2178,11 @@ rxjs@^7.8.0:
   dependencies:
     tslib "^2.1.0"
 
-safe-buffer@5.2.1, safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@^5.2.1, safe-buffer@~5.2.0:
+safe-buffer@5.2.1, safe-buffer@~5.2.0:
   version "5.2.1"
   resolved "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz"
 
-"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+"safer-buffer@>= 2.1.2 < 3":
   version "2.1.2"
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
 
@@ -2780,10 +2191,6 @@ saslprep@^1.0.3:
   resolved "https://registry.npmjs.org/saslprep/-/saslprep-1.0.3.tgz"
   dependencies:
     sparse-bitfield "^3.0.3"
-
-seedrandom@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/seedrandom/-/seedrandom-3.0.5.tgz"
 
 semver@^6.0.0:
   version "6.3.0"
@@ -2883,24 +2290,6 @@ split@0.3:
   dependencies:
     through "2"
 
-sprintf-js@~1.0.2:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz"
-
-sshpk@^1.7.0:
-  version "1.17.0"
-  resolved "https://registry.npmjs.org/sshpk/-/sshpk-1.17.0.tgz"
-  dependencies:
-    asn1 "~0.2.3"
-    assert-plus "^1.0.0"
-    bcrypt-pbkdf "^1.0.0"
-    dashdash "^1.12.0"
-    ecc-jsbn "~0.1.1"
-    getpass "^0.1.1"
-    jsbn "~0.1.0"
-    safer-buffer "^2.0.2"
-    tweetnacl "~0.14.0"
-
 statuses@2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz"
@@ -2919,7 +2308,7 @@ string-argv@^0.1.1:
   version "0.1.2"
   resolved "https://registry.npmjs.org/string-argv/-/string-argv-0.1.2.tgz"
 
-"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
   dependencies:
@@ -2927,15 +2316,11 @@ string-argv@^0.1.1:
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.1"
 
-string_decoder@^1.1.1, string_decoder@^1.3.0:
+string_decoder@^1.1.1:
   version "1.3.0"
   resolved "https://registry.npmjs.org/string_decoder/-/string_decoder-1.3.0.tgz"
   dependencies:
     safe-buffer "~5.2.0"
-
-string_decoder@~0.10.x:
-  version "0.10.31"
-  resolved "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz"
 
 stringify-safe@^1.0.3:
   version "1.0.3"
@@ -2962,27 +2347,9 @@ strtok3@^7.0.0:
     "@tokenizer/token" "^0.3.0"
     peek-readable "^5.0.0"
 
-supports-color@^7.1.0:
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz"
-  dependencies:
-    has-flag "^4.0.0"
-
 systeminformation@^5.12.6:
   version "5.17.12"
   resolved "https://registry.npmjs.org/systeminformation/-/systeminformation-5.17.12.tgz"
-
-tar@^4.4.6:
-  version "4.4.19"
-  resolved "https://registry.npmjs.org/tar/-/tar-4.4.19.tgz"
-  dependencies:
-    chownr "^1.1.4"
-    fs-minipass "^1.2.7"
-    minipass "^2.9.0"
-    minizlib "^1.3.3"
-    mkdirp "^0.5.5"
-    safe-buffer "^5.2.1"
-    yallist "^3.1.1"
 
 tar@^6.1.11:
   version "6.1.13"
@@ -2995,13 +2362,9 @@ tar@^6.1.11:
     mkdirp "^1.0.3"
     yallist "^4.0.0"
 
-through@2, through@^2.3.4, through@~2.3, through@~2.3.1:
+through@2, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
-
-through@2.3.4:
-  version "2.3.4"
-  resolved "https://registry.npmjs.org/through/-/through-2.3.4.tgz"
 
 toidentifier@1.0.1:
   version "1.0.1"
@@ -3013,13 +2376,6 @@ token-types@^5.0.1:
   dependencies:
     "@tokenizer/token" "^0.3.0"
     ieee754 "^1.2.1"
-
-tough-cookie@~2.5.0:
-  version "2.5.0"
-  resolved "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz"
-  dependencies:
-    psl "^1.1.28"
-    punycode "^2.1.1"
 
 tr46@^3.0.0:
   version "3.0.0"
@@ -3079,16 +2435,6 @@ tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.1, tslib@^2.4.1, tslib@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
 
-tunnel-agent@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.6.0.tgz"
-  dependencies:
-    safe-buffer "^5.0.1"
-
-tweetnacl@^0.14.3, tweetnacl@~0.14.0:
-  version "0.14.5"
-  resolved "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz"
-
 type-is@~1.6.18:
   version "1.6.18"
   resolved "https://registry.npmjs.org/type-is/-/type-is-1.6.18.tgz"
@@ -3106,10 +2452,6 @@ undici@^5.13.0, undici@^5.8.2:
   dependencies:
     busboy "^1.6.0"
 
-uniq@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/uniq/-/uniq-1.0.1.tgz"
-
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
@@ -3117,12 +2459,6 @@ unpipe@1.0.0, unpipe@~1.0.0:
 unraw@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/unraw/-/unraw-2.0.1.tgz"
-
-uri-js@^4.2.2:
-  version "4.4.1"
-  resolved "https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz"
-  dependencies:
-    punycode "^2.1.0"
 
 util-deprecate@^1.0.1:
   version "1.0.2"
@@ -3136,10 +2472,6 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
 
-uuid@^3.3.2:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
-
 uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
@@ -3151,14 +2483,6 @@ v8-compile-cache-lib@^3.0.1:
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
-
-verror@1.10.0:
-  version "1.10.0"
-  resolved "https://registry.npmjs.org/verror/-/verror-1.10.0.tgz"
-  dependencies:
-    assert-plus "^1.0.0"
-    core-util-is "1.0.2"
-    extsprintf "^1.2.0"
 
 web-streams-polyfill@^3.0.3:
   version "3.2.1"
@@ -3198,14 +2522,6 @@ wide-align@^1.1.2:
   dependencies:
     string-width "^1.0.2 || 2 || 3 || 4"
 
-wrap-ansi@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
-  dependencies:
-    ansi-styles "^4.0.0"
-    string-width "^4.1.0"
-    strip-ansi "^6.0.0"
-
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
@@ -3214,33 +2530,9 @@ ws@^8.11.0, ws@^8.12.1:
   version "8.12.1"
   resolved "https://registry.npmjs.org/ws/-/ws-8.12.1.tgz"
 
-y18n@^5.0.5:
-  version "5.0.8"
-  resolved "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz"
-
-yallist@^3.0.0, yallist@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz"
-
 yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
-
-yargs-parser@^20.2.2:
-  version "20.2.9"
-  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
-
-yargs@^16.0.3:
-  version "16.2.0"
-  resolved "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
-  dependencies:
-    cliui "^7.0.2"
-    escalade "^3.1.1"
-    get-caller-file "^2.0.5"
-    require-directory "^2.1.1"
-    string-width "^4.2.0"
-    y18n "^5.0.5"
-    yargs-parser "^20.2.2"
 
 yn@3.1.1:
   version "3.1.1"

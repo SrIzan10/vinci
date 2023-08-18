@@ -8,8 +8,6 @@ import youtubenotifications from './util/youtubenotifications.js';
 import { setIntervalAsync } from 'set-interval-async';
 import birthdays from './util/birthdays.js';
 import minecraftstatus from './util/minecraftstatus.js';
-import * as tf from '@tensorflow/tfjs-node'
-import * as nsfw from 'nsfwjs'
 import axios from 'axios';
 // import giveawaychecker from './util/giveawaychecker.js';
 
@@ -91,9 +89,6 @@ client.on('ready', async () => {
 		console.log('DevMode got activated, there are no checkers in this version.')
 	}
 });
-
-tf.enableProdMode()
-export const nsfwModel = await nsfw.load()
 
 export const scamLinks = await axios.get('https://api.hyperphish.com/gimme-domains').then(res => res.data as Array<string>)
 
