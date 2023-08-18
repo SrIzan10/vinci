@@ -14,11 +14,11 @@ export default commandModule({
 	options: [],
 	execute: async (ctx, options) => {
 		await ctx.interaction.deferReply({ ephemeral: true })
-		const cpubrand = await axios(`http://192.168.1.44:7271/cpubrand`)
-		const cpucores = await axios(`http://192.168.1.44:7271/cpucores`)
-		const ramtotal = await axios(`http://192.168.1.44:7271/ramtotal`)
-		const ramfree = await axios(`http://192.168.1.44:7271/ramfree`)
-		const dockertotal = await axios(`http://192.168.1.44:7271/dockertotal`)
+		const cpubrand = await axios(`http://192.168.1.79:7271/cpubrand`)
+		const cpucores = await axios(`http://192.168.1.79:7271/cpucores`)
+		const ramtotal = await axios(`http://192.168.1.79:7271/ramtotal`)
+		const ramfree = await axios(`http://192.168.1.79:7271/ramfree`)
+		const dockertotal = await axios(`http://192.168.1.79:7271/dockertotal`)
 		const uptime = prettySeconds(process.uptime())
 		const embed = new EmbedBuilder()
 			.setAuthor({name: `${ctx.user.username}`, iconURL: `${ctx.user.displayAvatarURL()}`})
