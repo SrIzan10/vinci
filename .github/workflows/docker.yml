@@ -51,4 +51,4 @@ jobs:
         run: |
           curl -X POST \
             -H "Authorization: Bearer $AUTH_HEADER" \
-            https://webhooks.srizan.dev/hooks/bask
+            https://webhooks.srizan.dev/hooks/vinci
