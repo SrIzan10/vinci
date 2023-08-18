@@ -1,5 +1,4 @@
-#!/usr/bin/node
-const port = 8080
+const port = 7271
 const express = require('express');
 const app = express();
 const si = require('systeminformation');
@@ -15,9 +14,6 @@ function formatBytes(bytes, decimals = 2) {
 
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
-
-// use the express-static middleware
-app.use(express.static("public"))
 
 app.get("/cpubrand", async function (req, res) {
   const cpu = await si.cpu()

@@ -7,8 +7,6 @@ import mongoose from 'mongoose';
 import youtubenotifications from './util/youtubenotifications.js';
 import { setIntervalAsync } from 'set-interval-async';
 import birthdays from './util/birthdays.js';
-import twitternotifications from './util/twitternotifications.js';
-import webserver from './util/web/webserver.js'
 import minecraftstatus from './util/minecraftstatus.js';
 import * as tf from '@tensorflow/tfjs-node'
 import * as nsfw from 'nsfwjs'
@@ -83,24 +81,14 @@ client.on('ready', async () => {
 		}, 120_000);
 
 		setIntervalAsync(async () => {
-			await twitternotifications(client);
-		}, 120_000);
-
-		setIntervalAsync(async () => {
 			await birthdays(client);
 		}, 3_600_000);
 
 		setIntervalAsync(async () => {
 			await minecraftstatus(client);
 		}, 20_000);
-
-		setIntervalAsync(async () => {
-			await minecraftstatus(client);
-		}, 20_000);
-
-		webserver()
 	} else {
-		console.log('DevMode got activated, there are no checkers or webserver in this version.')
+		console.log('DevMode got activated, there are no checkers in this version.')
 	}
 });
 
