@@ -9,9 +9,16 @@ export default async function minecraftstatus(client: Client) {
     dayjs.extend(utc)
     dayjs.extend(timezone)
 
-    const request = await axios.get('https://api.minetools.eu/ping/minecraft.maraturing.com/25565', {
-        httpsAgent: new https.Agent({ rejectUnauthorized: false })
-    }).then(res => res.data)
+    let request
+    try {
+        const req = await axios.get('https://api.minetools.eu/ping/minecraft.maraturing.com/25565', {
+          httpsAgent: new https.Agent({ rejectUnauthorized: false })
+        });
+        
+        request = req.data;
+    } catch (error) {
+        return;
+    }
     const fetchMsg = await (await client.channels.fetch('1063944267258662922')! as TextChannel).messages.fetch('1063950406474010674') as Message
     
     let onlineorelse: string
