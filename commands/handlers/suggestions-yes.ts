@@ -1,5 +1,5 @@
 import { commandModule, CommandType } from "@sern/handler";
-import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, ComponentType } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonComponentData, ButtonInteraction, ButtonStyle, ComponentType } from "discord.js";
 import db from "../../schemas/suggestions.js";
 
 export default commandModule({
@@ -7,8 +7,8 @@ export default commandModule({
     async execute(interaction) {
         const convertToNumber = Number(interaction.component.label!)
         const row2 = new ActionRowBuilder<ButtonBuilder>().setComponents(
-            new ButtonBuilder(interaction.message!.components[1].components[0].data),
-            new ButtonBuilder(interaction.message!.components[1].components[1].data)
+            new ButtonBuilder(interaction.message!.components[1].components[0].data as ButtonComponentData),
+            new ButtonBuilder(interaction.message!.components[1].components[1].data as ButtonComponentData)
         )
         if (await db.exists({msgid: interaction.message.id, userid: interaction.user.id, upordown: -1})) {
             await db.findOneAndUpdate({msgid: interaction.message.id, userid: interaction.user.id, upordown: -1}, {upordown: 1}, {returnOriginal: false})
@@ -20,7 +20,7 @@ export default commandModule({
                     .setEmoji('✅')
                     .setLabel((convertToNumber + 1).toString())
                     .setStyle(ButtonStyle.Success),
-                new ButtonBuilder(interaction.message!.components[0].components[1].data)
+                new ButtonBuilder(interaction.message!.components[0].components[1].data as ButtonComponentData)
                     .setLabel((Number(JSON.parse(upvoteLabel).label) - 1).toString()),
             )
             await interaction.message.edit({components: [downvotebuttons, row2]})
@@ -34,7 +34,7 @@ export default commandModule({
                     .setEmoji('✅')
                     .setLabel((convertToNumber + 1).toString())
                     .setStyle(ButtonStyle.Success),
-                new ButtonBuilder(interaction.message!.components[0].components[1].data)
+                new ButtonBuilder(interaction.message!.components[0].components[1].data as ButtonComponentData)
             )
 
             const addToDB = new db({

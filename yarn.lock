@@ -925,14 +925,14 @@
   resolved "https://registry.yarnpkg.com/@sapphire/snowflake/-/snowflake-3.5.1.tgz#254521c188b49e8b2d4cc048b475fb2b38737fec"
   integrity sha512-BxcYGzgEsdlG0dKAyOm0ehLGm2CafIrfQTZGWgkfKYbj+pNNsorZ7EotuZukc2MT70E0UbppVbtpBrqpzVzjNA==
 
-"@sern/handler@^2.5.3":
-  version "2.5.3"
-  resolved "https://registry.npmjs.org/@sern/handler/-/handler-2.5.3.tgz"
+"@sern/handler@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@sern/handler/-/handler-3.0.3.tgz#6b286219a7091693d298e38636c49808ebfd3840"
+  integrity sha512-kQBHXE+yejAMCWH7+XqwJViCYgSt8dtVb0cyPp36pMCgjodYIXk8lJ26eQ3KVy3PTSMIlgnw1QztZCrAYa6qTw==
   dependencies:
     iti "^0.6.0"
     rxjs "^7.8.0"
-    ts-pattern "^4.1.4"
-    ts-results-es "^3.5.0"
+    ts-results-es "^3.6.1"
 
 "@sindresorhus/is@^5.2.0":
   version "5.3.0"
@@ -2524,13 +2524,10 @@ ts-node@10.9.1:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
-ts-pattern@^4.1.4:
-  version "4.2.1"
-  resolved "https://registry.npmjs.org/ts-pattern/-/ts-pattern-4.2.1.tgz"
-
-ts-results-es@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.npmjs.org/ts-results-es/-/ts-results-es-3.5.0.tgz"
+ts-results-es@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/ts-results-es/-/ts-results-es-3.6.1.tgz#2249aca8690b3b68445873c2a3da9517db98a16b"
+  integrity sha512-J1i9VBJd6PV+W9ZYJLNGiwzEW34f+dbrB8GzL5VEUdDEWQqU89DtSx4oeX01h5e+GP1xI4e7CRn7fbYeNKdZOg==
 
 tsc-watch@^5.0.3:
   version "5.0.3"
@@ -2562,9 +2559,10 @@ type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-typescript@^4.9.3:
-  version "4.9.5"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
+typescript@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
+  integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
 
 undici@5.22.1:
   version "5.22.1"
