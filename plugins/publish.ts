@@ -1,6 +1,7 @@
 // @ts-nocheck
 /**
- * This is publish plugin, it allows you to publish your application commands using the discord.js library with ease.
+ * @plugin
+ * [DEPRECATED] It allows you to publish your application commands using the discord.js library with ease.
  *
  * @author @EvolutionX-10 [<@697795666373640213>]
  * @version 2.0.0
@@ -16,6 +17,7 @@
  *  }
  * })
  * ```
+ * @end
  */
 import {
 	CommandInitPlugin,
@@ -23,13 +25,14 @@ import {
 	controller,
 	SernOptionsData,
 	SlashCommand,
+	Service,
 } from "@sern/handler";
 import {
 	ApplicationCommandData,
 	ApplicationCommandType,
+	ApplicationCommandOptionType,
 	PermissionResolvable,
 } from "discord.js";
-import { useContainer } from "../index.js";
 
 export const CommandTypeRaw = {
 	[CommandType.Both]: ApplicationCommandType.ChatInput,
@@ -43,11 +46,17 @@ export function publish<
 		| CommandType.Both
 		| CommandType.Slash
 		| CommandType.CtxMsg
-		| CommandType.CtxUser
+		| CommandType.CtxUser,
 >(options?: PublishOptions) {
 	return CommandInitPlugin<T>(async ({ module }) => {
 		// Users need to provide their own useContainer function.
-		const [client] = useContainer("@sern/client");
+		let client;
+		try {
+			client = (await import("@sern/handler")).Service("@sern/client");
+		} catch {
+			const { useContainer } = await import("../index.js");
+			client = useContainer("@sern/client")[0];
+		}
 		const defaultOptions = {
 			guildIds: [],
 			dmPermission: undefined,
@@ -89,7 +98,7 @@ export function publish<
 				description: cmd(module.description, ""),
 				options: cmd(
 					optionsTransformer((module as SlashCommand).options ?? []),
-					[]
+					[],
 				),
 				defaultMemberPermissions,
 				dmPermission,
@@ -101,17 +110,17 @@ export function publish<
 
 			if (!guildIds.length) {
 				const cmd = (await client.application!.commands.fetch()).find(
-					(c) => c.name === module.name && c.type === curAppType
+					(c) => c.name === module.name && c.type === curAppType,
 				);
 				if (cmd) {
 					if (!cmd.equals(commandData, true)) {
 						logged(
-							`Found differences in global command ${module.name}`
+							`Found differences in global command ${module.name}`,
 						);
 						cmd.edit(commandData).then(
 							log(
-								`${module.name} updated with new data successfully!`
-							)
+								`${module.name} updated with new data successfully!`,
+							),
 						);
 					}
 					return controller.next();
@@ -127,7 +136,7 @@ export function publish<
 				const guild = await client.guilds.fetch(id).catch(c);
 				if (!guild) continue;
 				const guildCmd = (await guild.commands.fetch()).find(
-					(c) => c.name === module.name && c.type === curAppType
+					(c) => c.name === module.name && c.type === curAppType,
 				);
 				if (guildCmd) {
 					if (!guildCmd.equals(commandData, true)) {
@@ -136,8 +145,8 @@ export function publish<
 							.edit(commandData)
 							.then(
 								log(
-									`${module.name} updated with new data successfully!`
-								)
+									`${module.name} updated with new data successfully!`,
+								),
 							)
 							.catch(c);
 						continue;
@@ -159,9 +168,19 @@ export function publish<
 }
 
 export function optionsTransformer(ops: Array<SernOptionsData>) {
-	return ops.map((el) =>
-		el.autocomplete ? (({ command, ...el }) => el)(el) : el
-	);
+	return ops.map((el) => {
+		switch (el.type) {
+			case ApplicationCommandOptionType.String:
+			case ApplicationCommandOptionType.Number:
+			case ApplicationCommandOptionType.Integer: {
+				return el.autocomplete && "command" in el
+					? (({ command, ...el }) => el)(el)
+					: el;
+			}
+			default:
+				return el;
+		}
+	});
 }
 
 export type NonEmptyArray<T extends `${number}` = `${number}`> = [T, ...T[]];

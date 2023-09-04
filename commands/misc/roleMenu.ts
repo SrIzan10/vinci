@@ -15,7 +15,7 @@ export default commandModule({
 			name: "channel",
 			type: ApplicationCommandOptionType.Channel,
 			description: "The channel to send the message to",
-			channelTypes: [ChannelType.GuildText],
+			channel_types: [ChannelType.GuildText],
 			required: true,
 		},
 		{

@@ -2,7 +2,7 @@ import TicTacToe from 'discord-tictactoe';
 import { commandModule, CommandType } from '@sern/handler'
 import { publish } from "#plugins";
 import { ownerOnly } from "#plugins";
-import { ApplicationCommandOptionType } from "discord.js";
+import { ApplicationCommandOptionType, ChatInputCommandInteraction, CommandInteraction, Interaction } from "discord.js";
 const game = new TicTacToe({language: 'en'})
 
 export default commandModule({
@@ -19,6 +19,7 @@ export default commandModule({
 		}
 	],
 	execute: async (ctx, options) => {
-		await game.handleInteraction(ctx.interaction)
+		ctx.reply({ content: 'comando desactivado temporalmente :(', ephemeral: true })
+		// game.handleInteraction(ctx.interaction as ChatInputCommandInteraction)
 	},
 });

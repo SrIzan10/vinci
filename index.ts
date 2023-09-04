@@ -1,5 +1,5 @@
-import { DefaultLogging, Dependencies, single, Singleton } from '@sern/handler';
-import { ActivityType } from 'discord.js';
+import { DefaultLogging, makeDependencies, single, Singleton } from '@sern/handler';
+import { ActivityOptions, ActivityType } from 'discord.js';
 import { Client, GatewayIntentBits } from 'discord.js';
 import { Sern } from '@sern/handler';
 import { config as dotenv } from 'dotenv';
@@ -41,18 +41,14 @@ interface MyDependencies extends Dependencies {
     '@sern/logger' : Singleton<DefaultLogging>
 }
 
-export const useContainer = Sern.makeDependencies<MyDependencies>({
-    build: root => root
-        .add({ '@sern/client': single(client)  }) 
-        .upsert({ '@sern/logger': single(new DefaultLogging()) })
+await makeDependencies<MyDependencies>({
+    build: (root) => root.add({ '@sern/client': single(() => client) }),
 });
+
 Sern.init({
 	commands: 'dist/commands',
 	events: 'dist/events',
 	defaultPrefix: process.env.PREFIX,
-	containerConfig: {
-		get: useContainer
-	}
 });
 
 client.on('ready', async () => {
@@ -67,10 +63,9 @@ client.on('ready', async () => {
 			{ name: 'tus comandos', type: ActivityType.Listening },
 			{ name: 'tu voz', type: ActivityType.Listening },
 			{ name: 'ahora v1.0!', type: ActivityType.Playing },
-		];
+		] as ActivityOptions[];
 		const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-		// @ts-ignore
-		client.user!.setActivity(randomStatus);
+		client.user.setActivity(randomStatus);
 	}, 10000);
 
 	if (!devMode) {
