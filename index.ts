@@ -8,7 +8,7 @@ import youtubenotifications from './util/youtubenotifications.js';
 import { setIntervalAsync } from 'set-interval-async';
 import birthdays from './util/birthdays.js';
 import minecraftstatus from './util/minecraftstatus.js';
-import axios from 'axios';
+import Spotify from 'spotify-api.js';
 // import giveawaychecker from './util/giveawaychecker.js';
 
 let devMode: boolean
@@ -36,13 +36,19 @@ mongoose.connect(process.env.MONGODB!).then(() => {
 	console.log('Connected to MongoDB');
 });
 
+const spotifyClient = await Spotify.Client.create({
+	token: { clientID: process.env.SPOTIFY_CLIENT!, clientSecret: process.env.SPOTIFY_SECRET! },
+})
+
 interface MyDependencies extends Dependencies {
     '@sern/client' : Singleton<Client>;
     '@sern/logger' : Singleton<DefaultLogging>
 }
 
 await makeDependencies<MyDependencies>({
-    build: (root) => root.add({ '@sern/client': single(() => client) }),
+    build: (root) => root
+		.add({ '@sern/client': single(() => client) })
+		.add({ 'spotify-api-client': single(() => spotifyClient) })
 });
 
 Sern.init({
@@ -85,6 +91,6 @@ client.on('ready', async () => {
 	}
 });
 
-export const scamLinks = await axios.get('https://api.hyperphish.com/gimme-domains').then(res => res.data as Array<string>)
+// export const scamLinks = await axios.get('https://api.hyperphish.com/gimme-domains').then(res => res.data as Array<string>)
 
 client.login(process.env.TOKEN);
