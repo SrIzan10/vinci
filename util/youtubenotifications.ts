@@ -4,6 +4,9 @@ import schema from '../schemas/youtube.js';
 
 export default async function youtubenotifications(client: Client) {
 	const db = await schema.findOne({ name: 'elpady' });
+	const fetchTextChannel = (await (
+		await client.guilds.fetch(process.env.GUILDID!)
+	).channels.fetch(process.env.SOCIALS_CHANNEL!)) as TextChannel;
 	const request = await axios
 		.get(
 			'https://decapi.me/youtube/latest_video?id=UC9G2yvrtrPeJFEzwlshg5HA&format={id}'
@@ -14,12 +17,8 @@ export default async function youtubenotifications(client: Client) {
 			'https://decapi.me/youtube/latest_video?id=UC9G2yvrtrPeJFEzwlshg5HA&format={title}'
 		)
 		.then((res) => res.data);
-	const fetchTextChannel = (await (
-		await client.guilds.fetch(process.env.GUILDID!)
-	).channels.fetch(process.env.SOCIALS_CHANNEL!)) as TextChannel;
 	if (request === db!.id) return;
-	if (request === 'Xj3FH0DOabo') return;
-	else {
+	if (await fetchTextChannel.messages.fetch({ limit: 1 }) === db!.id) return;
 		db!.id = request;
 		await db?.save();
 		const embed = new EmbedBuilder()
@@ -36,6 +35,5 @@ export default async function youtubenotifications(client: Client) {
 			content: 'Nuevo vídeo de Mara Turing, corre a verlo!',
 			embeds: [embed],
 		});
-		message.react('<:Pog:1030169609178976346>');
-	}
+		await message.react('<:Pog:1030169609178976346>');
 }
