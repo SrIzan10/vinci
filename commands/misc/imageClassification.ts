@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler';
 import { publish } from '#plugins';
-import { AttachmentBuilder, codeBlock } from 'discord.js';
+import { AttachmentBuilder } from 'discord.js';
 import { createCanvas, loadImage } from '@napi-rs/canvas';
 
 export default commandModule({
