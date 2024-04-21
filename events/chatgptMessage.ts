@@ -66,7 +66,7 @@ export default discordEvent({
 							await sentMsg.edit({ content: msg });
 							messages.push({ role: 'assistant', content: msg });
 							const titleResponse = await fetch(
-								`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@cf/meta/llama-2-7b-chat-int8`,
+								`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@cf/meta/llama-3-8b-instruct`,
 								{
 									method: 'POST',
 									headers: {

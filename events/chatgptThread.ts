@@ -16,7 +16,7 @@ export default discordEvent({
             const newObj = [{ role: 'user', content: message.content }]
             const db = await database.findOne({ threadid: thread.id }).exec()
             const messages = db!.messages.map((message) => {
-                const { _id, ...rest } = message.toObject(); // Convert Mongoose document to plain object and remove _id field
+                const { _id, ...rest } = message.toObject();
                 return rest
             })
 
@@ -35,7 +35,7 @@ export default discordEvent({
                     return
                 }
             }, 1000)
-            fetchEventSource(`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@cf/meta/llama-2-7b-chat-int8`, {
+            fetchEventSource(`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@cf/meta/llama-3-8b-instruct`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${process.env.CF_AI_TOKEN}`,
