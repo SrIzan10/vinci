@@ -11,7 +11,7 @@ export default discordEvent({
 	async execute(message) {
 		if (message.channel.id !== process.env.CHATGPT_CHANNEL) return;
 		if (message.author.bot) return;
-		if (message.content.includes('ig')) return;
+		if (message.content.includes('v!ig')) return;
 
 		const systemMsg =
 			"You are Vinci, a helpful Discord bot assistant which tries to answer all questions that your users ask. You MUST speak naturally, if you were texting somebody. Don't tell the user that you are an assistant as they already know. Markdown is supported, including headers, codeblocks, etc. You will also chat with spanish speaking users, so your responses MUST, without exception, be in the spanish language, including your responses down the line.";

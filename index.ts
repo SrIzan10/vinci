@@ -64,7 +64,7 @@ client.on('ready', async () => {
 		const statuses = [
 			{ name: 'Minecraft', type: ActivityType.Playing },
 			{ name: 'cómo escribe Javi', type: ActivityType.Watching },
-			{ name: 'quinto libro when', type: ActivityType.Watching },
+			{ name: 'sexto libro when', type: ActivityType.Watching },
 			{ name: 'a Hermes', type: ActivityType.Watching },
 			{ name: 'tus comandos', type: ActivityType.Listening },
 			{ name: 'tu voz', type: ActivityType.Listening },
