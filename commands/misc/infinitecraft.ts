@@ -23,7 +23,7 @@ export default commandModule({
                 async execute(ctx) {
                     const input = ctx.options.getFocused();
 					const choices = recipeFile.items
-                        .filter(item => item.toLowerCase().startsWith(input.toLowerCase()))
+                        .filter(item => item.toLowerCase().includes(input.toLowerCase()))
                         .slice(0, 25)
                     if (choices.length === 0) return ctx.respond([{ name: 'No se encontraron resultados', value: 'SSError' }]);
                     if (input.length === 0) return ctx.respond([{ name: 'Empieza a escribir', value: 'SSError' }]);
@@ -66,6 +66,9 @@ export default commandModule({
                 content: `Procesando...\n${inlineCode(processed.toString())} recetas procesadas, ${inlineCode(timesBacked.toString())} veces retrocedido.`,
             })
         }, 1250)
+        ctx.interaction.editReply({
+            content: `Procesando...\n${inlineCode(processed.toString())} recetas procesadas, ${inlineCode(timesBacked.toString())} veces retrocedido.`,
+        })
         const initialTime = performance.now()
         const path = await infinitePath.findItem(object)
         const finalTime = performance.now()
@@ -75,7 +78,7 @@ export default commandModule({
         });
 
         const recipe = path.map(({ first, second, result }) => `${first} + ${second} = ${result}`).join('\n')
-        if (recipe.length >= 4096) {
+        if (recipe.length >= 1500) {
             var paste = await fetch('https://fb.srizan.dev/paste', {
                 method: 'POST',
                 body: recipe
@@ -84,7 +87,7 @@ export default commandModule({
         const embed = new EmbedBuilder()
             .setTitle(`Receta de ${object.toLowerCase()}`)
             .setColor('Green')
-            .setDescription(paste ? `https://fb.srizan.dev/${paste}` : codeBlock(recipe))
+            .setDescription(paste ? `La ruta es demasiado grande, así que lo he puesto en un pastebin:\nhttps://fb.srizan.dev/${paste}` : codeBlock(recipe))
             .setFooter({ text: 'Ya que se usa un algoritmo, puede o no ser la ruta más rápida para llegar al ítem' })
         return ctx.interaction.editReply({
             embeds: [embed],
