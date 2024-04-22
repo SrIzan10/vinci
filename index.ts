@@ -11,7 +11,7 @@ import minecraftstatus from './util/minecraftstatus.js';
 import Spotify from 'spotify-api.js';
 // import giveawaychecker from './util/giveawaychecker.js';
 
-let devMode: boolean
+export let devMode: boolean
 if (process.argv[2] === '--dev') {
 	devMode = true
 	dotenv({path: '.env.dev'})
