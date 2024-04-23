@@ -38,7 +38,7 @@ export default commandModule({
 		const ctxCanvas = canvas.getContext('2d');
 		const img = await loadImage(image.url);
 		ctxCanvas.drawImage(img, 0, 0, metadata.width, metadata.height);
-		ctxCanvas.font = '30px sans-serif';
+		ctxCanvas.font = '40px sans-serif';
 		ctxCanvas.fillStyle = 'red';
 		ctxCanvas.strokeStyle = 'red';
 		ctxCanvas.lineWidth = 3;
