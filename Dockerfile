@@ -8,8 +8,9 @@ WORKDIR /app
 RUN apk add --no-cache --virtual .gyp python3 make g++
 
 COPY package.json yarn.lock ./
+RUN npm install -g typescript
 RUN yarn set version 4.1.1
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 COPY . .
 RUN yarn build
