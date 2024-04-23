@@ -7,12 +7,11 @@ WORKDIR /app
 
 RUN apk add --no-cache --virtual .gyp python3 make g++
 
-COPY package.json yarn.lock ./
+COPY . .
 RUN corepack enable yarn
 RUN yarn set version 4.1.1
 RUN yarn
 
-COPY . .
 RUN yarn build
 RUN yarn cache clean
 
