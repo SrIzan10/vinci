@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc-watch -p \"./tsconfig.json\" --onSuccess \"node ./dist/index.js --dev\"",
+    "prod": "tsc-watch -p \"./tsconfig.json\" --onSuccess \"node ./dist/index.js\"",
     "compile": "tsc --build",
     "build": "tsc --build",
     "web": "node webserver.js",
@@ -37,7 +38,7 @@
     "@discordjs/opus": "^0.9.0",
     "@discordjs/voice": "^0.15.0",
     "@microsoft/fetch-event-source": "^2.0.1",
-    "@napi-rs/canvas": "^0.1.30",
+    "@napi-rs/canvas": "^0.1.52",
     "@sern/handler": "^3.3.4",
     "axios": "^1.6.8",
     "dayjs": "^1.11.6",
@@ -57,6 +58,7 @@
     "pretty-seconds-spanish": "^2.1.1",
     "rockpaperscissors-checker": "^1.2.0",
     "set-interval-async": "^3.0.2",
+    "sharp": "^0.33.3",
     "spotify-api.js": "^9.2.5",
     "stringify-safe": "^1.0.3",
     "systeminformation": "^5.21.7"
@@ -66,5 +68,6 @@
     "ts-node": "10.9.1",
     "tsc-watch": "^5.0.3",
     "typescript": "^5.2.2"
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }
