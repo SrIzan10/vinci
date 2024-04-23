@@ -1679,7 +1679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^20.12.7":
   version: 20.12.7
   resolution: "@types/node@npm:20.12.7"
   dependencies:
@@ -4841,6 +4841,7 @@ __metadata:
     "@napi-rs/canvas": "npm:^0.1.52"
     "@sern/handler": "npm:^3.3.4"
     "@types/express": "npm:^4.17.14"
+    "@types/node": "npm:^20.12.7"
     axios: "npm:^1.6.8"
     dayjs: "npm:^1.11.6"
     discord-tictactoe: "npm:^4.0.0"
