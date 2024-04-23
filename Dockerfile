@@ -8,9 +8,9 @@ WORKDIR /app
 RUN apk add --no-cache --virtual .gyp python3 make g++
 
 COPY package.json yarn.lock ./
+RUN corepack enable yarn
 RUN yarn set version 4.1.1
 RUN yarn
-RUN npm install -g typescript
 
 COPY . .
 RUN yarn build
