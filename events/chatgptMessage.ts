@@ -1,9 +1,7 @@
 import { discordEvent } from '@sern/handler';
-import axios from 'axios';
 import { TextChannel } from 'discord.js';
 import db from '../schemas/chatgpt.js';
 import { fetchEventSource } from '@ai-zen/node-fetch-event-source';
-import database from '../schemas/chatgpt';
 import { devMode } from '../index.js';
 
 export default discordEvent({
@@ -92,7 +90,6 @@ export default discordEvent({
 							const dbData = new db({
 								messageid: message.id,
 								threadid: thread.id,
-								devServer: devMode,
 								messages: [
 									{ role: 'system', content: systemMsg },
 									{ role: 'user', content: message.content },

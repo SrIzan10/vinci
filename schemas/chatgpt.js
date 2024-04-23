@@ -6,7 +6,6 @@ const messageSchema = new mongoose.Schema({
 const schema = new mongoose.Schema({
 	messageid: { type: String, required: true },
 	threadid: { type: String, required: true },
-	devServer: { type: Boolean, required: true },
 	messages: { type: [messageSchema], required: true },
 });
 const db = mongoose.model('chatgpt', schema, 'chatgpt');
