@@ -35,7 +35,7 @@ export default discordEvent({
                     return
                 }
             }, 1000)
-            fetchEventSource(`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@cf/meta/llama-3-8b-instruct`, {
+            fetchEventSource(`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@hf/mistral/mistral-7b-instruct-v0.2`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${process.env.CF_AI_TOKEN}`,
