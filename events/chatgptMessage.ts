@@ -14,17 +14,7 @@ export default discordEvent({
 		const systemMsg =
 			"You are Vinci, a helpful Discord bot assistant which tries to answer all questions that your users ask. You MUST speak naturally, if you were texting somebody. Don't tell the user that you are an assistant as they already know. Markdown is supported, including headers, codeblocks, etc. You will also chat with spanish speaking users, so your responses MUST, without exception, be in the spanish language, including your responses down the line.";
 		try {
-			await (message.channel as TextChannel).sendTyping();
-			/*const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.CF_AI_ACC}/ai/run/@cf/meta/llama-2-7b-chat-int8`, {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${process.env.CF_AI_TOKEN}`
-              },
-              body: JSON.stringify({
-                messages: [{ role: 'system', content: systemMsg }, { role: "user", content: message.content }]
-              })
-            }).then(async res => (await res.json()).result.response as string)*/
-
+			await message.channel.sendTyping();
 			const messages = [
 				{ role: 'system', content: systemMsg },
 				{ role: 'user', content: message.content },
@@ -35,7 +25,7 @@ export default discordEvent({
 			let isDone = false;
 
 			const sentMsg = await message.reply(':sparkles: Pensando...');
-      message.channel.sendTyping();
+      		message.channel.sendTyping();
 			const sendInterval = setInterval(() => {
 				if (msg.length > 2000 || msg.length === 0) return;
 				message.channel.sendTyping();
@@ -75,7 +65,7 @@ export default discordEvent({
 										messages: [
 											{
 												role: 'user',
-                        // the "else you'll die" part actually works well for the prompt!
+                        						// the "else you'll die" part actually works well for the prompt!
 												content: `Generate a title for the following conversation. Only respond with the title, else you'll die:\\nUser: ${message.content}\\nAssistant: ${msg}`,
 											},
 										],
@@ -85,7 +75,7 @@ export default discordEvent({
 								async (res) =>
 									(await res.json()).result.response.replaceAll('"', '') as string
 							);
-							const thread = await sentMsg.startThread({ name: titleResponse });
+							const thread = await sentMsg.startThread({ name: titleResponse.substring(0, 100) });
 
 							const dbData = new db({
 								messageid: message.id,
