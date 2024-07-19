@@ -26,10 +26,5 @@ the code is here for transparency purposes and it's not made to be hosted by thi
 - ~~socials notification system~~ DONE!
 - chatbot using IBM's AI (thanks @gosevil for the idea)
 - ~~joke command~~
-  
-<!--<img src="https://srizan.s-ul.eu/RddzT2f9">-->
-
-<img src="https://cdn.discordapp.com/attachments/928230817673641995/1036390945945559140/makesweet-hbt4h3.gif">  
-by @Oliverlg8
 
 10 stars! tysm!
