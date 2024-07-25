@@ -1,7 +1,7 @@
 FROM node:lts
 
 # Build stage
-FROM node:lts-alpine AS build
+FROM node:20.15.1-alpine3.20 AS build
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ RUN yarn build
 RUN yarn cache clean
 
 # Final stage
-FROM node:lts-alpine AS final
+FROM node:20.15.1-alpine3.20 AS final
 
 WORKDIR /app
 
