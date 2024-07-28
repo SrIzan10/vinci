@@ -25,10 +25,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to Sr Izan's container registry
+      - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          registry: containers.srizan.dev
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -36,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: containers.srizan.dev/vinci
+          images: srizan10/vinci
           tags: latest
 
       - name: Build and push Docker image
@@ -53,5 +52,5 @@ jobs:
           AUTH_HEADER: ${{ secrets.WHSERVER_TOKEN }}
         run: |
           curl -X POST \
-            -H "Authorization: Bearer $AUTH_HEADER" \
+            -H "Authorization: $AUTH_HEADER" \
             https://webhooks.srizan.dev/hooks/vinci
