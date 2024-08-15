@@ -40,7 +40,7 @@
     "@microsoft/fetch-event-source": "^2.0.1",
     "@napi-rs/canvas": "^0.1.52",
     "@sern/handler": "^3.3.4",
-    "axios": "^1.6.8",
+    "axios": "^1.7.4",
     "dayjs": "^1.11.6",
     "discord-tictactoe": "^4.0.0",
     "discord.js": "^14.14.1",
