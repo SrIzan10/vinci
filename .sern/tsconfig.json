@@ -1,0 +1,17 @@
+{
+   "compilerOptions": {
+      "module": "esnext",
+      "moduleResolution": "node16",
+      "strict": true,
+      "skipLibCheck": true,
+      "target": "esnext",
+      "rootDirs": [
+         "./generated",
+         "../src"
+      ]
+   },
+   "include": [
+      "./ambient.d.ts",
+      "../src"
+   ]
+}

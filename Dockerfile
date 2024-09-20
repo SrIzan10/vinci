@@ -21,9 +21,8 @@ FROM node:lts-alpine AS final
 WORKDIR /app
 
 COPY --from=build /app/dist ./dist
-COPY --from=build /app/schemas ./schemas
-COPY --from=build /app/util ./util
-COPY --from=build /app/images ./images
+COPY --from=build /app/src ./src
+COPY --from=build /app/assets ./assets
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json ./package.json
 RUN apk add --no-cache ffmpeg msttcorefonts-installer fontconfig && \
