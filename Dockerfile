@@ -9,11 +9,9 @@ RUN apk add --no-cache --virtual .gyp python3 make g++
 
 COPY . .
 RUN corepack enable yarn
-RUN yarn set version 4.1.1
 RUN yarn
 
 RUN yarn build
-RUN yarn cache clean
 
 # Final stage
 FROM node:lts-alpine AS final
