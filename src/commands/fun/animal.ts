@@ -87,7 +87,7 @@ export default commandModule({
 							"sub_id": i.user.id,
 							"value": -1
 						})
-						i.editReply({content: "Has votado negativamente al gato con ID " + "`" + request[0].id + "`"})
+						i.editReply({content: `Has votado negativamente al gato con ID \`${request[0].id}\``})
 					}
 				})
 				collector.on('end', async (i) => {
@@ -95,15 +95,11 @@ export default commandModule({
 				})
 			}
 			case 'capybara': {
-				const request = await axios('https://api.capybara-api.xyz/v1/image/random').then(res => res.data)
-				const requestfacts = await axios('https://api.capybara-api.xyz/v1/facts/random').then(res => res.data)
 				const embed = new EmbedBuilder()
 					.setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
 					.setTitle('Capybara')
-					.setDescription(`Fun fact: ${requestfacts.fact}`)
 					.setColor('Random')
-					.setImage(request.image_urls.medium)
-					.setFooter({text: `ID: ${request.id}`})
+					.setImage('https://api.capy.lol/v1/capybara');
 				await ctx.interaction.reply({embeds: [embed]})
 			}
 			case 'zorro': {
@@ -173,7 +169,7 @@ export default commandModule({
 				})
 			}
 			case 'mapache': {
-				const request = await axios('https://some-random-api.ml/animal/raccoon').then(res => res.data)
+				const request = await axios('https://some-random-api.com/animal/raccoon').then(res => res.data)
 				const embed = new EmbedBuilder()
 					.setAuthor({name: ctx.user.username, iconURL: ctx.user.displayAvatarURL()})
 					.setTitle('Mapache')
