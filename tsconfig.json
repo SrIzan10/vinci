@@ -1,0 +1,10 @@
+{
+    "extends": "./.sern/tsconfig.json",
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "#/*": ["./utils/*"]
+        }
+    }
+}
