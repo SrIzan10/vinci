@@ -1,10 +1,11 @@
 {
-    "extends": "./.sern/tsconfig.json",
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "baseUrl": "./src",
-        "paths": {
-            "#/*": ["./utils/*"]
-        }
-    }
+  "extends": "./.sern/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "#/*": ["./utils/*"]
+    },
+    "allowSyntheticDefaultImports": true
+  }
 }

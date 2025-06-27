@@ -6,9 +6,8 @@
 - [ ] /rps - Rock Paper Scissors game
 - [ ] /tictactoe - Tic-tac-toe game (currently disabled)
 - [ ] /8ball - Magic 8-ball responses
-- [ ] /megamind - Megamind meme generator with canvas
-- [ ] /makesweet - Heart locket image generator
-- [ ] /gogoanime - Anime search and episode links
+- [x] /megamind - Megamind meme generator with canvas
+- [x] /makesweet - Heart locket image generator
 - [ ] /a - Custom command with user autocomplete
 - [ ] /cursivify - Context menu command to italicize text
 
@@ -17,7 +16,7 @@
 - [ ] /creditos - Bot credits and acknowledgments
 - [ ] /infinitecraft - InfiniteCraft recipe solver
 - [ ] /letra - Song lyrics search via Genius API
-- [ ] /google - Google search results
+- [x] /google - Google search results
 - [ ] /wikipedia - Wikipedia search (Spanish/English)
 - [ ] /faq - FAQ system with Minecraft questions
 - [ ] /afk - AFK status management
