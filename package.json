@@ -9,7 +9,7 @@
 		"start": "bun run .",
 		"install": "sern build",
 		"commands:publish": "sern commands publish",
-		"dev": "yarn build && yarn start"
+		"dev": "sern build -w --watch-command \"bun start\""
 	},
 	"keywords": [
 		"typescript",
@@ -26,6 +26,7 @@
 		"sharp": "^0.34.2"
 	},
 	"devDependencies": {
+		"@sern/cli": "^1.4.0",
 		"@types/node": "^17.0.25",
 		"prisma": "^6.10.1",
 		"typescript": "^5.0"

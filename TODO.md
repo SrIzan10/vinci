@@ -5,10 +5,10 @@
 - [ ] /chiste - Joke command fetching from API
 - [ ] /rps - Rock Paper Scissors game
 - [ ] /tictactoe - Tic-tac-toe game (currently disabled)
-- [ ] /8ball - Magic 8-ball responses
+- [x] /8ball - Magic 8-ball responses
 - [x] /megamind - Megamind meme generator with canvas
 - [x] /makesweet - Heart locket image generator
-- [ ] /a - Custom command with user autocomplete
+- [x] /a - Custom command with user autocomplete
 - [ ] /cursivify - Context menu command to italicize text
 
 ## Miscellaneous Commands
