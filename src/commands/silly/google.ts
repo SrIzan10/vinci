@@ -15,7 +15,7 @@ export default commandModule({
     }],
     execute: async (ctx) => {
         const query = ctx.options.getString('query', true);
-        const url = `https://www.google.com/search?q=${encodeURIComponent(query + ' -ai')}`;
+        const url = `https://google.com/search?q=${encodeURIComponent(query)}`;
         await ctx.reply({
             content: `<${url}>`,
         });
