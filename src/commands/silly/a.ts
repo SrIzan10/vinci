@@ -15,27 +15,33 @@ export default commandModule({
   ],
   execute: async (ctx) => {
     const member = (ctx.options.getMember('persona') ?? ctx.interaction.member) as GuildMember;
+    if (member.user.bot) {
+      return await ctx.reply({
+        content: 'no he implementado el badge de bot, y me da pereza hacerlo ahora mismo.',
+        ephemeral: true,
+      });
+    }
 
-    const canvas = createCanvas(500, 70);
+    const canvas = createCanvas(500, 60);
     const ctxCanvas = canvas.getContext('2d');
 
     // canvas background
-    ctxCanvas.fillStyle = '#1A1A1E';
+    ctxCanvas.fillStyle = '#36393F';
     ctxCanvas.fillRect(0, 0, canvas.width, canvas.height);
     ctxCanvas.save();
 
-    // add a circle on the top left
+    // add avatar circle
     const avatarBuffer = await fetch(member?.displayAvatarURL({ size: 128, extension: 'png' }))
       .then((res) => res.arrayBuffer());
     const avatarImage = await loadImage(Buffer.from(avatarBuffer));
     ctxCanvas.beginPath();
-    ctxCanvas.arc(35, 35, 20, 0, Math.PI * 2);
+    ctxCanvas.arc(36, 28, 20, 0, Math.PI * 2);
     ctxCanvas.clip();
-    ctxCanvas.drawImage(avatarImage, 15, 15, 40, 40);
+    ctxCanvas.drawImage(avatarImage, 16, 8, 40, 40);
     ctxCanvas.restore();
     ctxCanvas.save();
 
-    // add username
+    // add username and timestamp
     const now = new Date();
     const timestamp = now.toLocaleTimeString('en-US', { 
       hour: '2-digit', 
@@ -44,20 +50,20 @@ export default commandModule({
     });
     ctxCanvas.fillStyle = member.displayColor ? `#${member.displayColor.toString(16).padStart(6, '0')}` : '#FFFFFF';
     ctxCanvas.font = '16px Noto Sans';
-    ctxCanvas.fillText(member.displayName, 70, 30);
+    ctxCanvas.fillText(member.displayName, 72, 23);
     
     // add timestamp
     const usernameWidth = ctxCanvas.measureText(member.displayName).width;
-    ctxCanvas.fillStyle = '#B9BBBE';
+    ctxCanvas.fillStyle = '#72767D';
     ctxCanvas.font = '12px Noto Sans';
-    ctxCanvas.fillText(` ${timestamp}`, 70 + usernameWidth + 5, 30);
+    ctxCanvas.fillText(` ${timestamp}`, 72 + usernameWidth + 8, 23);
     ctxCanvas.restore();
     ctxCanvas.save();
 
-    // A
-    ctxCanvas.fillStyle = '#FFFFFF';
-    ctxCanvas.font = '12px Noto Sans';
-    ctxCanvas.fillText('A', 70, 50);
+    // message content
+    ctxCanvas.fillStyle = '#DCDDDE';
+    ctxCanvas.font = '16px Noto Sans';
+    ctxCanvas.fillText('A', 72, 45);
     ctxCanvas.restore();
     ctxCanvas.save();
 
