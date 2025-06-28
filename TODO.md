@@ -9,7 +9,6 @@
 - [x] /megamind - Megamind meme generator with canvas
 - [x] /makesweet - Heart locket image generator
 - [x] /a - Custom command with user autocomplete
-- [ ] /cursivify - Context menu command to italicize text
 
 ## Miscellaneous Commands
 - [ ] /rolemenu - Role selection menu (owner only)
@@ -68,3 +67,6 @@
 - [ ] API integrations (TheCatAPI, TheDogAPI, Genius, etc.)
 - [ ] Canvas-based image generation
 - [ ] Modal forms and user input handling
+
+# Other
+- [ ] Figure out fonts
