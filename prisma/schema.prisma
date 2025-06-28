@@ -13,3 +13,40 @@ datasource db {
   provider = "sqlite"
   url      = "file:./vinci.db"
 }
+
+model AiChat {
+  id        Int         @id @default(autoincrement())
+  messageid String      @unique
+  threadid  String      @unique
+  messages  AiMessage[]
+}
+
+model AiMessage {
+  id      Int    @id @default(autoincrement())
+  role    String
+  content String
+
+  aiChatId Int
+  aiChat   AiChat @relation(fields: [aiChatId], references: [id])
+}
+
+model Afk {
+  id     Int    @id @default(autoincrement())
+  userId String @unique
+  reason String
+}
+
+model Birthday {
+  id     Int      @id @default(autoincrement())
+  userId String   @unique
+  date   String
+  sent   Boolean  @default(false)
+}
+
+model Suggestion {
+  id       Int      @id @default(autoincrement())
+  userId   String
+  msgId    String
+  upDown   Int
+}
+

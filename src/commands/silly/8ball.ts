@@ -25,6 +25,7 @@ export default commandModule({
       'A lo mejor',
       'No cuentes con ello',
       'Buena suerte',
+      'No lo creo',
     ];
     await ctx.reply({
       content: `La bola tiene respuesta: ${
