@@ -20,8 +20,8 @@
 		"@napi-rs/canvas": "^0.1.72",
 		"@prisma/client": "^6.10.1",
 		"@sern/handler": "^4.0.0",
-		"@sern/publisher": "^1.1.1",
-		"discord.js": "latest",
+		"@sern/publisher": "1.1.2",
+		"discord.js": "^14.21.0",
 		"dotenv": "^16.3.1",
 		"mongodb": "^6.17.0",
 		"sharp": "^0.34.2"
