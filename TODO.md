@@ -16,6 +16,7 @@
 - [ ] /infinitecraft - InfiniteCraft recipe solver
 - [ ] /letra - Song lyrics search via Genius API
 - [x] /google - Google search results
+- [x] /sugerencias - Suggestion system with upvote/downvote
 - [ ] /wikipedia - Wikipedia search (Spanish/English)
 - [ ] /faq - FAQ system with Minecraft questions
 - [ ] /afk - AFK status management
@@ -27,10 +28,10 @@
 - [ ] /ip - Minecraft server IP information
 
 # Button Handlers
-- [ ] suggestions-yes - Upvote button handler
-- [ ] suggestions-no - Downvote button handler
-- [ ] suggestions-yes-who - Show upvoters
-- [ ] suggestions-no-who - Show downvoters
+- [x] suggestions-yes - Upvote button handler
+- [x] suggestions-no - Downvote button handler
+- [x] suggestions-yes-who - Show upvoters
+- [x] suggestions-no-who - Show downvoters
 
 # Context Menu Commands
 - [ ] bonzify - Text-to-speech with Bonzi Buddy voice
@@ -55,10 +56,8 @@
 - [ ] Minecraft server status checker
 - [ ] Activity status rotation
 
-# Database Schemas to Rewrite
-- [ ] Suggestions voting system
-- [ ] AFK status tracking
-- [ ] Question/answer system (askjavi)
+# Database
+- [x] Migration to sqlite
 
 # Command Features to Preserve
 - [ ] Autocomplete functionality for various commands
