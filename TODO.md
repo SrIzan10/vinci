@@ -36,6 +36,7 @@
 # Context Menu Commands
 - [ ] bonzify - Text-to-speech with Bonzi Buddy voice
 - [ ] cursivify - Italicize message text
+- [ ] quote - Generate a quote image from a message
 
 # Utility Systems to Rewrite
 - [ ] Resolver - Role/user resolution utility

@@ -14,7 +14,6 @@ import db from '../../utils/db';
 export default commandModule({
   type: CommandType.Button,
   async execute(interaction) {
-    const convertToNumber = parseInt((interaction.component as ButtonComponent).label!);
     const row1 = interaction.message!.components[0] as ActionRow<MessageActionRowComponent>;
     const row2 = interaction.message!.components[1] as ActionRow<MessageActionRowComponent>;
     const rows = {
