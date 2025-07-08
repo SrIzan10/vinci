@@ -30,6 +30,7 @@
 	},
 	"devDependencies": {
 		"@sern/cli": "^1.4.0",
+		"@types/bun": "^1.2.18",
 		"@types/mongodb": "^4.0.7",
 		"@types/node": "^17.0.25",
 		"prisma": "^6.10.1",

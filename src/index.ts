@@ -3,6 +3,7 @@ import * as config from './config.js'
 import { Client, GatewayIntentBits } from 'discord.js';
 import { Sern, makeDependencies } from '@sern/handler';
 import { Publisher } from '@sern/publisher'
+import { Database } from 'bun:sqlite';
 import prisma from './utils/db/index.js';
 const client = new Client({
 	intents: [
@@ -27,6 +28,7 @@ await makeDependencies(({ add }) => {
         deps['@sern/logger']!
     ));
     add('prisma', prisma);
+    add('dict', new Database('src/utils/db/dict.db'))
 });
 
 //View docs for all options

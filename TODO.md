@@ -10,7 +10,7 @@
 - [x] /a - Custom command with user autocomplete
 
 ## Miscellaneous Commands
-- [ ] /rolemenu - Role selection menu (owner only)
+- [x] /rolemenu - Role selection menu (owner only)
 - [ ] /creditos - Bot credits and acknowledgments
 - [x] ~~/infinitecraft - InfiniteCraft recipe solver~~
 - [ ] /letra - Song lyrics search via Genius API
