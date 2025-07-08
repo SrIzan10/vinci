@@ -5,3 +5,4 @@ dist/
 *giveaway*
 .sern
 /generated/generated/prisma
+src/utils/db/dict.db

@@ -23,7 +23,8 @@ export default commandModule({
           ? 'EL CHISTE DEL PINGUINO OMAIGAD'
           : null
       )
-      .setDescription(joke.text);
+      // regex matches both '-' and '- ' and escapes it because of discord markdown
+      .setDescription(joke.text.replace(/^-\s?/gm, '\\- '));
 
     await ctx.reply({ embeds: [embed] });
   },
