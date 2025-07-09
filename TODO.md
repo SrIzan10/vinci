@@ -19,7 +19,7 @@
 - [x] /wikipedia - Wikipedia search (Spanish/English)
 - [ ] /faq - FAQ system with Minecraft questions
 - [ ] /afk - AFK status management
-- [ ] /acortar - URL shortener (currently disabled)
+- [ ] /acortar - URL shortener
 
 ## Minecraft Commands
 - [ ] /ip - Minecraft server IP information
@@ -32,23 +32,19 @@
 
 # Context Menu Commands
 - [ ] bonzify - Text-to-speech with Bonzi Buddy voice
-- [ ] cursivify - Italicize message text
+- [x] cursivify - Italicize message text
 - [ ] quote - Generate a quote image from a message
+- [x] image-classification - Cloudflare AI image classification
 
 # Utility Systems to Rewrite
-- [ ] Resolver - Role/user resolution utility
-- [ ] Wikipedia utility - Wikipedia search helper
-
-# Plugin Systems
-- [ ] ownerOnly - Owner-only command restriction
-- [ ] srIzanOnly - Specific user restriction
-- [ ] disable - Command disabling plugin
+- [x] Resolver - Role/user resolution utility
+- [x] Wikipedia utility - Wikipedia search helper
 
 # Event Handlers
 - [ ] afknotify - AFK notification system
 
 # Background Services
-- [ ] YouTube notifications system
+- [x] ~YouTube notifications system~ using rss instead
 - [ ] Birthday checker service
 - [ ] Minecraft server status checker
 - [ ] Activity status rotation
