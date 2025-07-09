@@ -9,7 +9,8 @@
 		"start": "bun run .",
 		"install": "sern build",
 		"commands:publish": "sern commands publish",
-		"dev": "sern build -w --watch-command \"bun start\""
+		"dev": "sern build -w --watch-command \"bun start\"",
+    "db:mongo": "bun run src/utils/db/migrateMongo.ts"
 	},
 	"keywords": [
 		"typescript",
