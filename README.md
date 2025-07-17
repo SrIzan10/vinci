@@ -1,30 +1,15 @@
-vinci bot
+# vinci v2
 
-# little shoutout
-this discord bot has been made with [sern handler](https://sern.dev) and MAN I LOVE THIS HANDLER.
+Vinci v2 is a rewrite of my first JS project. It aims to improve the code quality of the primary codebase, full of bugs and spaghetti code.
 
-the maintainers helped me out from day one of the bot (and also teached me a lotta js along the way)
+It is written, as always, under the [sern](https://sern.dev) framework.
 
-so tysm for everything, and I hope I can continue making new bots with this <3
+It is 85% done, with some of the harder commands yet to implement.
 
-(also, fellow programmer, consider using it please)
+This is a bot submission for [Converge](https://converge.hackclub.com) and [Summer of Making](https://summer.hackclub.com).
 
-# badges yes sir
-[![CodeFactor](https://www.codefactor.io/repository/github/srizan10/vinci/badge)](https://www.codefactor.io/repository/github/srizan10/vinci) [![wakatime](https://wakatime.com/badge/user/4ad16edf-eadc-48d9-b010-26f275fe0be6/project/120bd895-55e3-42fe-894b-bd974f6f7312.svg)](https://wakatime.com/badge/user/4ad16edf-eadc-48d9-b010-26f275fe0be6/project/120bd895-55e3-42fe-894b-bd974f6f7312)
-
-# warning and stuff
-
-this bot has been entirely coded by me, with absolutely no youtube tutorials.  
-the code is here for transparency purposes and it's not made to be hosted by third parties.
-
-# heres a roadmap (REALLY OUTDATED)
-
-- ~~form to apply for the minecraft server~~ DONE!
-- ~~moderation commands~~ DONE!
-- ~~welcome to users~~ DONE!
-- modmail
-- ~~socials notification system~~ DONE!
-- chatbot using IBM's AI (thanks @gosevil for the idea)
-- ~~joke command~~
-
-10 stars! tysm!
+## New features
+- More fun games
+- Modern typescript and discord.js
+- SQLite + Prisma instead of MongoDB + Mongoose
+- Less API queries by using local datasets (like the Spanish dictionary)
