@@ -17,7 +17,7 @@ This is a bot submission for [Converge](https://converge.hackclub.com) and [Summ
 ## Development setup
 1. Clone the repository
 2. Run `bun install`
-3. Install the sern cli: `npm add -g @sern/cli`
+3. Install the sern cli: `npm install -g @sern/cli`
 4. Create a copy of `.env.example` and rename it to `.env`
 5. Fill in the file
 6. Run `bun dev`
