@@ -8,8 +8,12 @@ import prisma from './utils/db/index.js';
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
-		GatewayIntentBits.GuildMembers,
 		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.GuildMessageReactions,
+		GatewayIntentBits.GuildVoiceStates,
 	],
 });
 

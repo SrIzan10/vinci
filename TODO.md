@@ -52,13 +52,5 @@
 # Database
 - [x] Migration to sqlite
 
-# Command Features to Preserve
-- [ ] Autocomplete functionality for various commands
-- [ ] Interactive components (buttons, select menus)
-- [ ] File attachments and image processing
-- [ ] API integrations (TheCatAPI, TheDogAPI, Genius, etc.)
-- [ ] Canvas-based image generation
-- [ ] Modal forms and user input handling
-
 # Other
 - [ ] Figure out fonts

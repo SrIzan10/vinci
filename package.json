@@ -6,11 +6,11 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "sern build",
-		"start": "bun run .",
+		"start": "bun run --inspect .",
 		"install": "sern build",
 		"commands:publish": "sern commands publish",
 		"dev": "sern build -w --watch-command \"bun start\"",
-    "db:mongo": "bun run src/utils/db/migrateMongo.ts"
+		"db:mongo": "bun run src/utils/db/migrateMongo.ts"
 	},
 	"keywords": [
 		"typescript",
@@ -20,12 +20,13 @@
 	"dependencies": {
 		"@napi-rs/canvas": "^0.1.72",
 		"@prisma/client": "^6.10.1",
-		"@sern/handler": "^4.0.0",
+		"@sern/handler": "^4.2.4",
 		"@sern/publisher": "1.1.2",
 		"discord.js": "^14.21.0",
 		"dotenv": "^16.3.1",
 		"mongodb": "^6.17.0",
 		"node-html-parser": "^7.0.1",
+		"openai": "^5.10.2",
 		"rockpaperscissors-checker": "^1.2.0",
 		"sharp": "^0.34.2"
 	},
