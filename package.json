@@ -24,6 +24,7 @@
 		"@sern/publisher": "1.1.2",
 		"discord.js": "^14.21.0",
 		"dotenv": "^16.3.1",
+		"execa": "^9.6.0",
 		"mongodb": "^6.17.0",
 		"node-html-parser": "^7.0.1",
 		"openai": "^5.10.2",

@@ -18,11 +18,12 @@
 - [x] /sugerencias - Suggestion system with upvote/downvote
 - [x] /wikipedia - Wikipedia search (Spanish/English)
 - [ ] /faq - FAQ system with Minecraft questions
-- [ ] /afk - AFK status management
-- [ ] /acortar - URL shortener
+- [ ] ~~/afk - AFK status management~~
+- [x] /acortar - URL shortener
 
 ## Minecraft Commands
-- [ ] /ip - Minecraft server IP information
+- [x] /ip - Minecraft server IP information
+- [ ] /mcform - Minecraft form submission
 
 # Button Handlers
 - [x] suggestions-yes - Upvote button handler
@@ -36,12 +37,13 @@
 - [ ] quote - Generate a quote image from a message
 - [x] image-classification - Cloudflare AI image classification
 
+# Message driven functions
+- [x] AI chat
+- [ ] T thread message deletion
+
 # Utility Systems to Rewrite
 - [x] Resolver - Role/user resolution utility
 - [x] Wikipedia utility - Wikipedia search helper
-
-# Event Handlers
-- [ ] afknotify - AFK notification system
 
 # Background Services
 - [x] ~YouTube notifications system~ using rss instead
