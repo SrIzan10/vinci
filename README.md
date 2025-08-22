@@ -1,6 +1,6 @@
 # vinci v2
 
-Vinci v2 is a rewrite of my first JS project. It aims to improve the code quality of the primary codebase, full of bugs and spaghetti code.
+Vinci v2 is a rewrite of my first JS project, a discord bot for [my favorite book series](https://maraturing.com) server. It aims to improve the code quality of the primary codebase, full of bugs and spaghetti code.
 
 It is written, as always, under the [sern](https://sern.dev) framework.
 
@@ -12,7 +12,7 @@ This is a bot submission for [Converge](https://converge.hackclub.com) and [Summ
 - More fun games
 - Modern typescript and discord.js
 - SQLite + Prisma instead of MongoDB + Mongoose
-- Less API queries by using local datasets (like the Spanish dictionary)
+- Less API queries and more performance by using local datasets (like the Spanish dictionary)
 
 # Available commands
 - `/rolemenu` - Role selection menu (owner only)
@@ -42,4 +42,5 @@ This is a bot submission for [Converge](https://converge.hackclub.com) and [Summ
 3. Install the sern cli: `npm install -g @sern/cli`
 4. Create a copy of `.env.example` and rename it to `.env`
 5. Fill in the file
-6. Run `bun dev`
+6. Run `bunx prisma migrate dev` to set up the database
+7. Run `bun dev`
