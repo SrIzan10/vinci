@@ -23,7 +23,7 @@
 
 ## Minecraft Commands
 - [x] /ip - Minecraft server IP information
-- [ ] /mcform - Minecraft form submission
+- [x] /mcform - Minecraft form submission
 
 # Button Handlers
 - [x] suggestions-yes - Upvote button handler
@@ -32,7 +32,7 @@
 - [x] suggestions-no-who - Show downvoters
 
 # Context Menu Commands
-- [ ] bonzify - Text-to-speech with Bonzi Buddy voice
+- [x] bonzify - Text-to-speech with Bonzi Buddy voice
 - [x] cursivify - Italicize message text
 - [ ] quote - Generate a quote image from a message
 - [x] image-classification - Cloudflare AI image classification
