@@ -34,7 +34,6 @@
 # Context Menu Commands
 - [x] bonzify - Text-to-speech with Bonzi Buddy voice
 - [x] cursivify - Italicize message text
-- [ ] quote - Generate a quote image from a message
 - [x] image-classification - Cloudflare AI image classification
 
 # Message driven functions
