@@ -38,7 +38,6 @@
 
 # Message driven functions
 - [x] AI chat
-- [ ] T thread message deletion
 
 # Utility Systems to Rewrite
 - [x] Resolver - Role/user resolution utility
@@ -46,9 +45,8 @@
 
 # Background Services
 - [x] ~YouTube notifications system~ using rss instead
-- [ ] Birthday checker service
-- [ ] Minecraft server status checker
-- [ ] Activity status rotation
+- [x] Birthday checker service
+- [x] Activity status rotation
 
 # Database
 - [x] Migration to sqlite

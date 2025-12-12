@@ -35,15 +35,29 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
       messages.push({ role: 'system', content: systemMsg }, { role: 'user', content: msg.content });
     }
 
-    const sentMsg = await msg.reply(':sparkles: Pensando...');
+    const sentMsg = await msg.reply(':sparkles: Razonando...');
     const stream = await openai.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: 'google/gemini-3-pro-preview',
       messages,
       max_tokens: 2000,
       max_completion_tokens: 2000,
       temperature: 0.7,
+      stream: true,
     });
-    const message = stream.choices[0].message.content!
+
+    let message = '';
+    let lastEdit = Date.now();
+
+    for await (const chunk of stream) {
+      const content = chunk.choices[0]?.delta?.content || '';
+      message += content;
+
+      if (Date.now() - lastEdit > 1000 && message.length > 0) {
+        await sentMsg.edit(message.slice(0, 2000));
+        lastEdit = Date.now();
+      }
+    }
+
     await sentMsg.edit(message.slice(0, 2000));
 
     messages.push({ role: 'assistant', content: message.replace(/^\n{2}/, '') });
@@ -51,7 +65,7 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
     if (!isThread) {
       const titleMessage = (
         await openai.chat.completions.create({
-          model: 'llama-3.3-70b-versatile',
+          model: 'google/gemini-3-pro-preview',
           messages: [
             { role: 'system', content: systemMsg },
             {
