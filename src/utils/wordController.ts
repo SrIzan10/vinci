@@ -100,7 +100,7 @@ export class WordController extends EventEmitter {
     const startX = 250 - (wordLength * 20);
     const baseY = 450;
 
-    this.canvasCtx.font = '20px Arial';
+    this.canvasCtx.font = '20px "Open Sans", Verdana';
     this.canvasCtx.textAlign = 'center';
     this.canvasCtx.fillStyle = '#cdd6f4';
     this.canvasCtx.strokeStyle = '#cdd6f4';

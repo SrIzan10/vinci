@@ -35,6 +35,9 @@ export default commandModule({
     ctxCanvas.fillStyle = 'white';
     ctxCanvas.textAlign = 'center';
     ctxCanvas.textBaseline = 'middle';
+    ctxCanvas.strokeStyle = 'black';
+    ctxCanvas.lineWidth = 4;
+    ctxCanvas.strokeText(texto, canvas.width / 2, canvas.height - 510);
     ctxCanvas.fillText(texto, canvas.width / 2, canvas.height - 510);
 
     const encode = await canvas.encode('png');

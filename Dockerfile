@@ -1,31 +1,35 @@
-FROM node:lts
-
-# Build stage
-FROM node:lts-alpine AS build
-
+FROM oven/bun:alpine AS base
 WORKDIR /app
 
-RUN apk add --no-cache --virtual .gyp python3 make g++
+# Install dependencies
+FROM base AS deps
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
+# Build the application
+FROM base AS build
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN corepack enable yarn
-RUN yarn
+RUN bun prisma generate
+RUN bun run build
 
-RUN yarn build
-
-# Final stage
-FROM node:lts-alpine AS final
-
+# Production image
+FROM base AS runner
 WORKDIR /app
 
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/src ./src
-COPY --from=build /app/.sern ./.sern
-COPY --from=build /app/assets ./assets
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/package.json ./package.json
-RUN apk add --no-cache ffmpeg msttcorefonts-installer fontconfig && \
+ENV NODE_ENV=production
+
+# Install system dependencies
+RUN apk add --no-cache ffmpeg fontconfig ttf-opensans msttcorefonts-installer && \
     update-ms-fonts && \
     fc-cache -f
 
-CMD ["node", "dist/index.js"]
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/assets ./assets
+COPY --from=build /app/images ./images
+COPY --from=build /app/.sern ./.sern
+COPY --from=build /app/package.json ./package.json
+COPY --from=build /app/prisma ./prisma
+
+CMD ["bun", "dist/index.js"]
