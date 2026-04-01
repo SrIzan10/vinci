@@ -11,6 +11,7 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
   if (msg.content.startsWith('!')) return;
 
   let aiChatId;
+  const newMessages: { role: string; content: string }[] = [];
   const systemMsg =
     'You are Vinci, a friendly and helpful Discord bot assistant dedicated to answering all user questions clearly and naturally, as if texting a friend. Avoid mentioning that you are an assistant, since users already know this. When it is useful, you can use markdown. You will interact with Spanish-speaking users, so all your responses, including any future ones, must be written exclusively in Spanish without exception.';
 
@@ -30,6 +31,7 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
         );
       }
       messages.push({ role: 'user', content: msg.content });
+      newMessages.push({ role: 'user', content: msg.content });
       aiChatId = dbMsgs?.id;
     } else {
       messages.push({ role: 'system', content: systemMsg }, { role: 'user', content: msg.content });
@@ -61,6 +63,9 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
     await sentMsg.edit(message.slice(0, 2000));
 
     messages.push({ role: 'assistant', content: message.replace(/^\n{2}/, '') });
+    if (isThread) {
+      newMessages.push({ role: 'assistant', content: message.replace(/^\n{2}/, '') });
+    }
 
     if (!isThread) {
       const titleMessage = (
@@ -96,7 +101,7 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
       });
     } else {
       await prisma.aiMessage.createMany({
-        data: messages.map((m) => ({
+        data: newMessages.map((m) => ({
           role: m.role,
           content: m.content,
           aiChatId: aiChatId!,
