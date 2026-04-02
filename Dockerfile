@@ -24,6 +24,9 @@ RUN apk add --no-cache ffmpeg fontconfig ttf-opensans msttcorefonts-installer &&
     update-ms-fonts && \
     fc-cache -f
 
+RUN mkdir -p ./src/utils/db && \
+    wget -O ./src/utils/db/dict.db https://github.com/SrIzan10/vinci/releases/download/dict-1/dict.db
+
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/assets ./assets
