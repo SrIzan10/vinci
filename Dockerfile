@@ -1,5 +1,6 @@
 FROM oven/bun:alpine AS base
 WORKDIR /app
+RUN npm install -g @sern/cli
 
 # Install dependencies
 FROM base AS deps
