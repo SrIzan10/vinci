@@ -18,10 +18,7 @@ export default commandModule({
 
     const imageBuffer = await fetch(image.url).then(async (res) => await res.arrayBuffer());
     const compressed = sharp(imageBuffer)
-      .png({ quality: 70 })
-      .jpeg({ quality: 70 })
-      .webp({ quality: 70 })
-      .tiff({ quality: 70 });
+      .webp({ quality: 70 });
     const imageUint8Array = new Uint8Array(await compressed.toBuffer());
 
     const request = await fetch(
