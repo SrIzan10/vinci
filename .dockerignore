@@ -1,4 +1,9 @@
-node_modules
-images
 .env*
-dist
+node_modules/
+json.sqlite
+dist/
+*giveaway*
+.sern
+/generated/generated/prisma
+prisma/vinci.db
+!.env.example

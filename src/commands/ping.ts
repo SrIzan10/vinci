@@ -1,15 +1,11 @@
-import { commandModule, CommandType } from '@sern/handler'
-
-import { ownerOnly } from "#plugins"
+import { commandModule, CommandType } from '@sern/handler';
 
 export default commandModule({
-	name: 'ping',
-    type: CommandType.Slash,
+	type: CommandType.Both,
 	plugins: [],
 	description: 'A ping command',
 	//alias : [],
-	options: [],
-	execute: async (ctx, options) => {
-		await ctx.reply('Hello World!');
+	execute: async (ctx, args) => {
+		await ctx.reply('Pong 🏓');
 	},
 });

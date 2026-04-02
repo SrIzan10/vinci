@@ -1,50 +1,73 @@
-import { commandModule, CommandType } from "@sern/handler";
-import { ActionRowBuilder, ButtonBuilder, ButtonComponent, ButtonComponentData, ButtonStyle } from "discord.js";
-import db from "../../schemas/suggestions.js";
+import { commandModule, CommandType } from '@sern/handler';
+import {
+  ActionRow,
+  ActionRowBuilder,
+  APIButtonComponentWithCustomId,
+  ButtonBuilder,
+  ButtonComponent,
+  ButtonComponentData,
+  ButtonStyle,
+  MessageActionRowComponent,
+} from 'discord.js';
+import db from '../../utils/db';
 
 export default commandModule({
-    type: CommandType.Button,
-    async execute(interaction) {
-        const convertToNumber = Number((interaction.component as ButtonComponent).label!)
-        const row2 = new ActionRowBuilder<ButtonBuilder>().setComponents(
-            new ButtonBuilder(interaction.message!.components[1].components[0].data as ButtonComponentData),
-            new ButtonBuilder(interaction.message!.components[1].components[1].data as ButtonComponentData)
-        )
-        if (await db.exists({msgid: interaction.message.id, userid: interaction.user.id, upordown: 1})) {
-            await db.findOneAndUpdate({msgid: interaction.message.id, userid: interaction.user.id, upordown: 1}, {upordown: -1}, {returnOriginal: false})
-            // god forbid I use any! I'm literally done with trying to solve this dude
-            const upvoteLabel = JSON.stringify(interaction.message!.components[0].components[0].data) as string
-            const downvotebuttons = new ActionRowBuilder<ButtonBuilder>().setComponents(
-                new ButtonBuilder(interaction.message!.components[0].components[0].data as ButtonComponentData)
-                    .setLabel((Number(JSON.parse(upvoteLabel).label) - 1).toString()),
-                new ButtonBuilder()
-                    .setCustomId('suggestions-no')
-                    .setEmoji('❎')
-                    .setLabel((convertToNumber + 1).toString())
-                    .setStyle(ButtonStyle.Danger),
-            )
-            await interaction.message.edit({components: [downvotebuttons, row2]})
-            await interaction.deferUpdate()
-        } else if (await db.exists({msgid: interaction.message.id, userid: interaction.user.id, upordown: -1})) {
-            return await interaction.reply({content: 'Ya has hecho downvote.', ephemeral: true})
-        } else {
-            const downvotebuttons = new ActionRowBuilder<ButtonBuilder>().setComponents(
-                new ButtonBuilder(interaction.message!.components[0].components[0].data as ButtonComponentData),
-                new ButtonBuilder()
-                    .setCustomId('suggestions-no')
-                    .setEmoji('❎')
-                    .setLabel((convertToNumber + 1).toString())
-                    .setStyle(ButtonStyle.Danger),
-            )
+  type: CommandType.Button,
+  async execute(interaction) {
+    const row1 = interaction.message!.components[0] as ActionRow<MessageActionRowComponent>;
+    const row2 = interaction.message!.components[1] as ActionRow<MessageActionRowComponent>;
+    const rows = {
+      yes: row1.components[0],
+      no: row1.components[1],
+      yesWho: row2.components[0],
+      noWho: row2.components[1],
+    } as {
+      yes: ButtonComponent;
+      no: ButtonComponent;
+      yesWho: ButtonComponent;
+      noWho: ButtonComponent;
+    };
+    const upvoteData = rows.yes.data as APIButtonComponentWithCustomId;
+    const downvoteData = rows.no.data as APIButtonComponentWithCustomId;
+    const userSuggestion = await db.suggestion.findFirst({
+      where: { msgId: interaction.message.id, userId: interaction.user.id },
+    });
 
-            const addToDB = new db({
-                msgid: interaction.message.id,
-                userid: interaction.user.id,
-                upordown: -1
-            })
-            await addToDB.save()
-            await interaction.message.edit({components: [downvotebuttons, row2]})
-            await interaction.deferUpdate()
-        }
+    if (!userSuggestion) {
+      const row1 = new ActionRowBuilder<ButtonBuilder>().setComponents(
+        new ButtonBuilder(rows.yes.data),
+        new ButtonBuilder(rows.no.data).setLabel((parseInt(downvoteData.label!) + 1).toString())
+      );
+
+      await db.suggestion.create({
+        data: {
+          msgId: interaction.message.id,
+          userId: interaction.user.id,
+          upDown: -1,
+        },
+      });
+      await interaction.message.edit({ components: [row1, row2] });
+      await interaction.deferUpdate();
+      return;
     }
-})
+
+    const userSuggestionUpDown = userSuggestion.upDown === 1;
+    if (userSuggestionUpDown) {
+      await db.suggestion.updateMany({
+        where: { msgId: interaction.message.id, userId: interaction.user.id, upDown: 1 },
+        data: { upDown: -1 },
+      });
+
+      const row1 = new ActionRowBuilder<ButtonBuilder>().setComponents(
+        new ButtonBuilder(rows.yes.data).setLabel((parseInt(upvoteData.label!) - 1).toString()),
+        new ButtonBuilder(rows.no.data).setLabel((parseInt(downvoteData.label!) + 1).toString())
+      );
+      await interaction.message.edit({ components: [row1, row2] });
+      await interaction.deferUpdate();
+      return;
+    } else {
+      await interaction.deferUpdate()
+      return;
+    }
+  },
+});

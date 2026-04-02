@@ -1,56 +1,62 @@
-import { commandModule, CommandType } from "@sern/handler";
-import { ApplicationCommandOptionType } from "discord.js";
-import { readFileSync } from "node:fs";
-import birthdays from "../../schemas/birthdays.js";
-import { acceptingBirthday } from "#plugins";
+import { commandModule, CommandType } from '@sern/handler';
+import { ApplicationCommandOptionType } from 'discord.js';
+import { readFileSync } from 'fs';
 
 export default commandModule({
-	name: "cumple",
-	type: CommandType.Slash,
-	plugins: [acceptingBirthday()],
-	description: "Pon tu cumpleaños en la base de datos para ser felicitado!",
-	//alias : [],
-	options: [
-		{
-			name: "fecha",
-			description: "La fecha de tu cumple (D-M) (elige en el autocompletado)",
-			type: ApplicationCommandOptionType.String,
-			autocomplete: true,
-			required: true,
-			command: {
-				onEvent: [],
-				execute: async (autocomplete) => {
-					const focusedValue = autocomplete.options.getFocused();
-					let choices = JSON.parse(
-						String(readFileSync("./util/daysinyear.txt"))
-					) as Array<string>;
-					choices = choices.filter((choice) =>
-						choice.toString().startsWith(focusedValue)
-					);
-					choices = choices.slice(0, 25);
-					await autocomplete.respond(
-						choices.map((choice) => ({
-							name: choice.toString(),
-							value: choice,
-						}))
-					);
-				},
-			},
-		},
-	],
-	execute: async (ctx) => {
-		const option = ctx.interaction.options.getString("fecha")
-		const array = JSON.parse(
-			String(readFileSync("./util/daysinyear.txt"))
-		) as Array<string>;
-		if (!array.includes(option!)) return await ctx.interaction.editReply('Asegúrate que estás eligiendo una fecha del autocompletado!')
-		if (await birthdays.exists({id: ctx.user.id})) return await ctx.interaction.editReply('No puedes poner tu fecha de nuevo!')
-		const db = new birthdays({
-			id: ctx.user.id,
-			date: option,
-			alreadysent: false
-		});
-		await db.save();
-		await ctx.interaction.editReply('Ok, guardado correctamente. No puedes volver a cambiar la fecha.')
-	},
+  type: CommandType.Slash,
+  plugins: [],
+  description: 'Añade tu cumpleaños',
+  options: [
+    {
+      name: 'fecha',
+      description: 'La fecha de tu cumple (D-M) (elige en el autocompletado)',
+      type: ApplicationCommandOptionType.String,
+      autocomplete: true,
+      required: true,
+      command: {
+        onEvent: [],
+        execute: async (autocomplete) => {
+          const focusedValue = autocomplete.options.getFocused();
+          let choices = JSON.parse(readFileSync('./assets/daysinyear.json').toString()) as string[];
+          choices = choices.filter((choice) => choice.startsWith(focusedValue));
+          choices = choices.slice(0, 25);
+          await autocomplete.respond(
+            choices.map((choice) => ({
+              name: choice,
+              value: choice,
+            }))
+          );
+        },
+      },
+    },
+  ],
+  execute: async (ctx, sdt) => {
+    const date = ctx.interaction.options.getString('fecha', true);
+
+    const existing = await sdt.deps.prisma.birthday.findUnique({
+      where: { userId: ctx.user.id },
+    });
+
+    if (existing) {
+      await sdt.deps.prisma.birthday.update({
+        where: { userId: ctx.user.id },
+        data: { date },
+      });
+      await ctx.reply({
+        content: `cumpleaños actualizado a ${date}!`,
+        ephemeral: true,
+      });
+    } else {
+      await sdt.deps.prisma.birthday.create({
+        data: {
+          userId: ctx.user.id,
+          date,
+        },
+      });
+      await ctx.reply({
+        content: `cumpleaños registrado para el ${date}!`,
+        ephemeral: true,
+      });
+    }
+  },
 });

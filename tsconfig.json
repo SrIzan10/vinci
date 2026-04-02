@@ -1,11 +1,11 @@
 {
+  "extends": "./.sern/tsconfig.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
     "paths": {
-      "#plugins": ["./src/plugins/index.js"],
-    }
-  },
-  "extends": "./.sern/tsconfig.json"
+      "#/*": ["./utils/*"]
+    },
+    "allowSyntheticDefaultImports": true
+  }
 }

@@ -1,6 +1,6 @@
 import { commandModule, CommandType } from '@sern/handler'
 import { ApplicationCommandOptionType, AutocompleteInteraction, CacheType, CommandInteractionOptionResolver } from 'discord.js';
-import { getWikipedia, searchWikipedia } from '../../util/wikipedia.js';
+import { getWikipedia, searchWikipedia } from '../../utils/wikipedia';
 
 export default commandModule({
     type: CommandType.Slash,
@@ -22,7 +22,7 @@ export default commandModule({
 					command: {
 						onEvent: [],
 						execute: async (ctx) => {
-							const search = await searchWikipedia('es', ctx as unknown as AutocompleteInteraction)
+							const search = await searchWikipedia('es', ctx as AutocompleteInteraction)
 							await ctx.respond(
 								search.map(res => ({ name: res.title.toString(), value: res.pageid.toString() }))
 							)
@@ -45,7 +45,7 @@ export default commandModule({
 					command: {
 						onEvent: [],
 						execute: async (ctx) => {
-							const search = await searchWikipedia('en', ctx as unknown as AutocompleteInteraction)
+							const search = await searchWikipedia('en', ctx as AutocompleteInteraction)
 							await ctx.respond(
 								search.map(res => ({ name: res.title.toString(), value: res.pageid.toString() }))
 							)

@@ -1,6 +1,10 @@
-.env
-.env.dev
+.env*
 node_modules/
 json.sqlite
 dist/
 *giveaway*
+.sern
+/generated/generated/prisma
+src/utils/db/dict.db
+prisma/vinci.db
+!.env.example
