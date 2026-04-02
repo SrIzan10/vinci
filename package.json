@@ -7,6 +7,7 @@
 	"scripts": {
 		"build": "sern build",
 		"start": "bun run --inspect .",
+		"db:migrate": "prisma migrate deploy",
 		"install": "sern build",
 		"commands:publish": "sern commands publish",
 		"dev": "sern build -w --watch-command \"bun start\"",

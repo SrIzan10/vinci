@@ -35,4 +35,4 @@ COPY --from=build /app/.sern ./.sern
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/prisma ./prisma
 
-CMD ["bun", "dist/index.js"]
+CMD ["sh", "-c", "bun run db:migrate && bun dist/index.js"]
