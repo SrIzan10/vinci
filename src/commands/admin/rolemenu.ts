@@ -1,4 +1,4 @@
-import { Resolver } from '#/resolver';
+import { Resolver } from '../../utils/resolver.js';
 import { commandModule, CommandType } from '@sern/handler'
 import { PublishConfig } from '@sern/publisher';
 import { ActionRowBuilder, ApplicationCommandOptionType, ChannelType, Collection, EmbedBuilder, PermissionFlagsBits, Role, StringSelectMenuBuilder, TextChannel } from "discord.js";

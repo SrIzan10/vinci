@@ -1,5 +1,5 @@
-import { Palabra } from '#/db/dict.types';
-import { WordController } from '#/wordController';
+import { Palabra } from '../../utils/db/dict.types.js';
+import { WordController } from '../../utils/wordController.js';
 import { commandModule, CommandType } from '@sern/handler';
 import { ActionRowBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
 

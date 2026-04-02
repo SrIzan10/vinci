@@ -1,4 +1,4 @@
-import { aiHandle } from '#/aiHandle';
+import { aiHandle } from '../../utils/aiHandle.js';
 import { EventType, eventModule } from '@sern/handler';
 import { ChannelType } from 'discord.js';
 

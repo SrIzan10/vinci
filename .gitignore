@@ -8,3 +8,4 @@ dist/
 src/utils/db/dict.db
 prisma/vinci.db
 !.env.example
+.codex

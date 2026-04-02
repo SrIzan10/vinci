@@ -1,4 +1,4 @@
-import { fisherYatesShuffle } from '#/fisheryates';
+import { fisherYatesShuffle } from '../../utils/fisheryates.js';
 import { commandModule, CommandType } from '@sern/handler';
 import { EmbedBuilder } from 'discord.js';
 import { readFile } from 'fs/promises';
