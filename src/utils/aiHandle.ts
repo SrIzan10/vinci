@@ -70,7 +70,7 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
     if (!isThread) {
       const titleMessage = (
         await openai.chat.completions.create({
-          model: 'google/gemini-3-pro-preview',
+          model: 'openai/gpt-oss-120b',
           messages: [
             { role: 'system', content: systemMsg },
             {
