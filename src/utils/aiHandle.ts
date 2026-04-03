@@ -39,7 +39,7 @@ export async function aiHandle(msg: OmitPartialGroupDMChannel<Message<boolean>>,
 
     const sentMsg = await msg.reply(':sparkles: Razonando...');
     const stream = await openai.chat.completions.create({
-      model: 'google/gemini-3-pro-preview',
+      model: 'moonshotai/kimi-k2.5',
       messages,
       max_tokens: 2000,
       max_completion_tokens: 2000,
